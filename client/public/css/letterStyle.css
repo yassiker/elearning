@@ -1,0 +1,56 @@
+h1 {
+  font-size: 8em;
+  margin: 0;
+}
+
+#sync1 .item {
+  background: #0c83e7;
+  margin: 5px;
+  color: #fff;
+  border-radius: 3px;
+  text-align: center;
+  display: flex;
+  flex: 1;
+}
+
+#sync2 .item {
+  background: #c9c9c9;
+  padding: 10px 0px;
+  margin: 5px;
+  color: #fff;
+  border-radius: 3px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+}
+
+#sync2 .item h1 {
+  font-size: 18px;
+}
+
+#sync2 .current .item {
+  background: #0c83e7;
+}
+
+#sync1.owl-theme {
+  position: relative;
+}
+
+#sync1.owl-theme .owl-next,
+#sync1.owl-theme .owl-prev {
+  width: 30px;
+  height: 40px;
+  margin-top: -20px;
+  position: absolute;
+  top: 50%;
+  background: red;
+}
+
+#sync1.owl-theme .owl-prev {
+  left: -10px;
+}
+
+#sync1.owl-theme .owl-next {
+  right: 10px;
+}

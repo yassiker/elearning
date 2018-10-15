@@ -1,0 +1,14 @@
+{
+  "languageMenu": {
+    "ar": "Arabe",
+    "fr": "Francais",
+    "en": "Anglais"
+  },
+  "user": "Yassine",
+  "edit": "Modifier",
+  "userLanguage": "Francais",
+  "previous": "Avant",
+  "next": "Aprés",
+  "previousArticle": "Article précédent",
+  "nextArticle": "Prochain article"
+}
