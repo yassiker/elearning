@@ -54,7 +54,6 @@ const pronouns = [
     prefix: "",
     suffix: ""
   },
-  ,
   {
     tfinaghP: "ⵏⵉⵜⵏⵜⵉ",
     localeP: "THEY(f)",

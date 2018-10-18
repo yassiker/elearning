@@ -51,6 +51,13 @@
       align-items: center
     }
 
+    #newexample_wrapper {
+      flex: 1;
+      padding: 20px;
+      justify-content: center;
+      align-items: center
+    }
+
     #map>div {
       flex: 1;
       display: flex
@@ -63,7 +70,9 @@
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <div id="root" style="height: 100%"></div>
+  <div id="root" style="height: 100%">
+
+  </div>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -93,6 +102,11 @@
         }
       });
 
+
+      $('#list').click(function (event) { event.preventDefault(); $('#products .item').addClass('list-group-item'); });
+      $('#grid').click(function (event) { event.preventDefault(); $('#products .item').removeClass('list-group-item'); $('#products .item').addClass('grid-group-item'); });
+
+
       $('#example').DataTable({
         sort: false,
         "lengthMenu": [1, 5, 15],
@@ -100,8 +114,19 @@
           { "width": "8%" },
           { "width": "8%" },
           { "width": "8%" },
-          null,
+          { "width": "30%" },
           { "width": "50%" }
+        ]
+      });
+
+      $('#newexample').DataTable({
+        sort: false,
+        "lengthMenu": [1, 5, 15],
+        "columns": [
+          { "width": "8%" },
+          { "width": "8%" },
+          { "width": "8%" },
+          { "width": "30%" },
         ]
       });
     });

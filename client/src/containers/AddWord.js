@@ -23,6 +23,7 @@ class AddWord extends Component {
   };
 
   render() {
+    console.log("passed word: " + JSON.stringify(this.props.match.params.id));
     return (
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <div
@@ -96,7 +97,8 @@ class AddWord extends Component {
                       type="text"
                       className="form-control"
                       placeholder="Enter Name Here ..."
-                      value={this.state.word}
+                      // value={this.state.word}
+                      value={this.props.match.params.id}
                       onChange={this.handleChange}
                     />
                   </div>

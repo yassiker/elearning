@@ -2,12 +2,7 @@ import React, { Component } from "react";
 
 // import MapComponent from "../components/MapComponent";
 import cedarLogo from "../assets/images/cedfin.png";
-import {
-  Popover,
-  ButtonToolbar,
-  OverlayTrigger,
-  Button
-} from "react-bootstrap";
+import { Popover, OverlayTrigger, Button } from "react-bootstrap";
 
 // import { Link } from "react-router-dom";
 
@@ -86,36 +81,32 @@ class PopOver extends Component {
             alignItems: "center"
           }}
         >
-          <ButtonToolbar>
-            <OverlayTrigger
-              trigger="click"
-              placement="left"
-              overlay={popoverLeft}
-            >
-              <Button>Holy guacamole!</Button>
-            </OverlayTrigger>
-            <OverlayTrigger
-              trigger="click"
-              placement="top"
-              overlay={popoverTop}
-            >
-              <Button>Holy guacamole!</Button>
-            </OverlayTrigger>
-            <OverlayTrigger
-              trigger="click"
-              placement="bottom"
-              overlay={popoverBottom}
-            >
-              <Button>Holy guacamole!</Button>
-            </OverlayTrigger>
-            <OverlayTrigger
-              trigger="click"
-              placement="right"
-              overlay={popoverRight}
-            >
-              <Button>Holy guacamole!</Button>
-            </OverlayTrigger>
-          </ButtonToolbar>
+          {/* <ButtonToolbar> */}
+          <OverlayTrigger
+            trigger="click"
+            placement="left"
+            overlay={popoverLeft}
+          >
+            <Button>Holy guacamole!</Button>
+          </OverlayTrigger>
+          <OverlayTrigger trigger="click" placement="top" overlay={popoverTop}>
+            <Button>Holy guacamole!</Button>
+          </OverlayTrigger>
+          <OverlayTrigger
+            trigger="click"
+            placement="bottom"
+            overlay={popoverBottom}
+          >
+            <Button>Holy guacamole!</Button>
+          </OverlayTrigger>
+          <OverlayTrigger
+            trigger="click"
+            placement="right"
+            overlay={popoverRight}
+          >
+            <Button>Holy guacamole!</Button>
+          </OverlayTrigger>
+          {/* </ButtonToolbar> */}
         </div>
       </div>
     );

@@ -24,6 +24,10 @@ class Sidebar extends Component {
           path: "grammar"
         },
         {
+          name: "Vocabulary",
+          path: "vocabulary"
+        },
+        {
           name: "Reading/Writing",
           path: "reading"
         },

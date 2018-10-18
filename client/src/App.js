@@ -34,6 +34,9 @@ import Evaluation from "./containers/Evaluation";
 import Pronunciation from "./containers/Pronunciation";
 import ILOS from "./containers/ILOS";
 import PopOver from "./components/PopOver";
+import DialogList from "./containers/DialogList";
+import ModalComponent from "./components/Modal";
+import Vocabulary from "./containers/Vocabulary";
 
 class App extends Component {
   state = {
@@ -98,13 +101,16 @@ class App extends Component {
                 <Route path="/translate" component={ForceUpdateGator} />
                 <Route path="/unitTable" component={BaseUnitTable} />
                 <Route path="/lexicon" component={Lexicon} />
-                <Route path="/tamazight/addWord" component={AddWord} />
+                <Route path="/tamazight/addWord/:id" component={AddWord} />
                 <Route path="/sample" component={Sample} />
                 <Route path="/grammar" component={Grammar} />
                 <Route path="/evaluation" component={Evaluation} />
                 <Route path="/pronunciation" component={Pronunciation} />
                 <Route path="/ilos" component={ILOS} />
                 <Route path="/pop" component={PopOver} />
+                <Route path="/dialogList" component={DialogList} />
+                <Route path="/tr" component={ModalComponent} />
+                <Route path="/vocabulary" component={Vocabulary} />
               </Switch>
             </div>
           </BrowserRouter>

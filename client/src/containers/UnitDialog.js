@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Player } from "video-react";
 import "video-react/dist/video-react.css";
 import cedarLogo from "../assets/images/cedfin.png";
+import { Link } from "react-router-dom";
 
 class UnitDialog extends Component {
   constructor(props) {
@@ -113,18 +114,21 @@ class UnitDialog extends Component {
               marginRight: 5
             }}
           >
-            <button
-              className="btn btn-success"
-              onClick={() =>
-                this.setState({
-                  showVideoList: true
-                })
-              }
-            >
-              See List{" "}
-            </button>
+            <Link to="/dialogList" onClick={this.forceUpdate}>
+              <button
+                className="btn btn-success"
+                onClick={() =>
+                  this.setState({
+                    showVideoList: true
+                  })
+                }
+              >
+                See List
+              </button>
+            </Link>
           </div>
         </div>
+
         <div
           style={{
             flex: 7,
