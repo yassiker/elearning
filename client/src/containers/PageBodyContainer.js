@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-// import LexiconContainer from "./Lexicon";
 import Unit0 from "./Unit0";
 
 import Background from "../assets/images/boxed-bg.jpg";
@@ -18,7 +17,6 @@ class PageBodyContainer extends Component {
         }}
       >
         <Unit0 />
-        {/* <LexiconContainer /> */}
       </div>
     );
   }

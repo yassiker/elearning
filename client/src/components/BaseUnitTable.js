@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import cedarLogo from "../assets/images/cedfin.png";
 
-// import sound from "../assets/sounds/Asound.mp3";
-// import Sound from "react-sound";
-
-// import { Link } from "react-router-dom";
-
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 import { Popover, OverlayTrigger, Button } from "react-bootstrap";
+
+import { Link } from "react-router-dom";
 
 const letterExamples = [
   {
@@ -123,230 +122,254 @@ class BaseUnitTable extends Component {
             flexDirection: "column"
           }}
         >
-          <div style={{ flex: 1, padding: 10 }}>
-            <strong>Meaning</strong> Grammaar
-          </div>
           <div
             style={{
               flex: 1,
               display: "flex",
-              justifyContent: "space-around",
+              justifyContent: "space-between",
               padding: 10
             }}
           >
-            <i className="fa fa-edit" style={{ color: "red", fontSize: 25 }} />
-            <i
-              className="fa fa-book"
-              style={{ color: "rebeccapurple", fontSize: 25 }}
-            />
+            <Link
+              to={`/tamazight/addWord/${this.state.selectedWord}`}
+              onClick={this.forceUpdate}
+            >
+              {" "}
+              <i
+                className="fa fa-edit"
+                style={{ color: "red", fontSize: 25 }}
+              />
+            </Link>
+
+            <Link to={`/lexicon`} onClick={this.forceUpdate}>
+              <i
+                className="fa fa-book"
+                style={{ color: "rebeccapurple", fontSize: 25 }}
+              />
+            </Link>
           </div>
         </div>
       </Popover>
     );
 
     return (
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column"
-        }}
-      >
+      <div style={{ flex: 1, height: "100%" }}>
+        <Header />
+        <Sidebar updateDialog={this.updateUnitDialog} />
         <div
+          className="content-wrapper"
           style={{
-            flex: 1,
             display: "flex",
-            borderBottom: "0px solid black",
-            boxShadow: "0px 0px 10px #00a65a",
-            justifyContent: "space-between",
-            alignItems: "center"
+            flex: 1
           }}
         >
           <div
             style={{
               flex: 1,
-              color: "#00a65a"
-            }}
-          >
-            <img src={cedarLogo} alt="" style={{ height: "60px" }} />
-          </div>
-          <div
-            style={{
-              flex: 1,
               display: "flex",
               justifyContent: "center",
-              color: "#00a65a"
+              flexDirection: "column"
             }}
           >
-            <h3 style={{ margin: 0 }}>Table</h3>
-          </div>
-          <div
-            style={{
-              flex: 1,
-              display: "flex",
-              justifyContent: "flex-end",
-              marginRight: 5
-            }}
-          >
-            <button
-              className="btn btn-success"
-              onClick={() =>
-                this.setState({
-                  showVideoList: true
-                })
-              }
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                borderBottom: "0px solid black",
+                boxShadow: "0px 0px 10px #00a65a",
+                justifyContent: "space-between",
+                alignItems: "center"
+              }}
             >
-              See List{" "}
-            </button>
-          </div>
-        </div>
+              <div
+                style={{
+                  flex: 1,
+                  color: "#00a65a"
+                }}
+              >
+                <img src={cedarLogo} alt="" style={{ height: "60px" }} />
+              </div>
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  justifyContent: "center",
+                  color: "#00a65a"
+                }}
+              >
+                <h3 style={{ margin: 0 }}>Table</h3>
+              </div>
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  marginRight: 5
+                }}
+              >
+                <button
+                  className="btn btn-success"
+                  onClick={() =>
+                    this.setState({
+                      showVideoList: true
+                    })
+                  }
+                >
+                  See List{" "}
+                </button>
+              </div>
+            </div>
 
-        <div style={{ flex: 7, display: "flex", overflow: "scroll" }}>
-          <table
-            id="example"
-            className="table table-striped table-bordered"
-            style={{ width: "100%" }}
-          >
-            <thead>
-              <tr>
-                <th>Letter</th>
-                <th>Arabic</th>
-                <th>Latin</th>
-                <th>Sound</th>
-                <th>
-                  <div>
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      Letter Position
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between"
-                      }}
-                    >
-                      <div style={{ color: "brown" }}>A.....</div>
-                      <div style={{ color: "red" }}>...A...</div>
-                      <div style={{ color: "orange" }}>.....A</div>
-                    </div>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {letterExamples.map((item, index) => {
-                return (
-                  <tr key={index}>
-                    <td>{item.tifinagh}</td>
-                    <td>{item.arabic}</td>
-                    <td>{item.latin}</td>
-                    <td>
-                      <audio controls style={{ width: "80%" }}>
-                        <source src={item.sound} type="audio/ogg" />
-                        <source src={item.sound} type="audio/mpeg" />
-                      </audio>
-                    </td>
-                    <td>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between"
-                        }}
-                      >
-                        {item.words.map((myword, myindex) => {
-                          return (
-                            <div key={myindex}>
-                              <div
-                                style={{
-                                  flex: 1
-                                }}
-                              >
-                                <div data-toggle="collapse" data-target="#demo">
-                                  <OverlayTrigger
-                                    trigger="click"
-                                    placement="top"
-                                    overlay={popover}
-                                    rootClose
-                                  >
-                                    <Button
-                                      bsStyle="link"
-                                      onClick={() =>
-                                        this.setState({
-                                          selectedWord: myword[0]
-                                        })
-                                      }
-                                    >
-                                      {myword[0]}
-                                    </Button>
-                                  </OverlayTrigger>
-                                </div>
-                              </div>
-                              <div
-                                style={{
-                                  flex: 1,
-                                  display: "flex"
-                                }}
-                              >
-                                <OverlayTrigger
-                                  trigger="click"
-                                  placement="left"
-                                  overlay={popover}
-                                  rootClose
-                                >
-                                  <Button
-                                    bsStyle="link"
-                                    onClick={() =>
-                                      this.setState({
-                                        selectedWord: myword[1]
-                                      })
-                                    }
-                                  >
-                                    {" "}
-                                    {myword[1]}
-                                  </Button>
-                                </OverlayTrigger>
-                              </div>
-                              <div
-                                style={{
-                                  flex: 1,
-                                  display: "flex"
-                                }}
-                              >
-                                <OverlayTrigger
-                                  trigger="click"
-                                  placement="bottom"
-                                  overlay={popover}
-                                  rootClose
-                                >
-                                  <Button
-                                    bsStyle="link"
-                                    onClick={() =>
-                                      this.setState({
-                                        selectedWord: myword[2]
-                                      })
-                                    }
-                                  >
-                                    {" "}
-                                    {myword[2]}
-                                  </Button>
-                                </OverlayTrigger>
-                              </div>
-                            </div>
-                          );
-                        })}
+            <div style={{ flex: 7, display: "flex", overflow: "scroll" }}>
+              <table
+                id="example"
+                className="table table-striped table-bordered"
+                style={{ width: "100%" }}
+              >
+                <thead>
+                  <tr>
+                    <th>Letter</th>
+                    <th>Arabic</th>
+                    <th>Latin</th>
+                    <th>Sound</th>
+                    <th>
+                      <div>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center"
+                          }}
+                        >
+                          Letter Position
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between"
+                          }}
+                        >
+                          <div style={{ color: "brown" }}>A.....</div>
+                          <div style={{ color: "red" }}>...A...</div>
+                          <div style={{ color: "orange" }}>.....A</div>
+                        </div>
                       </div>
-                    </td>
+                    </th>
                   </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                </thead>
+                <tbody>
+                  {letterExamples.map((item, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{item.tifinagh}</td>
+                        <td>{item.arabic}</td>
+                        <td>{item.latin}</td>
+                        <td>
+                          <audio controls style={{ width: "80%" }}>
+                            <source src={item.sound} type="audio/ogg" />
+                            <source src={item.sound} type="audio/mpeg" />
+                          </audio>
+                        </td>
+                        <td>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between"
+                            }}
+                          >
+                            {item.words.map((myword, myindex) => {
+                              return (
+                                <div key={myindex}>
+                                  <div
+                                    style={{
+                                      flex: 1
+                                    }}
+                                  >
+                                    <div
+                                      data-toggle="collapse"
+                                      data-target="#demo"
+                                    >
+                                      <OverlayTrigger
+                                        trigger="click"
+                                        placement="top"
+                                        overlay={popover}
+                                        rootClose
+                                      >
+                                        <Button
+                                          bsStyle="link"
+                                          onClick={() =>
+                                            this.setState({
+                                              selectedWord: myword[0]
+                                            })
+                                          }
+                                        >
+                                          {myword[0]}
+                                        </Button>
+                                      </OverlayTrigger>
+                                    </div>
+                                  </div>
+                                  <div
+                                    style={{
+                                      flex: 1,
+                                      display: "flex"
+                                    }}
+                                  >
+                                    <OverlayTrigger
+                                      trigger="click"
+                                      placement="left"
+                                      overlay={popover}
+                                      rootClose
+                                    >
+                                      <Button
+                                        bsStyle="link"
+                                        onClick={() =>
+                                          this.setState({
+                                            selectedWord: myword[1]
+                                          })
+                                        }
+                                      >
+                                        {" "}
+                                        {myword[1]}
+                                      </Button>
+                                    </OverlayTrigger>
+                                  </div>
+                                  <div
+                                    style={{
+                                      flex: 1,
+                                      display: "flex"
+                                    }}
+                                  >
+                                    <OverlayTrigger
+                                      trigger="click"
+                                      placement="bottom"
+                                      overlay={popover}
+                                      rootClose
+                                    >
+                                      <Button
+                                        bsStyle="link"
+                                        onClick={() =>
+                                          this.setState({
+                                            selectedWord: myword[2]
+                                          })
+                                        }
+                                      >
+                                        {" "}
+                                        {myword[2]}
+                                      </Button>
+                                    </OverlayTrigger>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     );

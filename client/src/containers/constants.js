@@ -1,4 +1,4 @@
-const LexiconConstants = {
+export const LexiconConstants = {
   wordList: [
     {
       id: 1,
@@ -22,62 +22,66 @@ const LexiconConstants = {
   ]
 };
 
-//     [
-//       "ⴰⴼⵔⵉ",
-//       "(noun masculine)",
-//       "Naturally occurring cavity formed underground",
-//       "Cave",
-//       "cave.jpg"
-//     ],
-//     ["ⴰⵔⴱⴰ", "(noun)", "A young male human", "Boy", "boy.jpg"],
-//     [
-//       "ⵉⵎⵉ",
-//       "(noun masculine)",
-//       "The opening of a creature through which food is ingested",
-//       "Mouth",
-//       "mouth.jpg"
-//     ],
-//     [
-//       "ⴰⴷⵔⴰⵔ",
-//       "(noun masculine)",
-//       "Large mass of earth and rock",
-//       "Mountain",
-//       "mountain.jpg"
-//     ],
-//     [
-//       "ⵉⴱⵍⵉⵍⵍⵉ",
-//       "(noun)",
-//       "A flying insect of the order Lepidoptera , distinguished from moths by their diurnal activity and generally brighter colouring",
-//       "Butterfly",
-//       "butterfly.jpg"
-//     ],
-//     [
-//       "ⵜⵉⵍⴳⴳⵡⵉⵜ",
-//       "(noun)",
-//       "Construction or natural feature that spans a divide",
-//       "Bridge",
-//       "bridge.jpg"
-//     ],
-//     [
-//       "ⵉⴳⵏⵏⴰ",
-//       "(noun)",
-//       "The atmosphere above a given point, especially as visible from the ground during the day.",
-//       "Sky",
-//       "sky.jpg"
-//     ],
-//     [
-//       "ⵜⵉⵟⵟ",
-//       "(noun)",
-//       "An organ that is sensitive to light, which it converts to electrical signals passed to the brain, by which means animals see.",
-//       "Eye",
-//       "eye.jpg"
-//     ],
-//     ["other", "(noun)", "no definition", "translation", "picture"],
-//     ["other", "(noun)", "no definition", "translation", "picture"],
-//     ["other", "(noun)", "no definition", "translation", "picture"],
-//     ["other", "(noun)", "no definition", "translation", "picture"],
-//     ["other", "(noun)", "no definition", "translation", "picture"],
-//     ["other", "(noun)", "no definition", "translation", "picture"],
-//     ["other", "(noun)", "no definition", "translation", "picture"]
-//   ]
-export default LexiconConstants;
+export const Toponyms = {
+  wordList: [
+    {
+      id: 1,
+      name: " ⵉⴼⵔⴰⵏ"
+    },
+    {
+      id: 2,
+      name: "ⴰⵥⵔⵓ"
+    }
+  ]
+};
+
+export const tribeNames = {
+  wordList: [
+    {
+      id: 1,
+      name: " Ait Bechir"
+    },
+    {
+      id: 2,
+      name: "Beni Mguild"
+    },
+    {
+      id: 3,
+      name: "Beni Moussa"
+    },
+    {
+      id: 4,
+      name: "Ait Baamrane"
+    }
+  ]
+};
+
+export const peopleNames = {
+  wordList: [
+    {
+      id: 1,
+      name: "Hamid"
+    },
+    {
+      id: 2,
+      name: "Itto"
+    },
+    {
+      id: 3,
+      name: "Heddou"
+    }
+  ]
+};
+
+export const animalNames = {
+  wordList: [
+    {
+      id: 1,
+      name: "Rex"
+    },
+    {
+      id: 2,
+      name: "Fox"
+    }
+  ]
+};

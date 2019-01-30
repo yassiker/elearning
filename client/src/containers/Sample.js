@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
-// import MapComponent from "../components/MapComponent";
 import cedarLogo from "../assets/images/cedfin.png";
-
-// import { Link } from "react-router-dom";
 
 class Sample extends Component {
   render() {

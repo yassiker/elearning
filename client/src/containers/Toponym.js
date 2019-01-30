@@ -1,133 +1,214 @@
 import React, { Component } from "react";
 
 import MapComponent from "../components/MapComponent";
-import cedarLogo from "../assets/images/cedfin.png";
 
 import { Link } from "react-router-dom";
 
-var wordList = [
-  ["Ait Bechir"],
-  ["Beni Mguild"],
-  ["Beni Moussa"],
-  ["Ait Ayache "],
-  ["Ait Baamrane "],
-  ["Ait Mribt"],
-  ["other"],
-  ["Ait Mribt"],
-  ["Ait Mribt"],
-  ["Ait Mribt"],
-  ["Ait Mribt"],
-  ["Ait Mribt"]
-];
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
+
+import { Toponyms } from "./constants";
 
 class ToponymContainer extends Component {
-  // renderElement = () => {
-  //   wordList.map((item, index) => {
-  //     return (
-  //       <a key={`${item}_${index}`}>
-  //         <li
-  //           className="list--list-item"
-  //           data-gender="Noun"
-  //           value={item}
-  //           name={item}
-  //         >
-  //           {" "}
-  //           <div className="col-md-12 ">
-  //             <div
-  //               className="box box-success collapsed-box"
-  //               style={{ margin: 10 }}
-  //             >
-  //               <div className="box-header with-border">
-  //                 <h3 className="box-title name ">{item}</h3>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </li>
-  //       </a>
-  //     );
-  //   });
-  // };
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: "",
+      displayMap: false,
+      selectedWord: [
+        "ⴰⴼⵔⵉ",
+        "(n, m)",
+        "Naturally occurring cavity formed underground",
+        "Cave",
+        "cave.jpg"
+      ]
+    };
+  }
+
+  updateSearch = event => {
+    this.setState({
+      search: event.target.value.substr(0, 20)
+    });
+  };
   render() {
+    let filteredWords = Toponyms.wordList.filter(item => {
+      return item.name.indexOf(this.state.search) !== -1;
+    });
+
     return (
-      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+      <div style={{ flex: 1, height: "100%" }}>
+        <Header />
+        <Sidebar updateDialog={this.updateUnitDialog} />
         <div
-          className="content-header"
+          className="content-wrapper"
           style={{
-            borderBottom: "0px solid black",
-            height: "57px",
-            boxShadow: "0px 0px 10px #00a65a"
+            display: "flex",
+            flex: 1
           }}
         >
-          <a>
-            <img
-              src={cedarLogo}
-              style={{ position: "absolute", top: "-22px", left: "-30px" }}
-              alt=""
-            />
-          </a>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                borderBottom: "0px solid black",
+                boxShadow: "0px 0px 10px #00a65a",
+                justifyContent: "space-between",
+                alignItems: "center"
+              }}
+            >
+              <div
+                style={{
+                  flex: 1,
+                  color: "#00a65a",
+                  display: "flex"
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    color: "green",
+                    alignItems: "center",
+                    marginLeft: 10,
+                    borderBottom: "1px solid #4dd0e1",
+                    boxShadow: "0 1px 0 0 #4dd0e1",
+                    borderRadius: 25
+                  }}
+                >
+                  <i
+                    className="fa fa-search"
+                    aria-hidden="true"
+                    style={{ fontSize: 25, color: "#4dd0e1" }}
+                  />
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Type here"
+                    aria-label="Search"
+                    style={{
+                      border: "none",
+                      fontSize: 25,
+                      fontWeight: "bold",
+                      color: "red"
+                    }}
+                    value={this.state.search}
+                    onChange={this.updateSearch}
+                  />
+                </div>
+              </div>
 
-          <h1 style={{ position: "absolute", left: "44%", color: "#00a65a" }}>
-            Toponym
-          </h1>
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  marginRight: 10
+                }}
+              >
+                <button className="btn btn-success">
+                  <Link to={`/tamazight/addWord/${null}`}>Add new Toponym</Link>
+                </button>
+              </div>
+            </div>
 
-          <button className="btn btn-success pull-right">Unit X</button>
-        </div>
-
-        <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
-          <div
-            style={{
-              flex: 1,
-              display: "flex",
-              flexDirection: "column",
-              overflow: "scroll",
-              padding: 10,
-              boxShadow: "0px 0px 10px 5px #00a65a",
-              margin: 10
-            }}
-          >
-            <input
-              className="form-control"
-              placeholder="Search"
-              name="srch-term"
-              id="srch-term"
-              type="text"
-              style={{ width: "100%" }}
-            />
-            {wordList.map((item, index) => {
-              return (
-                <Link to={`/add/${item}`} key={`${item}_${index}`}>
-                  <a>
-                    <li
-                      className="list--list-item"
-                      data-gender="Noun"
-                      value={item}
-                      name={item}
-                    >
-                      {" "}
-                      <div className="col-md-12">
-                        <div
-                          className="box box-success collapsed-box"
-                          style={{ margin: 10 }}
+            <div style={{ flex: 7, display: "flex", flexDirection: "row" }}>
+              <ul
+                className="box box-info"
+                style={{
+                  display: "flex",
+                  flex: 1,
+                  flexDirection: "column",
+                  overflowY: "scroll",
+                  listStyle: "none",
+                  margin: 15,
+                  alignItems: "center",
+                  padding: 0
+                }}
+              >
+                <h2>Toponyms</h2>
+                {filteredWords.length > 0 ? (
+                  filteredWords.map((item, index) => {
+                    return (
+                      <Link
+                        to={`/add/${item.name}`}
+                        key={`${item}_${index}`}
+                        style={{ width: "100%" }}
+                      >
+                        <li
+                          key={index}
+                          className="list--list-item"
+                          data-gender="Noun"
+                          style={{ cursor: "pointer", width: "100%" }}
                         >
-                          <div className="box-header with-border">
-                            <h3 className="box-title name ">{item}</h3>
+                          <div className="col-md-12 ">
+                            <div className="box box-success collapsed-box">
+                              <div className="box-header with-border">
+                                <h1
+                                  className="box-title name"
+                                  style={{ fontSize: "35px" }}
+                                >
+                                  {item.name}
+                                </h1>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    </li>
-                  </a>
-                </Link>
-              );
-            })}
-          </div>
-          <div
-            id="map"
-            style={{
-              flex: 2,
-              display: "flex"
-            }}
-          >
-            <MapComponent />
+                        </li>
+                      </Link>
+                    );
+                  })
+                ) : (
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <i
+                      className="fa fa-exclamation-triangle"
+                      style={{
+                        color: "red",
+                        display: "flex",
+                        justifyContent: "center",
+                        fontSize: 30
+                      }}
+                    />
+                    <p
+                      style={{
+                        color: "red",
+                        fontSize: 20,
+                        fontWeight: "bold",
+                        padding: 25,
+                        paddingTop: 5
+                      }}
+                    >
+                      Sorry, no resutls found. Type a new word or{" "}
+                      <a style={{ color: "aqua", cursor: "pointer" }}>
+                        click here
+                      </a>{" "}
+                      for suggestings
+                    </p>
+                  </div>
+                )}
+              </ul>
+              {/* </div> */}
+              <div
+                id="map"
+                style={{
+                  flex: 3,
+                  display: "flex",
+                  margin: 15
+                }}
+              >
+                <MapComponent
+                  data={[
+                    {
+                      title: "Ifrane",
+                      geo: { lat: 33.523559, lng: -5.118424 }
+                    },
+                    {
+                      title: "Azeou",
+                      geo: { lat: 33.43817, lng: -5.230394 }
+                    }
+                  ]}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

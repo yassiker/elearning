@@ -1,152 +1,192 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import styles from "./style.css";
+
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 
 class Unit extends Component {
   render() {
     return (
-      <section style={{ flex: 1, display: "flex" }}>
-        <section
-          className="content"
+      <div style={{ flex: 1, height: "100%" }}>
+        <Header />
+        <Sidebar updateDialog={this.updateUnitDialog} unit />
+        <div
+          className="content-wrapper"
           style={{
-            flex: 1,
             display: "flex",
-            padding: 15
+            flex: 1
           }}
         >
-          <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-            <div
+          <section style={{ flex: 1, display: "flex" }}>
+            <section
+              className="content"
               style={{
                 flex: 1,
                 display: "flex",
-                flexDirection: "row",
-                padding: 10
+                padding: 15
               }}
             >
-              <div style={{ flex: 1, padding: 10 }}>
-                <div className="small-box bg-yellow" style={{ flex: 1 }}>
-                  <div className="inner">
-                    <h3>
-                      <Link to="/UnitDialog" style={{ color: "white" }}>
-                        Dialogue
-                      </Link>
-                    </h3>
+              <div
+                style={{ flex: 1, display: "flex", flexDirection: "column" }}
+              >
+                <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "row",
+                    padding: 10
+                  }}
+                >
+                  <div style={{ flex: 1, padding: 10 }}>
+                    <div className="small-box bg-yellow" style={{ flex: 1 }}>
+                      <div className="inner">
+                        <h3>
+                          <Link
+                            to="/videoD"
+                            style={{ color: "white" }}
+                            onClick={this.forceUpdate}
+                          >
+                            Dialogue
+                          </Link>
+                        </h3>
+                      </div>
+                      <div className="icon">
+                        <i className="ion-ios-people-outline" />
+                      </div>
+                      <a className="small-box-footer">
+                        More info <i className="fa fa-arrow-circle-right" />
+                      </a>
+                    </div>
                   </div>
-                  <div className="icon">
-                    <i className="ion-ios-people-outline" />
+                  <div style={{ flex: 1, padding: 10 }}>
+                    <div className="small-box bg-green" style={{ flex: 1 }}>
+                      <div className="inner">
+                        <h3>
+                          <Link
+                            to="/vocabulary"
+                            style={{ color: "white" }}
+                            onClick={this.forceUpdate}
+                          >
+                            Vocabulary
+                          </Link>
+                        </h3>
+                      </div>
+                      <div className="icon">
+                        <i className="ion-ios-book" />
+                      </div>
+                      <a className="small-box-footer">
+                        More info <i className="fa fa-arrow-circle-right" />
+                      </a>
+                    </div>
                   </div>
-                  <a className="small-box-footer">
-                    More info <i className="fa fa-arrow-circle-right" />
-                  </a>
+                </div>
+                <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "row",
+                    padding: 10
+                  }}
+                >
+                  <div style={{ flex: 1, padding: 10 }}>
+                    <div className="small-box bg-orange" style={{ flex: 1 }}>
+                      <div className="inner">
+                        <h3>
+                          <Link
+                            to="/pronunciation"
+                            style={{ color: "white" }}
+                            onClick={this.forceUpdate}
+                          >
+                            Pronunciation
+                          </Link>
+                        </h3>
+                      </div>
+                      <div className="icon">
+                        <i className="ion ion-bag" />
+                      </div>
+                      <a className="small-box-footer">
+                        More info <i className="fa fa-arrow-circle-right" />
+                      </a>
+                    </div>
+                  </div>
+                  <div style={{ flex: 1, padding: 10 }}>
+                    <div className="small-box bg-aqua" style={{ flex: 1 }}>
+                      <div className="inner">
+                        <h3>
+                          <Link
+                            to="/grammar"
+                            style={{ color: "white" }}
+                            onClick={this.forceUpdate}
+                          >
+                            Grammar
+                          </Link>
+                        </h3>
+                      </div>
+                      <div className="icon">
+                        <i className="ion ion-bag" />
+                      </div>
+                      <a className="small-box-footer">
+                        More info <i className="fa fa-arrow-circle-right" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "row",
+                    padding: 10
+                  }}
+                >
+                  <div style={{ flex: 1, padding: 10 }}>
+                    <div className="small-box bg-red" style={{ flex: 1 }}>
+                      <div className="inner">
+                        <h3 style={{ whiteSpace: "normal" }}>
+                          <Link
+                            to="/reading"
+                            style={{ color: "white" }}
+                            onClick={this.forceUpdate}
+                          >
+                            Reading/Writing
+                          </Link>
+                        </h3>
+                      </div>
+                      <div className="icon">
+                        <i className="ion-ios-book-outline" />
+                      </div>
+                      <a className="small-box-footer">
+                        More info <i className="fa fa-arrow-circle-right" />
+                      </a>
+                    </div>
+                  </div>
+                  <div style={{ flex: 1, padding: 10 }}>
+                    <div className="small-box bg-blue" style={{ flex: 1 }}>
+                      <div className="inner">
+                        <h3>
+                          <Link
+                            to="/culture"
+                            style={{ color: "white" }}
+                            onClick={this.forceUpdate}
+                          >
+                            Culture
+                          </Link>
+                        </h3>
+                      </div>
+                      <div className="icon">
+                        <i className="ion-ios-book-outline" />
+                      </div>
+                      <a className="small-box-footer">
+                        More info <i className="fa fa-arrow-circle-right" />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div style={{ flex: 1, padding: 10 }}>
-                <div className="small-box bg-green" style={{ flex: 1 }}>
-                  <div className="inner">
-                    <h3>
-                      <Link to="/Lexicon" style={{ color: "white" }}>
-                        Lexicon
-                      </Link>
-                    </h3>
-                  </div>
-                  <div className="icon">
-                    <i className="ion-ios-book" />
-                  </div>
-                  <a className="small-box-footer">
-                    More info <i className="fa fa-arrow-circle-right" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                flex: 1,
-                display: "flex",
-                flexDirection: "row",
-                padding: 10
-              }}
-            >
-              <div style={{ flex: 1, padding: 10 }}>
-                <div className="small-box bg-orange" style={{ flex: 1 }}>
-                  <div className="inner">
-                    <h3>
-                      <Link to="/Template" style={{ color: "white" }}>
-                        Pronunciation
-                      </Link>
-                    </h3>
-                  </div>
-                  <div className="icon">
-                    <i className="ion ion-bag" />
-                  </div>
-                  <a className="small-box-footer">
-                    More info <i className="fa fa-arrow-circle-right" />
-                  </a>
-                </div>
-              </div>
-              <div style={{ flex: 1, padding: 10 }}>
-                <div className="small-box bg-aqua" style={{ flex: 1 }}>
-                  <div className="inner">
-                    <h3>
-                      <Link to="/Template" style={{ color: "white" }}>
-                        Grammar
-                      </Link>
-                    </h3>
-                  </div>
-                  <div className="icon">
-                    <i className="ion ion-bag" />
-                  </div>
-                  <a className="small-box-footer">
-                    More info <i className="fa fa-arrow-circle-right" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                flex: 1,
-                display: "flex",
-                flexDirection: "row",
-                padding: 10
-              }}
-            >
-              <div style={{ flex: 1, padding: 10 }}>
-                <div className="small-box bg-red" style={{ flex: 1 }}>
-                  <div className="inner">
-                    <h3 style={{ whiteSpace: "normal" }}>
-                      <Link to="/ReadingContainer" style={{ color: "white" }}>
-                        Writing
-                      </Link>
-                    </h3>
-                  </div>
-                  <div className="icon">
-                    <i className="ion-ios-book-outline" />
-                  </div>
-                  <a className="small-box-footer">
-                    More info <i className="fa fa-arrow-circle-right" />
-                  </a>
-                </div>
-              </div>
-              <div style={{ flex: 1, padding: 10 }}>
-                <div className="small-box bg-blue" style={{ flex: 1 }}>
-                  <div className="inner">
-                    <h3>
-                      <Link to="/CultureContainer" style={{ color: "white" }}>
-                        Culture
-                      </Link>
-                    </h3>
-                  </div>
-                  <div className="icon">
-                    <i className="ion-ios-book-outline" />
-                  </div>
-                  <a className="small-box-footer">
-                    More info <i className="fa fa-arrow-circle-right" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </section>
+            </section>
+          </section>
+        </div>
+      </div>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import ContentHeader from "../components/ContentHeader";
+
 import PageBodyContainer from "../containers/PageBodyContainer";
 
 class Template extends Component {
