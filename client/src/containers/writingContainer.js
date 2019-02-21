@@ -18,7 +18,7 @@ const readings = [
   }
 ];
 
-class ReadingContainer extends Component {
+class WritingContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -93,9 +93,9 @@ class ReadingContainer extends Component {
                 margin: 0
               }}
             >
-              {"READING"}
+              {"Writing"}
             </li>
-            <li className="treeview">
+            {/* <li className="treeview">
               <a
                 style={{ cursor: "pointer" }}
                 onClick={() => this.setState({ section: "reading" })}
@@ -122,9 +122,9 @@ class ReadingContainer extends Component {
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> */}
 
-            {/* <li className="treeview">
+            <li className="treeview">
               <a
                 style={{ cursor: "pointer" }}
                 onClick={() => this.setState({ section: "writing" })}
@@ -147,7 +147,7 @@ class ReadingContainer extends Component {
                   </a>
                 </li>
               </ul>
-            </li> */}
+            </li>
 
             {this.props.material
               ? this.props.material.map((item, index) => {
@@ -208,68 +208,6 @@ class ReadingContainer extends Component {
               : null}
           </ul>
         </section>
-        {/* <Link to="/addUntiReading" onClick={this.forceUpdate}>
-          <button
-            type="button"
-            className="btn btn-default btn-circle"
-            style={{
-              flex: 1,
-              display: "flex",
-              width: "100px",
-              height: "100px",
-              padding: "6px 0px",
-              borderRadius: "50px",
-              textAlign: "center",
-              fontSize: "12px",
-              lineHeight: "1.42857",
-              backgroundColor: "black",
-              position: "absolute",
-              bottom: 0,
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <span style={{ color: "white", fontSize: 15, fontWeight: "bold" }}>
-              Add Reading
-            </span>
-            <span style={{ color: "white", fontSize: 25, fontWeight: "bold" }}>
-              +
-            </span>
-          </button>
-        </Link> */}
-
-        {/* <Link to="/addUntiReading" onClick={this.forceUpdate}>
-          <button
-            type="button"
-            className="btn btn-default btn-circle"
-            style={{
-              flex: 1,
-              display: "flex",
-              width: "100px",
-              height: "100px",
-              padding: "6px 0px",
-              borderRadius: "50px",
-              textAlign: "center",
-              fontSize: "12px",
-              lineHeight: "1.42857",
-              backgroundColor: "white",
-              position: "absolute",
-              bottom: 0,
-              right: 0,
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <span style={{ color: "black", fontSize: 15, fontWeight: "bold" }}>
-              Add Writing
-            </span>
-            <span style={{ color: "black", fontSize: 25, fontWeight: "bold" }}>
-              +
-            </span>
-          </button>
-        </Link> */}
       </aside>
     );
   };
@@ -337,75 +275,16 @@ class ReadingContainer extends Component {
           justifyContent: "center",
           alignItems: "center"
         }}
-      >
-        <div style={{ padding: 10 }}>
-          <div
-            className="small-box bg-red"
-            style={{ flex: 1, justifyContent: "center" }}
-          >
-            <div
-              className="inner"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
-              <h3 style={{ whiteSpace: "normal" }}>
-                <Link
-                  to="/reading"
-                  style={{ color: "white" }}
-                  onClick={this.forceUpdate}
-                >
-                  Dictation
-                </Link>
-              </h3>
-            </div>
-            <div className="icon">
-              <i className="ion-edit" />
-            </div>
-            <a className="small-box-footer">
-              More info <i className="fa fa-arrow-circle-right" />
-            </a>
-          </div>
-        </div>
-        <div style={{ padding: 10 }}>
-          <div className="small-box bg-green">
-            <div
-              className="inner"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
-              <h3 style={{ whiteSpace: "normal" }}>
-                <Link
-                  to="/reading"
-                  style={{ color: "white" }}
-                  onClick={this.forceUpdate}
-                >
-                  Practice
-                </Link>
-              </h3>
-            </div>
-            <div className="icon">
-              <i className="ion-ios-book-outline" />
-            </div>
-            <a className="small-box-footer">
-              More info <i className="fa fa-arrow-circle-right" />
-            </a>
-          </div>
-        </div>
-      </div>
+      />
     );
   };
 
   render() {
     return (
       <div style={{ flex: 1, height: "100%" }}>
-        <Header reading={true} />
+        <Header writing={true} />
         {this.renderReading()}
+
         <div
           className="content-wrapper"
           style={{
@@ -441,7 +320,44 @@ class ReadingContainer extends Component {
                 {this.state.section === "reading"
                   ? this.renderReadingSection()
                   : this.renderWritingSection()}
+                {/* <button
+                  type="button"
+                  className="btn btn-default btn-circle"
+                  style={{
+                    width: "80px",
+                    height: "80px",
+                    padding: "6px 0px",
+                    borderRadius: "40px",
+                    textAlign: "center",
+                    fontSize: "12px",
+                    lineHeight: "1.42857",
+                    backgroundColor: "red"
+                  }}
+                >
+                  <span
+                    style={{ color: "white", fontSize: 16, fontWeight: "bold" }}
+                  >
+                    {t("edit")}{" "}
+                  </span>
+                </button> */}
               </div>
+
+              {/* <div
+                style={{
+                  flex: 8,
+                  display: "flex",
+                  padding: "20px",
+                  overflow: "scroll",
+                  boxShadow: "0px 0px 10px #00a65a",
+                  margin: 10
+                }}
+              >
+                <p style={{ fontSize: 20 }}>
+                  {this.state.reading
+                    ? readings[this.state.readingPos].content
+                    : writings[this.state.readingPos].content}
+                </p>
+              </div> */}
             </div>
           </div>
         </div>
@@ -450,4 +366,4 @@ class ReadingContainer extends Component {
   }
 }
 
-export default translate("common")(ReadingContainer);
+export default translate("common")(WritingContainer);

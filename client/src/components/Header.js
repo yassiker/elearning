@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import avatar from "../assets/images/avatar5.png";
+import { Link } from "react-router-dom";
 
 import { translate } from "react-i18next";
 
@@ -24,9 +25,80 @@ class Header extends Component {
           </span>
         </a>
         <nav className="navbar navbar-static-top">
-          <a className="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span className="sr-only">Toggle navigation</span>
-          </a>
+          {/* <div
+            style={{
+              backgroundColor: "red",
+              position: "absolute",
+              height: 50
+            }}
+          >
+            <a
+              data-toggle="offcanvas"
+              role="button"
+              style={{
+                position: "absolute"
+              }}
+            >
+              <span class="glyphicon glyphicon-menu-left" aria-hidden="true" />
+            </a>
+          </div> */}
+          {this.props.writing ? (
+            <Link to="/addUnitWriting" onClick={this.forceUpdate}>
+              <button
+                type="button"
+                className="btn btn-default btn-circle"
+                style={{
+                  backgroundColor: "white",
+                  marginTop: 10,
+                  marginLeft: 10
+                }}
+              >
+                <span
+                  style={{ color: "green", fontSize: 15, fontWeight: "bold" }}
+                >
+                  Add Writing
+                </span>
+              </button>
+            </Link>
+          ) : null}
+          {this.props.reading ? (
+            <div style={{ position: "absolute" }}>
+              <Link to="/addUntiReading" onClick={this.forceUpdate}>
+                <button
+                  type="button"
+                  className="btn btn-default btn-circle"
+                  style={{
+                    backgroundColor: "white",
+                    marginTop: 10,
+                    marginLeft: 10
+                  }}
+                >
+                  <span
+                    style={{ color: "green", fontSize: 15, fontWeight: "bold" }}
+                  >
+                    Add Reading
+                  </span>
+                </button>
+              </Link>
+              <Link to="/addUntiReading" onClick={this.forceUpdate}>
+                <button
+                  type="button"
+                  className="btn btn-default btn-circle"
+                  style={{
+                    backgroundColor: "white",
+                    marginTop: 10,
+                    marginLeft: 10
+                  }}
+                >
+                  <span
+                    style={{ color: "green", fontSize: 15, fontWeight: "bold" }}
+                  >
+                    Add Exercise
+                  </span>
+                </button>
+              </Link>
+            </div>
+          ) : null}
           <div className="navbar-custom-menu">
             <ul className="nav navbar-nav">
               <li className="dropdown tasks-menu">

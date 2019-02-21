@@ -171,7 +171,7 @@ class BaseUnitTable extends Component {
               flexDirection: "column"
             }}
           >
-            <div
+            {/* <div
               style={{
                 flex: 1,
                 display: "flex",
@@ -199,7 +199,7 @@ class BaseUnitTable extends Component {
               >
                 <h3 style={{ margin: 0 }}>Table</h3>
               </div>
-              <div
+              {/* <div
                 style={{
                   flex: 1,
                   display: "flex",
@@ -217,8 +217,8 @@ class BaseUnitTable extends Component {
                 >
                   See List{" "}
                 </button>
-              </div>
-            </div>
+              </div> 
+            </div> */}
 
             <div style={{ flex: 7, display: "flex", overflow: "scroll" }}>
               <table

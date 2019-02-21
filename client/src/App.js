@@ -15,6 +15,7 @@ import DialogPractice from "./containers/DialogPractice";
 import UnitDialog from "./containers/UnitDialog";
 import ReadingContainer from "./containers/ReadingContainer";
 import ReadingAddition from "./containers/addUnitReading";
+import WritingAddition from "./containers/addWriting";
 import TifinaghLetter from "./components/TifinaghLetter";
 import ForceUpdateGator from "./containers/TranslationExample";
 import BaseUnitTable from "./components/BaseUnitTable";
@@ -34,6 +35,7 @@ import DialogAddition from "./containers/addUnitDialog";
 import AnthroContainer from "./containers/AnthroContainer";
 import TabContainer from "./containers/TabContainer";
 import PracticeAddition from "./containers/addDialogPractice";
+import WritingContainer from "./containers/writingContainer";
 
 class App extends Component {
   state = {
@@ -71,7 +73,9 @@ class App extends Component {
               <Route path="/videoD" component={UnitDialog} />
               <Route path="/add/:id" component={ToponymItem} />
               <Route path="/reading" component={ReadingContainer} />
+              <Route path="/writing" component={WritingContainer} />
               <Route path="/addUntiReading" component={ReadingAddition} />
+              <Route path="/addUnitWriting" component={WritingAddition} />
               <Route path="/letter" component={TifinaghLetter} />
               <Route path="/translate" component={ForceUpdateGator} />
               <Route path="/unitTable" component={BaseUnitTable} />
