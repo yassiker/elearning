@@ -56,7 +56,7 @@ class Header extends Component {
                 <span
                   style={{ color: "green", fontSize: 15, fontWeight: "bold" }}
                 >
-                  Add Writing
+                  Add Dialog
                 </span>
               </button>
             </Link>
@@ -76,7 +76,7 @@ class Header extends Component {
                   <span
                     style={{ color: "green", fontSize: 15, fontWeight: "bold" }}
                   >
-                    Add Reading
+                    Add Practice
                   </span>
                 </button>
               </Link>

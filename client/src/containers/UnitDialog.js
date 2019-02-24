@@ -170,7 +170,7 @@ class UnitDialog extends Component {
             </li>
           </ul>
         </section>
-        <Link to="/addDialog" onClick={this.forceUpdate}>
+        {/* <Link to="/addDialog" onClick={this.forceUpdate}>
           <button
             type="button"
             className="btn btn-default btn-circle"
@@ -199,9 +199,9 @@ class UnitDialog extends Component {
               +
             </span>
           </button>
-        </Link>
+        </Link> */}
 
-        <Link to="/addPractice" onClick={this.forceUpdate}>
+        {/* <Link to="/addPractice" onClick={this.forceUpdate}>
           <button
             type="button"
             className="btn btn-default btn-circle"
@@ -232,6 +232,7 @@ class UnitDialog extends Component {
             </span>
           </button>
         </Link>
+      */}
       </aside>
     );
   };
@@ -239,7 +240,7 @@ class UnitDialog extends Component {
   render() {
     return (
       <div style={{ flex: 1, height: "100%" }}>
-        <Header />
+        <Header writing />
         {this.renderReading()}
         <div
           className="content-wrapper"
@@ -256,7 +257,7 @@ class UnitDialog extends Component {
               flexDirection: "column"
             }}
           >
-            <div
+            {/* <div
               style={{
                 flex: 1,
                 display: "flex",
@@ -305,7 +306,7 @@ class UnitDialog extends Component {
                   </button>
                 </Link>
               </div>
-            </div>
+            </div> */}
 
             <div
               style={{
