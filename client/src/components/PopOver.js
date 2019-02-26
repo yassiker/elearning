@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 
-// import MapComponent from "../components/MapComponent";
 import cedarLogo from "../assets/images/cedfin.png";
 import { Popover, OverlayTrigger, Button } from "react-bootstrap";
-
-// import { Link } from "react-router-dom";
 
 class PopOver extends Component {
   render() {
@@ -81,7 +78,6 @@ class PopOver extends Component {
             alignItems: "center"
           }}
         >
-          {/* <ButtonToolbar> */}
           <OverlayTrigger
             trigger="click"
             placement="left"
@@ -106,7 +102,6 @@ class PopOver extends Component {
           >
             <Button>Holy guacamole!</Button>
           </OverlayTrigger>
-          {/* </ButtonToolbar> */}
         </div>
       </div>
     );

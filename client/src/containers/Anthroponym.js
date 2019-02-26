@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import MapComponent from "../components/MapComponent";
-// import cedarLogo from "../assets/images/cedfin.png";
 
 import { Link } from "react-router-dom";
 
@@ -202,7 +201,7 @@ class Anthroponym extends Component {
                   </div>
                 )}
               </ul>
-              {/* </div> */}
+
               <div
                 id="map"
                 style={{

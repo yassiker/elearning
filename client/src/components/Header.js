@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import avatar from "../assets/images/avatar5.png";
 import { Link } from "react-router-dom";
+import { Button, Icon, Input } from "semantic-ui-react";
 
 import { translate } from "react-i18next";
 
@@ -8,6 +9,11 @@ class Header extends Component {
   changeLang = locale => {
     const { i18n } = this.props;
     i18n.changeLanguage(locale);
+  };
+
+  onChange = event => {
+    console.log("event: " + event);
+    this.props.onChangeValue(event);
   };
 
   render() {
@@ -24,82 +30,92 @@ class Header extends Component {
             Tamazight
           </span>
         </a>
-        <nav className="navbar navbar-static-top">
-          {/* <div
-            style={{
-              backgroundColor: "red",
-              position: "absolute",
-              height: 50
-            }}
-          >
-            <a
-              data-toggle="offcanvas"
-              role="button"
+        <nav
+          className="navbar navbar-static-top"
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            display: "flex",
+            justifyContent: "space-between"
+          }}
+        >
+          {this.props.toponym ? (
+            <div
               style={{
-                position: "absolute"
+                flex: 1,
+                display: "flex",
+                justifyContent: "flex-start",
+                color: "green",
+                alignItems: "center",
+                marginLeft: 10,
+                borderBottom: "1px solid #4dd0e1",
+                boxShadow: "0 1px 0 0 #4dd0e1",
+                borderRadius: 25,
+                margin: 5
               }}
             >
-              <span class="glyphicon glyphicon-menu-left" aria-hidden="true" />
-            </a>
-          </div> */}
-          {this.props.writing ? (
-            <Link to="/addUnitWriting" onClick={this.forceUpdate}>
-              <button
-                type="button"
-                className="btn btn-default btn-circle"
+              <i
+                className="fa fa-search"
+                aria-hidden="true"
+                style={{ fontSize: 25, color: "#4dd0e1" }}
+              />
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Type here"
+                aria-label="Search"
                 style={{
-                  backgroundColor: "white",
-                  marginTop: 10,
-                  marginLeft: 10
+                  border: "none",
+                  fontSize: 25,
+                  fontWeight: "bold",
+                  color: "red",
+                  backgroundColor: "transparent"
                 }}
-              >
-                <span
-                  style={{ color: "green", fontSize: 15, fontWeight: "bold" }}
-                >
-                  Add Dialog
-                </span>
-              </button>
-            </Link>
-          ) : null}
-          {this.props.reading ? (
-            <div style={{ position: "absolute" }}>
-              <Link to="/addUntiReading" onClick={this.forceUpdate}>
-                <button
-                  type="button"
-                  className="btn btn-default btn-circle"
-                  style={{
-                    backgroundColor: "white",
-                    marginTop: 10,
-                    marginLeft: 10
-                  }}
-                >
-                  <span
-                    style={{ color: "green", fontSize: 15, fontWeight: "bold" }}
-                  >
-                    Add Practice
-                  </span>
-                </button>
-              </Link>
-              <Link to="/addUntiReading" onClick={this.forceUpdate}>
-                <button
-                  type="button"
-                  className="btn btn-default btn-circle"
-                  style={{
-                    backgroundColor: "white",
-                    marginTop: 10,
-                    marginLeft: 10
-                  }}
-                >
-                  <span
-                    style={{ color: "green", fontSize: 15, fontWeight: "bold" }}
-                  >
-                    Add Exercise
-                  </span>
-                </button>
-              </Link>
+                value={this.props.word}
+                onChange={this.onChange}
+              />
             </div>
-          ) : null}
-          <div className="navbar-custom-menu">
+          ) : (
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                alignItems: "center",
+                paddingLeft: 10
+              }}
+            >
+              <Input size="mini" icon="search" placeholder="Search..." />
+            </div>
+          )}
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Button icon labelPosition="right" color="twitter">
+              Add
+              <Icon name="plus square" />
+            </Button>
+          </div>
+          {this.props.navigations
+            ? this.props.navigations.map((item, index) => {
+                return (
+                  <Button primary key={index}>
+                    <Link to={item.path} onClick={this.forceUpdate}>
+                      Primary
+                    </Link>
+                  </Button>
+                );
+              })
+            : null}
+
+          <div
+            className="navbar-custom-menu"
+            style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}
+          >
             <ul className="nav navbar-nav">
               <li className="dropdown tasks-menu">
                 <a className="dropdown-toggle" data-toggle="dropdown">

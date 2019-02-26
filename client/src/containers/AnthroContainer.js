@@ -170,10 +170,6 @@ class AnthroContainer extends Component {
                         style={{ paddingLeft: "10px" }}
                       />
                     </a>
-                    {/* <a href="toponyms.html" class="small-box-footer" id="alink">
-                      Search
-                      <i class="fa fa-search" style={{ paddingLeft: "10px" }} />
-                    </a> */}
                   </div>
                 </div>
               </Link>

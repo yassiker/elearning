@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-import cedarLogo from "../assets/images/cedfin.png";
+
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
@@ -24,7 +24,10 @@ class PracticeAddition extends Component {
     return (
       <div style={{ flex: 1, height: "100%" }}>
         <Header />
-        <Sidebar updateDialog={this.updateUnitDialog} />
+        <Sidebar
+          updateDialog={this.updateUnitDialog}
+          screenTitle={"Add Dialogue Practice"}
+        />
         <div
           className="content-wrapper"
           style={{
@@ -33,46 +36,6 @@ class PracticeAddition extends Component {
           }}
         >
           <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-            <div
-              style={{
-                flex: 1,
-                display: "flex",
-                borderBottom: "0px solid black",
-                boxShadow: "0px 0px 10px #00a65a",
-                justifyContent: "space-between",
-                alignItems: "center"
-              }}
-            >
-              <div
-                style={{
-                  flex: 1,
-                  color: "#00a65a"
-                }}
-              >
-                <img src={cedarLogo} alt="" style={{ height: "60px" }} />
-              </div>
-              <div
-                style={{
-                  flex: 1,
-                  display: "flex",
-                  justifyContent: "center",
-                  color: "#00a65a"
-                }}
-              >
-                <h3 style={{ margin: 0 }}>Add a new practice</h3>
-              </div>
-              <div
-                style={{
-                  flex: 1,
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  marginRight: 10
-                }}
-              >
-                <button className="btn btn-success">Text Here</button>
-              </div>
-            </div>
-
             <div
               style={{
                 flex: 7,
@@ -121,7 +84,6 @@ class PracticeAddition extends Component {
                     </div>
                     <div className="form-group">
                       <label
-                        // className="text-aqua"
                         style={{
                           color: "#00a65a",
                           fontSize: 20,

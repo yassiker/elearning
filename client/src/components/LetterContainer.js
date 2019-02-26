@@ -56,7 +56,6 @@ class LetterContainer extends Component {
                 {letter}
               </Link>
             </span>
-            // <Link to="/letter">{letter}</Link>‡
           );
         })}
       </div>

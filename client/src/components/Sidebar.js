@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import "../App.css";
-// import { Link } from "react-router-dom";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -36,7 +34,6 @@ class Sidebar extends Component {
           path: "evaluation"
         }
       ],
-      // material: [],
       active: null,
       selectedDialog: "",
       key: "dialog"
@@ -73,53 +70,12 @@ class Sidebar extends Component {
                 justifyContent: "center",
                 borderLeft: "3px solid red",
                 borderRight: "3px solid #00a65a",
-                margin: 0
+                margin: 0,
+                alignItems: "center"
               }}
             >
-              {"Unit 0"}
+              {this.props.screenTitle}
             </li>
-            {/* <li className="treeview">
-              <a href="#">
-                <i className="fa fa-book" /> <span>Reading</span>
-                <span className="pull-right-container">
-                  <i className="fa fa-angle-left pull-right" />
-                </span>
-              </a>
-              <ul className="treeview-menu">
-                <li className="active">
-                  <a href="index.html">
-                    <i className="fa fa-circle-o" /> Reading 1
-                  </a>
-                </li>
-                <li>
-                  <a href="index2.html">
-                    <i className="fa fa-circle-o" /> Reading 2
-                  </a>
-                </li>
-              </ul>
-            </li> */}
-
-            {/* <li className="treeview">
-              <a href="#">
-                <i className="fa fa-pencil" />
-                <span>Writing</span>
-                <span className="pull-right-container">
-                  <i className="fa fa-angle-left pull-right" />
-                </span>
-              </a>
-              <ul className="treeview-menu">
-                <li className="active">
-                  <a href="index.html">
-                    <i className="fa fa-circle-o" /> Writing 1
-                  </a>
-                </li>
-                <li>
-                  <a href="index2.html">
-                    <i className="fa fa-circle-o" /> Practice 1
-                  </a>
-                </li>
-              </ul>
-            </li> */}
 
             {this.props.material
               ? this.props.material.map((item, index) => {
@@ -180,79 +136,6 @@ class Sidebar extends Component {
               : null}
           </ul>
         </section>
-        {/* {!this.props.unit && (
-          <Link to="/addDialog" onClick={this.forceUpdate}>
-            <button
-              type="button"
-              className="btn btn-default btn-circle"
-              style={{
-                flex: 1,
-                display: "flex",
-                width: "100px",
-                height: "100px",
-                padding: "6px 0px",
-                borderRadius: "50px",
-                textAlign: "center",
-                fontSize: "12px",
-                lineHeight: "1.42857",
-                backgroundColor: "black",
-                position: "absolute",
-                bottom: 0,
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
-              <span
-                style={{ color: "white", fontSize: 15, fontWeight: "bold" }}
-              >
-                Add {this.props.unitSection}
-              </span>
-              <span
-                style={{ color: "white", fontSize: 25, fontWeight: "bold" }}
-              >
-                +
-              </span>
-            </button>
-          </Link>
-        )} */}
-        {/* {this.props.unit && (
-          <Link to="/addDialog" onClick={this.forceUpdate}>
-            <button
-              type="button"
-              className="btn btn-default btn-circle"
-              style={{
-                flex: 1,
-                display: "flex",
-                width: "100px",
-                height: "100px",
-                padding: "6px 0px",
-                borderRadius: "50px",
-                textAlign: "center",
-                fontSize: "12px",
-                lineHeight: "1.42857",
-                backgroundColor: "white",
-                position: "absolute",
-                bottom: 0,
-                right: 0,
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
-              <span
-                style={{ color: "black", fontSize: 15, fontWeight: "bold" }}
-              >
-                Add Practice
-              </span>
-              <span
-                style={{ color: "black", fontSize: 25, fontWeight: "bold" }}
-              >
-                +
-              </span>
-            </button>
-          </Link>
-        )} */}
       </aside>
     );
   }

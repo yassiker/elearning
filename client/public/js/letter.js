@@ -13,10 +13,6 @@ $(document).ready(function() {
       dots: false,
       loop: true,
       responsiveRefreshRate: 200
-      // navText: [
-      //   '<svg width="100%" height="100%" viewBox="0 0 11 20"><path style="fill:none;stroke-width: 1px;stroke: #000;" d="M9.554,1.001l-8.607,8.607l8.607,8.606"/></svg>',
-      //   '<svg width="100%" height="100%" viewBox="0 0 11 20" version="1.1"><path style="fill:none;stroke-width: 1px;stroke: #000;" d="M1.054,18.214l8.606,-8.606l-8.606,-8.607"/></svg>'
-      // ]
     })
     .on("changed.owl.carousel", syncPosition);
 
@@ -64,12 +60,6 @@ $(document).ready(function() {
         .eq(current)
         .addClass("current");
     }
-
-    // if (current > 2) {
-    //   sync2.data("owl.carousel").to(current, 100, true);
-    // } else {
-    //   sync2.data("owl.carousel").to(current, 100, true);
-    // }
 
     var onscreen = sync2.find(".owl-item.active").length - 1;
 

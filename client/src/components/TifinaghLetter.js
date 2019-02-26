@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-// import letterIcon from "../assets/images/letters/yaj.jpg";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
@@ -173,52 +172,6 @@ class TifinaghLetter extends Component {
               </div>
             </div>
 
-            {/* <section
-          className="content-header"
-          style={{
-            borderBottom: "0px solid black",
-            flex: 1,
-            boxShadow: "0px 0px 10px #00a65a",
-            padding: 0,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center"
-          }}
-        >
-          <Link to="/" onClick={this.forceUpdate}>
-            <img
-              src={cedarLogo}
-              style={{ position: "absolute", top: "-22px", left: "-30px" }}
-              alt=""
-            />
-          </Link>
-
-          <Link to="/unit0" onClick={this.forceUpdate}>
-            <img
-              src={require(`../assets/images/blackboardIcon.png`)}
-              style={{
-                height: "50px",
-                cursor: "pointer"
-              }}
-              alt=""
-            />
-          </Link>
-
-          <Link to="/unitTable" onClick={this.forceUpdate}>
-            <button
-              className="btn btn-success pull-right"
-              onClick={this.viewAll}
-              style={{
-                marginRight: "10px",
-                whiteSpace: "normal",
-                width: 150
-              }}
-            >
-              letters and words written in tifinagh
-            </button>
-          </Link>
-        </section> */}
-
             <div style={{ flex: 8, display: "flex", flexDirection: "column" }}>
               <div
                 id="sync1"
@@ -257,35 +210,6 @@ class TifinaghLetter extends Component {
                     </div>
                   );
                 })}
-
-                {/* <div className="item">
-            <h1>B</h1>
-          </div>
-          <div className="item">
-            <h1>C</h1>
-          </div>
-          <div className="item">
-            <h1>D</h1>
-          </div>
-          <div className="item">
-            <h1>E</h1>
-          </div>
-          <div className="item">
-            <h1>F</h1>
-          </div>
-          <div className="item">
-            <h1>G</h1>
-          </div>
-          <div className="item">
-            <h1>H</h1>
-          </div>
-          <div className="item">
-            <h1>I</h1>
-          </div>
-          <div className="item">
-            <h1>J</h1>
-          </div>
-         */}
               </div>
             </div>
           </div>

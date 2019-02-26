@@ -4,7 +4,6 @@ import { translate } from "react-i18next";
 
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
-// import Sidebar from "../components/Sidebar";
 
 const readings = [
   {
@@ -15,6 +14,17 @@ const readings = [
   {
     title: "Second Reading",
     content: "Second Content"
+  }
+];
+
+const readingNavigations = [
+  {
+    key: "Add Reading",
+    path: "/addUntiReading"
+  },
+  {
+    key: "Add Practice",
+    path: "/addPractice"
   }
 ];
 
@@ -124,31 +134,6 @@ class ReadingContainer extends Component {
               </ul>
             </li>
 
-            {/* <li className="treeview">
-              <a
-                style={{ cursor: "pointer" }}
-                onClick={() => this.setState({ section: "writing" })}
-              >
-                <i className="fa fa-pencil" />
-                <span>Writing</span>
-                <span className="pull-right-container">
-                  <i className="fa fa-angle-left pull-right" />
-                </span>
-              </a>
-              <ul className="treeview-menu">
-                <li className="active">
-                  <a onClick={() => this.updateWriting(0)}>
-                    <i className="fa fa-circle-o" /> Writing 1
-                  </a>
-                </li>
-                <li>
-                  <a onClick={() => this.updateWriting(1)}>
-                    <i className="fa fa-circle-o" /> Practice 1
-                  </a>
-                </li>
-              </ul>
-            </li> */}
-
             {this.props.material
               ? this.props.material.map((item, index) => {
                   return (
@@ -208,68 +193,6 @@ class ReadingContainer extends Component {
               : null}
           </ul>
         </section>
-        {/* <Link to="/addUntiReading" onClick={this.forceUpdate}>
-          <button
-            type="button"
-            className="btn btn-default btn-circle"
-            style={{
-              flex: 1,
-              display: "flex",
-              width: "100px",
-              height: "100px",
-              padding: "6px 0px",
-              borderRadius: "50px",
-              textAlign: "center",
-              fontSize: "12px",
-              lineHeight: "1.42857",
-              backgroundColor: "black",
-              position: "absolute",
-              bottom: 0,
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <span style={{ color: "white", fontSize: 15, fontWeight: "bold" }}>
-              Add Reading
-            </span>
-            <span style={{ color: "white", fontSize: 25, fontWeight: "bold" }}>
-              +
-            </span>
-          </button>
-        </Link> */}
-
-        {/* <Link to="/addUntiReading" onClick={this.forceUpdate}>
-          <button
-            type="button"
-            className="btn btn-default btn-circle"
-            style={{
-              flex: 1,
-              display: "flex",
-              width: "100px",
-              height: "100px",
-              padding: "6px 0px",
-              borderRadius: "50px",
-              textAlign: "center",
-              fontSize: "12px",
-              lineHeight: "1.42857",
-              backgroundColor: "white",
-              position: "absolute",
-              bottom: 0,
-              right: 0,
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <span style={{ color: "black", fontSize: 15, fontWeight: "bold" }}>
-              Add Writing
-            </span>
-            <span style={{ color: "black", fontSize: 25, fontWeight: "bold" }}>
-              +
-            </span>
-          </button>
-        </Link> */}
       </aside>
     );
   };
@@ -404,7 +327,7 @@ class ReadingContainer extends Component {
   render() {
     return (
       <div style={{ flex: 1, height: "100%" }}>
-        <Header reading={true} />
+        <Header navigations={readingNavigations} />
         {this.renderReading()}
         <div
           className="content-wrapper"

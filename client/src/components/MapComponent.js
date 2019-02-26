@@ -16,7 +16,7 @@ export class MapComponent extends Component {
         }}
       >
         {this.props.data &&
-          this.props.data.map(item => {
+          this.props.data.map((item, index) => {
             return (
               <Marker
                 title={"The marker`s title will appear as a tooltip."}
@@ -25,26 +25,10 @@ export class MapComponent extends Component {
                   lat: item.geo.lat,
                   lng: item.geo.lng
                 }}
+                key={index}
               />
             );
           })}
-
-        {/* <Marker onClick={this.onMarkerClick} name={"Current location"} />
-        <Marker
-          title={"The marker`s title will appear as a tooltip."}
-          name={"SOMA"}
-          position={{ lat: 33.438170, lng: -5.230394 }}
-        />
-        <Marker
-          name={"Dolores park"}
-          position={{ lat: 37.759703, lng: -122.428093 }}
-        />
-        <Marker />
-        <Marker
-          name={"Your position"}
-          position={{ lat: 37.762391, lng: -122.439192 }}
-          style={{ width: "10px", height: "10px" }}
-        /> */}
       </Map>
     );
   }

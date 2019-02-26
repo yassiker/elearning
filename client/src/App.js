@@ -49,18 +49,8 @@ class App extends Component {
   render() {
     return (
       <div className="App" style={{ flex: 1, display: "flex" }}>
-        {/* <Header />
-        <Sidebar unit="UNIT 1" /> */}
-        {/* <div
-          className="content-wrapper"
-          style={{
-            display: "flex",
-            flex: 1
-          }}
-        > */}
         <BrowserRouter>
           <div style={{ flex: 1, display: "flex" }}>
-            {/* <Navigation /> */}
             <Switch>
               <Route path="/" component={Home} exact />
               <Route path="/temp" component={Template} />

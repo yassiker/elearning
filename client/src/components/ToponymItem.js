@@ -8,13 +8,17 @@ import { Link } from "react-router-dom";
 
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+import { Button, Icon, Input } from "semantic-ui-react";
 
 class ToponymItem extends Component {
   render() {
     return (
       <div style={{ flex: 1, height: "100%" }}>
         <Header />
-        <Sidebar updateDialog={this.updateUnitDialog} />
+        <Sidebar
+          updateDialog={this.updateUnitDialog}
+          screenTitle={this.props.match.params.id}
+        />
         <div
           className="content-wrapper"
           style={{
@@ -24,29 +28,13 @@ class ToponymItem extends Component {
         >
           <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
             <div
-              className="content-header"
               style={{
-                borderBottom: "0px solid black",
-                height: "57px",
-                boxShadow: "0px 0px 10px #00a65a"
+                flex: 1,
+                display: "flex",
+                flexDirection: "row",
+                padding: 20
               }}
             >
-              <a>
-                <img
-                  src={cedarLogo}
-                  style={{ position: "absolute", top: "-22px", left: "-30px" }}
-                  alt=""
-                />
-              </a>
-
-              <h1
-                style={{ position: "absolute", left: "44%", color: "#00a65a" }}
-              >
-                {this.props.match.params.id}
-              </h1>
-            </div>
-
-            <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
               <div
                 style={{
                   flex: 1,
@@ -54,7 +42,8 @@ class ToponymItem extends Component {
                   flexDirection: "column",
                   overflow: "scroll",
                   padding: 10,
-                  boxShadow: "0px 0px 10px 5px #00a65a",
+                  boxShadow: "0px 0px 20px 2px grey",
+
                   margin: 10
                 }}
               >
@@ -87,8 +76,10 @@ class ToponymItem extends Component {
                   </p>
                 </div>
 
-                <div>
-                  <button
+                <div
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  {/* <button
                     type="button"
                     className="btn btn-primary pull-right"
                     style={{
@@ -105,8 +96,19 @@ class ToponymItem extends Component {
                     >
                       Link to Wikipidea
                     </a>
-                  </button>
-                  <button
+                  </button> */}
+                  <Button icon labelPosition="right" color="vk">
+                    <a
+                      href="https://en.wikipedia.org/wiki/Ifrane"
+                      target="_blank"
+                      style={{ color: "white" }}
+                      rel="noopener noreferrer"
+                    >
+                      Wikipidea
+                    </a>
+                    <Icon name="linkify" />
+                  </Button>
+                  {/* <button
                     type="button"
                     className="btn btn-primary pull-right"
                     style={{
@@ -123,7 +125,16 @@ class ToponymItem extends Component {
                     >
                       View on Lexicon
                     </Link>
-                  </button>
+                  </button> */}
+                  <Button icon labelPosition="right" color="youtube">
+                    <Link
+                      to={`/lexicon/${this.props.match.params.id}`}
+                      onClick={this.forceUpdate}
+                    >
+                      Lexicon
+                    </Link>
+                    <Icon name="arrow alternate circle right" />
+                  </Button>
                 </div>
               </div>
               <div

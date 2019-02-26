@@ -2,9 +2,7 @@ import React, { Component } from "react";
 
 import { translate } from "react-i18next";
 
-import { Link } from "react-router-dom";
 import Header from "../components/Header";
-// import Sidebar from "../components/Sidebar";
 
 const readings = [
   {
@@ -95,35 +93,6 @@ class WritingContainer extends Component {
             >
               {"Writing"}
             </li>
-            {/* <li className="treeview">
-              <a
-                style={{ cursor: "pointer" }}
-                onClick={() => this.setState({ section: "reading" })}
-              >
-                <i className="fa fa-book" /> <span>Reading</span>
-                <span className="pull-right-container">
-                  <i className="fa fa-angle-left pull-right" />
-                </span>
-              </a>
-              <ul className="treeview-menu">
-                <li className="active">
-                  <a onClick={() => this.updateReading(0)}>
-                    <i className="fa fa-circle-o" /> Reading 1
-                  </a>
-                </li>
-                <li>
-                  <a onClick={() => this.updateReading(1)}>
-                    <i className="fa fa-circle-o" /> Reading 2
-                  </a>
-                </li>
-                <li>
-                  <a onClick={() => this.updateReading(1)}>
-                    <i className="fa fa-circle-o" /> Exercise
-                  </a>
-                </li>
-              </ul>
-            </li> */}
-
             <li className="treeview">
               <a
                 style={{ cursor: "pointer" }}
@@ -320,44 +289,7 @@ class WritingContainer extends Component {
                 {this.state.section === "reading"
                   ? this.renderReadingSection()
                   : this.renderWritingSection()}
-                {/* <button
-                  type="button"
-                  className="btn btn-default btn-circle"
-                  style={{
-                    width: "80px",
-                    height: "80px",
-                    padding: "6px 0px",
-                    borderRadius: "40px",
-                    textAlign: "center",
-                    fontSize: "12px",
-                    lineHeight: "1.42857",
-                    backgroundColor: "red"
-                  }}
-                >
-                  <span
-                    style={{ color: "white", fontSize: 16, fontWeight: "bold" }}
-                  >
-                    {t("edit")}{" "}
-                  </span>
-                </button> */}
               </div>
-
-              {/* <div
-                style={{
-                  flex: 8,
-                  display: "flex",
-                  padding: "20px",
-                  overflow: "scroll",
-                  boxShadow: "0px 0px 10px #00a65a",
-                  margin: 10
-                }}
-              >
-                <p style={{ fontSize: 20 }}>
-                  {this.state.reading
-                    ? readings[this.state.readingPos].content
-                    : writings[this.state.readingPos].content}
-                </p>
-              </div> */}
             </div>
           </div>
         </div>

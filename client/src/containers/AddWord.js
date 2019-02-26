@@ -155,7 +155,6 @@ class AddWord extends Component {
                         <label className="text-aqua">Select Media</label>
                         <input type="file" id="exampleInputFile" />
                       </div>
-                      {/* <input type="submit" value="Submit Changes" /> */}
                       <div
                         className="form-group"
                         style={{

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PageContent from "./PageContent";
-// import BasicExample from "./BasicExample";
 
 import cedarLogo from "../assets/images/cedfin.png";
 

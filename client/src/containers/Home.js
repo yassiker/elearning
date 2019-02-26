@@ -128,7 +128,6 @@ class Home extends Component {
                           >
                             <div className="content">
                               <div className="centered-y">
-                                {/* <a style={{ color: "white", fontWeight: "bold" }}> */}
                                 <h2>
                                   <Link
                                     to={`/${unit.path}`}
@@ -137,7 +136,6 @@ class Home extends Component {
                                     {unit.unit}
                                   </Link>
                                 </h2>
-                                {/* </a> */}
                               </div>
                             </div>
                           </button>

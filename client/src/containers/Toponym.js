@@ -37,8 +37,15 @@ class ToponymContainer extends Component {
 
     return (
       <div style={{ flex: 1, height: "100%" }}>
-        <Header />
-        <Sidebar updateDialog={this.updateUnitDialog} />
+        <Header
+          onChangeValue={this.updateSearch}
+          toponym
+          word={this.state.search}
+        />
+        <Sidebar
+          updateDialog={this.updateUnitDialog}
+          screenTitle={"Toponyms"}
+        />
         <div
           className="content-wrapper"
           style={{
@@ -47,7 +54,7 @@ class ToponymContainer extends Component {
           }}
         >
           <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-            <div
+            {/* <div
               style={{
                 flex: 1,
                 display: "flex",
@@ -60,47 +67,6 @@ class ToponymContainer extends Component {
               <div
                 style={{
                   flex: 1,
-                  color: "#00a65a",
-                  display: "flex"
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "flex-start",
-                    color: "green",
-                    alignItems: "center",
-                    marginLeft: 10,
-                    borderBottom: "1px solid #4dd0e1",
-                    boxShadow: "0 1px 0 0 #4dd0e1",
-                    borderRadius: 25
-                  }}
-                >
-                  <i
-                    className="fa fa-search"
-                    aria-hidden="true"
-                    style={{ fontSize: 25, color: "#4dd0e1" }}
-                  />
-                  <input
-                    className="form-control"
-                    type="text"
-                    placeholder="Type here"
-                    aria-label="Search"
-                    style={{
-                      border: "none",
-                      fontSize: 25,
-                      fontWeight: "bold",
-                      color: "red"
-                    }}
-                    value={this.state.search}
-                    onChange={this.updateSearch}
-                  />
-                </div>
-              </div>
-
-              <div
-                style={{
-                  flex: 1,
                   display: "flex",
                   justifyContent: "flex-end",
                   marginRight: 10
@@ -110,7 +76,7 @@ class ToponymContainer extends Component {
                   <Link to={`/tamazight/addWord/${null}`}>Add new Toponym</Link>
                 </button>
               </div>
-            </div>
+            </div> */}
 
             <div style={{ flex: 7, display: "flex", flexDirection: "row" }}>
               <ul
@@ -126,13 +92,13 @@ class ToponymContainer extends Component {
                   padding: 0
                 }}
               >
-                <h2>Toponyms</h2>
+                <h2>List</h2>
                 {filteredWords.length > 0 ? (
                   filteredWords.map((item, index) => {
                     return (
                       <Link
                         to={`/add/${item.name}`}
-                        key={`${item}_${index}`}
+                        key={index}
                         style={{ width: "100%" }}
                       >
                         <li
@@ -186,7 +152,7 @@ class ToponymContainer extends Component {
                   </div>
                 )}
               </ul>
-              {/* </div> */}
+
               <div
                 id="map"
                 style={{

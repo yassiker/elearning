@@ -82,16 +82,6 @@ class Grammar extends Component {
       disablePreviousButton: true,
       disableNextButton: false,
       showVideoList: false,
-      // unitVideos: [
-      //   {
-      //     title: "videoTitle1",
-      //     videoSource: "source1"
-      //   },
-      //   {
-      //     title: "videoTitle2",
-      //     videoSource: "source2"
-      //   }
-      // ],
       section: 0,
       selectedVideo: material[0].name,
       videoSource: material[0].videoSource,
@@ -270,7 +260,6 @@ class Grammar extends Component {
     return (
       <div style={{ flex: 1, height: "100%" }}>
         <Header />
-        {/* <Sidebar updateDialog={this.updateUnitDialog} /> */}
         {this.renderReading()}
         <div
           className="content-wrapper"
@@ -338,9 +327,7 @@ class Grammar extends Component {
                     <tr>
                       <th scope="col">Tifinagh Pronoun</th>
                       <th scope="col">Localized</th>
-                      {/* <th scope="col">Prefix</th> */}
                       <th scope="col">Verb Form</th>
-                      {/* <th scope="col">Suffix</th> */}
                     </tr>
                   </thead>
                   <tbody>
@@ -364,7 +351,7 @@ class Grammar extends Component {
                             />
                           </th>
                           <td style={{ padding: 6 }}>{item.localeP}</td>
-                          {/* <td style={{ padding: 6 }}>the Bird</td> */}
+
                           <td
                             style={{
                               padding: 6,
@@ -380,7 +367,6 @@ class Grammar extends Component {
                               style={{ color: "red" }}
                             />
                           </td>
-                          {/* <td style={{ padding: 6 }}>Suffix</td> */}
                         </tr>
                       );
                     })}

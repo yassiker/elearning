@@ -201,7 +201,6 @@ class LexiconContainer extends Component {
                   boxShadow: "0px 0px 10px 5px #00a65a",
                   backgroundColor: "white",
                   margin: "15px",
-                  // direction: "rtl" arabic direction
                   direction: "ltr" // latin
                 }}
               >
