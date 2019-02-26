@@ -35,7 +35,7 @@ class Container extends Component {
             Unit 0
           </h1>
           <button className="btn btn-success pull-right" onClick={this.viewAll}>
-            View All
+            View
           </button>
         </section>
         <PageContent />
