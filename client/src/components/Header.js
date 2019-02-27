@@ -91,8 +91,8 @@ class Header extends Component {
             style={{
               flex: 1,
               display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
+              justifyContent: "center"
+              // alignItems: "center"
             }}
           >
             {/* <Button icon labelPosition="right" color="twitter">
