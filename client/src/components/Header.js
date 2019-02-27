@@ -75,18 +75,18 @@ class Header extends Component {
                 onChange={this.onChange}
               />
             </div>
-          ) : (
-            <div
-              style={{
-                flex: 1,
-                display: "flex",
-                alignItems: "center",
-                paddingLeft: 10
-              }}
-            >
-              <Input size="mini" icon="search" placeholder="Search..." />
-            </div>
-          )}
+          ) : null
+          // <div
+          //   style={{
+          //     flex: 1,
+          //     display: "flex",
+          //     alignItems: "center",
+          //     paddingLeft: 10
+          //   }}
+          // >
+          //   <Input size="mini" icon="search" placeholder="Search..." />
+          // </div>
+          }
           <div
             style={{
               flex: 1,
@@ -95,10 +95,10 @@ class Header extends Component {
               alignItems: "center"
             }}
           >
-            <Button icon labelPosition="right" color="twitter">
+            {/* <Button icon labelPosition="right" color="twitter">
               Add
               <Icon name="plus square" />
-            </Button>
+            </Button> */}
           </div>
           {this.props.navigations
             ? this.props.navigations.map((item, index) => {
