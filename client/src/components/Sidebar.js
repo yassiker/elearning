@@ -4,6 +4,26 @@ class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      unitSections: [
+        {
+          sectionName: "Pronunciation"
+        },
+        {
+          sectionName: "Grammar"
+        },
+        {
+          sectionName: "Reading"
+        },
+        {
+          sectionName: "Writing"
+        },
+        {
+          sectionName: "Vocabulary"
+        },
+        {
+          sectionName: "Culture"
+        }
+      ],
       material: [
         {
           name: "ILOs",
@@ -41,7 +61,7 @@ class Sidebar extends Component {
   }
 
   toggle = (position, item, key) => {
-    this.props.updateDialog(item, position, key);
+    // this.props.updateDialog(item, position, key);
     if (this.state.active === position) {
       this.setState({ active: null });
     }
@@ -74,41 +94,39 @@ class Sidebar extends Component {
                 alignItems: "center"
               }}
             >
-              {this.props.screenTitle}
+              {"Unit number"}
             </li>
 
-            {this.props.material
-              ? this.props.material.map((item, index) => {
-                  return (
-                    <li
-                      className={
-                        index === 0
-                          ? `treeview active`
-                          : `treeview ${this.state.active}`
-                      }
-                      key={index}
-                      style={{
-                        background: this.myColor(index),
-                        cursor: "pointer"
-                      }}
-                      onClick={() => {
-                        this.toggle(index, item.name, "dialog");
-                      }}
-                    >
-                      <a
-                        style={{
-                          color: "black",
-                          background: this.myColor(index)
-                        }}
-                      >
-                        <span>{item.name}</span>
-                      </a>
-                    </li>
-                  );
-                })
-              : null}
+            {this.state.unitSections.map((item, index) => {
+              return (
+                <li
+                  className={
+                    index === 0
+                      ? `treeview active`
+                      : `treeview ${this.state.active}`
+                  }
+                  key={index}
+                  style={{
+                    background: this.myColor(index),
+                    cursor: "pointer"
+                  }}
+                  onClick={() => {
+                    this.toggle(index, item.sectionName, "dialog");
+                  }}
+                >
+                  <a
+                    style={{
+                      color: "black",
+                      background: this.myColor(index)
+                    }}
+                  >
+                    <span>{item.sectionName}</span>
+                  </a>
+                </li>
+              );
+            })}
 
-            {this.props.practiceSet
+            {/* {this.props.practiceSet
               ? this.props.practiceSet.map((item, index) => {
                   return (
                     <li
@@ -133,7 +151,7 @@ class Sidebar extends Component {
                     </li>
                   );
                 })
-              : null}
+              : null} */}
           </ul>
         </section>
       </aside>

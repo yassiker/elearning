@@ -19,7 +19,10 @@ class Header extends Component {
   render() {
     const { t } = this.props;
     return (
-      <header className="main-header">
+      <header
+        className="main-header"
+        style={{ borderWidth: 1, borderColor: "red" }}
+      >
         <a className="logo">
           <span className="logo-mini">
             <b>A</b>
@@ -30,13 +33,18 @@ class Header extends Component {
             Tamazight
           </span>
         </a>
-        <nav
-          className="navbar navbar-static-top"
+        <div
+          // className="navbar navbar-static-top"
           style={{
             flex: 1,
             flexDirection: "row",
             display: "flex",
-            justifyContent: "space-between"
+            justifyContent: "space-between",
+
+            borderBottomStyle: "solid",
+            borderBottomColor: "#E3E6E8",
+            borderBottomWidth: "1px",
+            zIndex: 1
           }}
         >
           {this.props.toponym ? (
@@ -159,7 +167,7 @@ class Header extends Component {
               </li>
             </ul>
           </div>
-        </nav>
+        </div>
       </header>
     );
   }
