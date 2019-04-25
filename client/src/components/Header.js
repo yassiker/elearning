@@ -111,9 +111,9 @@ class Header extends Component {
           {this.props.navigations
             ? this.props.navigations.map((item, index) => {
                 return (
-                  <Button primary key={index}>
+                  <Button primary key={index} style={{ margin: 10 }}>
                     <Link to={item.path} onClick={this.forceUpdate}>
-                      Primary
+                      {item.key}
                     </Link>
                   </Button>
                 );
