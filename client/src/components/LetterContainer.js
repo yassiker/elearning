@@ -5,25 +5,7 @@ class LetterContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      letters: [
-        "ⴻ",
-        "ⵣ",
-        "ⵔ",
-        "ⵜ",
-        "ⵢ",
-        "ⵉ",
-        "ⵃ",
-        "ⵇ",
-        "ⵙ",
-        "ⵅ",
-        "ⴷ",
-        "ⴼ",
-        "ⴳ",
-        "ⵀ",
-        "ⵊ",
-        "ⴽ",
-        "ⵍ"
-      ]
+      letters: ["ⴻ", "ⵣ", "ⵔ", "ⵜ", "ⵢ", "ⵉ", "ⵃ", "ⵇ", "ⵙ", "ⵅ", "ⴷ", "ⴼ", "ⴳ", "ⵀ", "ⵊ", "ⴽ", "ⵍ"]
     };
   }
 
@@ -46,12 +28,7 @@ class LetterContainer extends Component {
       >
         {this.state.letters.map((letter, index) => {
           return (
-            <span
-              key={index}
-              onClick={() => this.handleClick(letter)}
-              value={letter}
-              style={{ cursor: "pointer" }}
-            >
+            <span key={index} onClick={() => this.handleClick(letter)} value={letter} style={{ cursor: "pointer" }}>
               <Link to="/letter" onClick={this.forceUpdate}>
                 {letter}
               </Link>

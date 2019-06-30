@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import avatar from "../assets/images/avatar5.png";
 import { Link } from "react-router-dom";
-import { Button, Icon, Input } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 
 import { translate } from "react-i18next";
 
@@ -12,17 +11,13 @@ class Header extends Component {
   };
 
   onChange = event => {
-    console.log("event: " + event);
     this.props.onChangeValue(event);
   };
 
   render() {
     const { t } = this.props;
     return (
-      <header
-        className="main-header"
-        style={{ borderWidth: 1, borderColor: "red" }}
-      >
+      <header className="main-header" style={{ borderWidth: 1, borderColor: "red" }}>
         <a className="logo">
           <span className="logo-mini">
             <b>A</b>
@@ -34,20 +29,18 @@ class Header extends Component {
           </span>
         </a>
         <div
-          // className="navbar navbar-static-top"
           style={{
             flex: 1,
             flexDirection: "row",
             display: "flex",
             justifyContent: "space-between",
-
             borderBottomStyle: "solid",
             borderBottomColor: "#E3E6E8",
             borderBottomWidth: "1px",
             zIndex: 1
           }}
         >
-          {this.props.toponym ? (
+          {!this.props.noHeader && (
             <div
               style={{
                 flex: 1,
@@ -62,11 +55,7 @@ class Header extends Component {
                 margin: 5
               }}
             >
-              <i
-                className="fa fa-search"
-                aria-hidden="true"
-                style={{ fontSize: 25, color: "#4dd0e1" }}
-              />
+              <i className="fa fa-search" aria-hidden="true" style={{ fontSize: 25, color: "#4dd0e1" }} />
               <input
                 className="form-control"
                 type="text"
@@ -83,31 +72,30 @@ class Header extends Component {
                 onChange={this.onChange}
               />
             </div>
-          ) : null
-          // <div
-          //   style={{
-          //     flex: 1,
-          //     display: "flex",
-          //     alignItems: "center",
-          //     paddingLeft: 10
-          //   }}
-          // >
-          //   <Input size="mini" icon="search" placeholder="Search..." />
-          // </div>
-          }
+          )}
+
+          {!this.props.noHeader && (
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                justifyContent: "flex-end",
+                marginRight: 10,
+                margin: 5
+              }}
+            >
+              <button className="btn btn-success">
+                <Link to={`/tamazight/addWord/${null}`}>Add new Word</Link>
+              </button>
+            </div>
+          )}
           <div
             style={{
               flex: 1,
               display: "flex",
               justifyContent: "center"
-              // alignItems: "center"
             }}
-          >
-            {/* <Button icon labelPosition="right" color="twitter">
-              Add
-              <Icon name="plus square" />
-            </Button> */}
-          </div>
+          />
           {this.props.navigations
             ? this.props.navigations.map((item, index) => {
                 return (
@@ -120,17 +108,12 @@ class Header extends Component {
               })
             : null}
 
-          <div
-            className="navbar-custom-menu"
-            style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}
-          >
+          <div className="navbar-custom-menu" style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
             <ul className="nav navbar-nav">
               <li className="dropdown tasks-menu">
                 <a className="dropdown-toggle" data-toggle="dropdown">
                   <i className="fa fa-language" />
-                  <span className="label label-danger">
-                    {t("userLanguage")}
-                  </span>
+                  <span className="label label-danger">{t("userLanguage")}</span>
                 </a>
                 <ul className="dropdown-menu">
                   <li>
@@ -159,12 +142,12 @@ class Header extends Component {
                   </li>
                 </ul>
               </li>
-              <li className="dropdown user user-menu">
+              {/* <li className="dropdown user user-menu">
                 <a className="dropdown-toggle" data-toggle="dropdown">
                   <img src={avatar} className="user-image" alt="" />
                   <span className="hidden-xs">Yassine M'hanna</span>
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

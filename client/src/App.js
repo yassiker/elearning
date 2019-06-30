@@ -36,6 +36,7 @@ import AnthroContainer from "./containers/AnthroContainer";
 import TabContainer from "./containers/TabContainer";
 import PracticeAddition from "./containers/addDialogPractice";
 import WritingContainer from "./containers/writingContainer";
+// import LoginScreen from "./containers/loginScreen";
 
 class App extends Component {
   state = {
@@ -52,6 +53,7 @@ class App extends Component {
         <BrowserRouter>
           <div style={{ flex: 1, display: "flex" }}>
             <Switch>
+              {/* <Route path="/" component={LoginScreen} exact /> */}
               <Route path="/" component={Home} exact />
               <Route path="/temp" component={Template} />
               <Route path="/culture" component={CultureContainer} />
@@ -70,6 +72,7 @@ class App extends Component {
               <Route path="/translate" component={ForceUpdateGator} />
               <Route path="/unitTable" component={BaseUnitTable} />
               <Route path="/lexicon/:id" component={Lexicon} />
+              <Route path="/lexicon/all" component={Lexicon} />
               <Route path="/tamazight/addWord/:id" component={AddWord} />
               <Route path="/sample" component={Sample} />
               <Route path="/grammar" component={Grammar} />

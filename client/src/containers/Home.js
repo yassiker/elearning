@@ -58,14 +58,27 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      top: 0
+      top: 0,
+      message: ""
     };
   }
+
+  componentDidMount() {
+    // this.getDataFromDb();
+  }
+
+  getDataFromDb = () => {
+    fetch("/api/entities")
+      .then(response => response.json())
+      .then(json => this.setState({ message: json }));
+  };
+
   render() {
-    let top = 10;
+    let bottom = 0;
+    console.log("syntax: " + this.state.message);
     return (
       <div style={{ flex: 1, height: "100%" }}>
-        <Header />
+        <Header noHeader />
         <Sidebar updateDialog={this.updateUnitDialog} />
         <div
           className="content-wrapper"
@@ -114,25 +127,22 @@ class Home extends Component {
                       }}
                     >
                       {units.map((unit, index) => {
-                        top = top + 7.5;
+                        bottom = bottom + 7.5;
 
                         return (
                           <button
                             key={index}
                             className="map-point"
                             style={{
-                              top: `${top}%`,
+                              bottom: `${bottom}%`,
                               left: "48%",
                               opacity: 1
                             }}
                           >
-                            <div className="content">
+                            <div className="content" style={{ display: "flex", justifyContent: "center" }}>
                               <div className="centered-y">
-                                <h2>
-                                  <Link
-                                    to={`/${unit.path}`}
-                                    onClick={this.forceUpdate}
-                                  >
+                                <h2 style={{ justifyContent: "center", alignItems: "center", fontWeight: "bold" }}>
+                                  <Link to={`/${unit.path}`} onClick={this.forceUpdate}>
                                     {unit.unit}
                                   </Link>
                                 </h2>
@@ -169,7 +179,7 @@ class Home extends Component {
                       <p style={{ fontSize: 23 }}>Grammar</p>
                     </a>
                     <Link
-                      to={`/lexicon`}
+                      to={`/lexicon/all`}
                       onClick={this.forceUpdate}
                       style={{
                         left: "13%",
@@ -237,10 +247,7 @@ class Home extends Component {
                         zIndex: 1
                       }}
                     >
-                      <p
-                        onClick={() => console.log("Interviews")}
-                        style={{ fontSize: 23 }}
-                      >
+                      <p onClick={() => console.log("Interviews")} style={{ fontSize: 23 }}>
                         Interviews and Dialogs
                       </p>
                     </a>

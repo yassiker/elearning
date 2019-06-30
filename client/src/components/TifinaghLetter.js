@@ -12,9 +12,12 @@ class TifinaghLetter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      letters: null
+      letters: null,
+      play: false
     };
   }
+
+  audio = new Audio(require("../assets/sounds/plane.wav"));
 
   componentWillMount() {
     this.setState({
@@ -22,26 +25,35 @@ class TifinaghLetter extends Component {
     });
   }
 
+  togglePlay = () => {
+    this.setState({ play: !this.state.play }, () => {
+      this.state.play ? this.audio.play() : this.audio.pause();
+    });
+  };
+
   renderLetter = () => {
     return this.state.letters.map((item, index) => {
       return (
         <div className="item" key={index}>
-          <div style={{ flex: "1", display: "flex", flexDirection: "column" }}>
+          <div style={{ flex: "1", display: "flex", flexDirection: "column", backgroundColor: "red" }}>
             <h1
               style={{
-                flex: "1",
+                flex: 1,
+                background: "orange",
+                color: "white",
                 display: "flex",
+                alignItems: "center",
                 justifyContent: "center",
-                alignItems: "center"
+                marginBottom: 0
               }}
             >
               {item.latin}
             </h1>
             <h1
               style={{
-                flex: "1",
-                background: "white",
-                color: "green",
+                flex: 1,
+                background: "#00a65a",
+                color: "white",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -56,14 +68,13 @@ class TifinaghLetter extends Component {
               style={{
                 flex: "1",
                 display: "flex",
-                backgroundColor: "white",
-                justifyContent: "center"
+                backgroundColor: "#00a65a",
+                justifyContent: "center",
+                width: "100%",
+                height: "100%"
               }}
             >
-              <img
-                src={require(`../assets/images/letters/${item.letterIcon}`)}
-                alt=""
-              />
+              <img src={require(`../assets/images/letters/${item.letterIcon}`)} alt="" style={{ maxWidth: "100%", maxHeight: "100%" }} />
             </div>
 
             <div
@@ -72,13 +83,11 @@ class TifinaghLetter extends Component {
                 cursor: "pointer",
                 justifyContent: "center",
                 display: "flex",
-                alignItems: "center"
+                alignItems: "center",
+                background: "orange"
               }}
             >
-              <i
-                className="fa fa-volume-up"
-                style={{ fontSize: "6rem", color: "orange" }}
-              />
+              <i className="fa fa-volume-up" style={{ fontSize: "6rem", color: "white" }} onClick={this.togglePlay} />
             </div>
           </div>
         </div>
@@ -93,7 +102,8 @@ class TifinaghLetter extends Component {
     return (
       <div style={{ flex: 1, height: "100%" }}>
         <Header />
-        <Sidebar updateDialog={this.updateUnitDialog} />
+        {/* <Sidebar updateDialog={this.updateUnitDialog} /> */}
+        <Sidebar unit0 />
         <div
           className="content-wrapper"
           style={{

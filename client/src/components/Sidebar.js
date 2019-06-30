@@ -79,52 +79,51 @@ class Sidebar extends Component {
       <aside className="main-sidebar">
         <section className="sidebar">
           <ul className="sidebar-menu">
-            <li
-              className="header"
-              style={{
-                height: 57,
-                backgroundColor: "white",
-                fontSize: 20,
-                color: "#00a65a",
-                display: "flex",
-                justifyContent: "center",
-                borderLeft: "3px solid red",
-                borderRight: "3px solid #00a65a",
-                margin: 0,
-                alignItems: "center"
-              }}
-            >
-              {"Unit number"}
-            </li>
+            {this.props.login && (
+              <li
+                className="header"
+                style={{
+                  height: 57,
+                  backgroundColor: "white",
+                  fontSize: 20,
+                  color: "#00a65a",
+                  display: "flex",
+                  justifyContent: "center",
+                  borderLeft: "3px solid red",
+                  borderRight: "3px solid #00a65a",
+                  margin: 0,
+                  alignItems: "center"
+                }}
+              >
+                {"Unit number"}
+              </li>
+            )}
 
-            {this.state.unitSections.map((item, index) => {
-              return (
-                <li
-                  className={
-                    index === 0
-                      ? `treeview active`
-                      : `treeview ${this.state.active}`
-                  }
-                  key={index}
-                  style={{
-                    background: this.myColor(index),
-                    cursor: "pointer"
-                  }}
-                  onClick={() => {
-                    this.toggle(index, item.sectionName, "dialog");
-                  }}
-                >
-                  <a
+            {this.props.login &&
+              this.state.unitSections.map((item, index) => {
+                return (
+                  <li
+                    className={index === 0 ? `treeview active` : `treeview ${this.state.active}`}
+                    key={index}
                     style={{
-                      color: "black",
-                      background: this.myColor(index)
+                      background: this.myColor(index),
+                      cursor: "pointer"
+                    }}
+                    onClick={() => {
+                      this.toggle(index, item.sectionName, "dialog");
                     }}
                   >
-                    <span>{item.sectionName}</span>
-                  </a>
-                </li>
-              );
-            })}
+                    <a
+                      style={{
+                        color: "black",
+                        background: this.myColor(index)
+                      }}
+                    >
+                      <span>{item.sectionName}</span>
+                    </a>
+                  </li>
+                );
+              })}
 
             {/* {this.props.practiceSet
               ? this.props.practiceSet.map((item, index) => {

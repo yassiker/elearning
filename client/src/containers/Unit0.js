@@ -66,10 +66,7 @@ class BaseUnit extends Component {
                   marginRight: 5
                 }}
               >
-                <button
-                  className="btn btn-success"
-                  onClick={this.displayLetterList}
-                >
+                <button className="btn btn-success" onClick={this.displayLetterList}>
                   <Link to="/letter" onClick={this.forceUpdate}>
                     See List
                   </Link>
@@ -81,12 +78,16 @@ class BaseUnit extends Component {
               style={{
                 flex: 7,
                 display: "flex",
-                margin: 10
+                margin: 10,
+                padding: 10,
+                backgroundImage: `url(${board})`,
+                backgroundSize: "100% 100%",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center"
               }}
             >
               <div
                 style={{
-                  position: "absolute",
                   display: "flex",
                   flex: 1,
                   zIndex: 1000
@@ -94,7 +95,7 @@ class BaseUnit extends Component {
               >
                 <LetterContainer />
               </div>
-              <img style={{ width: "100%" }} src={board} alt="" />
+              {/* <img style={{ width: "50%" }} src={board} alt="" /> */}
             </div>
           </div>
         </div>
