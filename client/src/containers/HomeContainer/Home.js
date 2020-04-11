@@ -9,8 +9,13 @@ import "./Home.css";
 import Background from "../../assets/images/cedarBack.jpg";
 import { units } from "./homeConstants";
 import homeStyles from "./homeStyle";
+import { connect } from "react-redux";
+import { selectUserRole } from "../../store/User/selectors";
 
-class Home extends Component {
+type Props = {
+  userRole: string
+};
+class Home extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,6 +36,7 @@ class Home extends Component {
 
   render() {
     let bottom = 0;
+    console.log("this.props:" + JSON.stringify(this.props));
     return (
       <div style={homeStyles.container}>
         <Header noHeader />
@@ -71,7 +77,7 @@ class Home extends Component {
                             className="map-point"
                             style={{
                               bottom: `${bottom}%`,
-                              left: "49%",
+                              left: "47.6%",
                               opacity: 1
                             }}
                           >
@@ -213,4 +219,17 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+
+const mapStateToProps = state => {
+  return {
+    userRole: selectUserRole()(state)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

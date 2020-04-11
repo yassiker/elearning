@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 import "./Main.css";
 import "./assets/skins/skin-greens.css";
 import { translate } from "react-i18next";
-
 import CultureContainer from "./containers/CultureContainer";
 import Unit from "./containers/Unit";
 import Unit0 from "./containers/Unit0";
@@ -57,11 +56,7 @@ class App extends Component {
             <Switch>
               {/* <Route path="/" component={LoginScreen} exact /> */}
               <Route path="/" component={LoginContainer} exact />
-              <Route
-                path="/forgetPassword"
-                component={ForgetLoginCredentials}
-                exact
-              />
+              <Route path="/forgetPassword" component={ForgetLoginCredentials} exact />
               <Route path="/signup" component={SignUpScreen} exact />
               <Route path="/home" component={Home} exact />
               <Route path="/temp" component={Template} />
@@ -106,3 +101,7 @@ class App extends Component {
 }
 
 export default translate("common")(withRouter(App));
+// export default connect(
+// 	mapStateToProps,
+// 	mapDispatchToProps,
+// )(App);

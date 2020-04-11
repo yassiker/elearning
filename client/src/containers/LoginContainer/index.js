@@ -3,14 +3,19 @@ import React, { Component } from "react";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import LoginComponent from "./loginScreen";
+import { connect } from "react-redux";
+import { selectAttemptLogin } from "../../store/login/selectors";
+import LoginActions from "../../store/login/actions";
 
-class LoginContainer extends Component {
+type Props = {
+  attemptLoginLoading: string
+};
+class LoginContainer extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
       userName: null,
       password: null,
-      loading: false,
       emailFieldIsEmpty: false,
       passwordFieldIsEmpty: false
     };
@@ -33,11 +38,10 @@ class LoginContainer extends Component {
 
   submitLogin = () => {
     const { userName, password } = this.state;
-    this.setState({
-      loading: true
-    });
-    if (userName && userName.length > 0 && password && password.length > 0)
+    if (userName && userName.length > 0 && password && password.length > 0) {
+      this.props.attemptLogin(userName, password);
       this.props.history.push("/home");
+    }
     if (!userName)
       this.setState({
         emailFieldIsEmpty: true
@@ -49,7 +53,8 @@ class LoginContainer extends Component {
   };
 
   render() {
-    const { loading, passwordFieldIsEmpty, emailFieldIsEmpty } = this.state;
+    const { passwordFieldIsEmpty, emailFieldIsEmpty } = this.state;
+    const { attemptLoginLoading } = this.props;
     return (
       <div style={{ flex: 1, height: "100%" }}>
         <Header noHeader />
@@ -60,7 +65,7 @@ class LoginContainer extends Component {
               onChangePassword={event => this.onChangePassword(event)}
               onChangeUserName={event => this.onChangeUserName(event)}
               submitLogin={this.submitLogin}
-              loading={loading}
+              loading={!attemptLoginLoading}
               passwordFieldIsEmpty={passwordFieldIsEmpty}
               emailFieldIsEmpty={emailFieldIsEmpty}
             />
@@ -71,4 +76,19 @@ class LoginContainer extends Component {
   }
 }
 
-export default LoginContainer;
+const mapDispatchToProps = dispatch => {
+  return {
+    attemptLogin: (userName, password) => dispatch(LoginActions.loginRequest(userName, password))
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    attemptLoginLoading: selectAttemptLogin()(state)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginContainer);

@@ -4,7 +4,7 @@ import { Button } from "semantic-ui-react";
 
 import { translate } from "react-i18next";
 import { AccountMenu } from "./AccountMenu";
-import { Route, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
@@ -57,20 +57,8 @@ class Header extends Component {
         <div style={headerContent}>
           {false && (
             <div style={searchContainer}>
-              <i
-                className="fa fa-search"
-                aria-hidden="true"
-                style={{ fontSize: 25, color: "#4dd0e1" }}
-              />
-              <input
-                className="form-control"
-                type="text"
-                placeholder="Type here"
-                aria-label="Search"
-                style={searchInput}
-                value={this.props.word}
-                onChange={this.onChange}
-              />
+              <i className="fa fa-search" aria-hidden="true" style={{ fontSize: 25, color: "#4dd0e1" }} />
+              <input className="form-control" type="text" placeholder="Type here" aria-label="Search" style={searchInput} value={this.props.word} onChange={this.onChange} />
             </div>
           )}
 
@@ -108,17 +96,12 @@ class Header extends Component {
               })
             : null}
 
-          <div
-            className="navbar-custom-menu"
-            style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}
-          >
+          <div className="navbar-custom-menu" style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
             <ul className="nav navbar-nav">
               <li className="dropdown tasks-menu">
                 <a className="dropdown-toggle" data-toggle="dropdown">
                   <i className="fa fa-language" />
-                  <span className="label label-danger">
-                    {t("userLanguage")}
-                  </span>
+                  <span className="label label-danger">{t("userLanguage")}</span>
                 </a>
                 <ul className="dropdown-menu">
                   <li>
@@ -148,11 +131,7 @@ class Header extends Component {
                 </ul>
               </li>
             </ul>
-            <AccountMenu
-              logout={this.handleLogout}
-              switchModes={this.switchModes}
-              applicationMode={applicationMode}
-            />
+            <AccountMenu logout={this.handleLogout} switchModes={this.switchModes} applicationMode={applicationMode} />
           </div>
         </div>
       </header>
