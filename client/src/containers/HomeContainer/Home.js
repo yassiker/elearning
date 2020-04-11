@@ -1,59 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import Header from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
 
 import "./Home.css";
 
-import Background from "../assets/images/cedarBack.jpg";
+import Background from "../../assets/images/cedarBack.jpg";
+import { units } from "./homeConstants";
+import homeStyles from "./homeStyle";
 
-const units = [
-  {
-    unit: "Unit 0",
-    path: "unit0"
-  },
-  {
-    unit: "Unit 1",
-    path: "unit"
-  },
-  {
-    unit: "Unit 2",
-    path: "unit"
-  },
-  {
-    unit: "Unit 3",
-    path: "unit"
-  },
-  {
-    unit: "Unit 4",
-    path: "unit"
-  },
-  {
-    unit: "Unit 5",
-    path: "unit"
-  },
-  {
-    unit: "Unit 6",
-    path: "unit"
-  },
-  {
-    unit: "Unit 7",
-    path: "unit"
-  },
-  {
-    unit: "Unit 8",
-    path: "unit"
-  },
-  {
-    unit: "Unit 9",
-    path: "unit"
-  },
-  {
-    unit: "Unit 10",
-    path: "unit"
-  }
-];
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -75,25 +31,13 @@ class Home extends Component {
 
   render() {
     let bottom = 0;
-    console.log("syntax: " + this.state.message);
     return (
-      <div style={{ flex: 1, height: "100%" }}>
+      <div style={homeStyles.container}>
         <Header noHeader />
         <Sidebar updateDialog={this.updateUnitDialog} />
-        <div
-          className="content-wrapper"
-          style={{
-            display: "flex",
-            flex: 1
-          }}
-        >
-          <div style={{ flex: 1, display: "flex" }}>
-            <section
-              style={{
-                flex: 1,
-                display: "flex"
-              }}
-            >
+        <div className="content-wrapper" style={homeStyles.contentWrapper}>
+          <div style={homeStyles.contentWrapper}>
+            <section style={homeStyles.contentWrapper}>
               <div
                 style={{
                   flex: 1,
@@ -101,14 +45,7 @@ class Home extends Component {
                   display: "flex"
                 }}
               >
-                <div
-                  className="distribution-map"
-                  style={{
-                    flex: 1,
-
-                    display: "flex"
-                  }}
-                >
+                <div className="distribution-map" style={homeStyles.contentWrapper}>
                   <div
                     style={{
                       flex: 1,
@@ -128,20 +65,31 @@ class Home extends Component {
                     >
                       {units.map((unit, index) => {
                         bottom = bottom + 7.5;
-
                         return (
                           <button
                             key={index}
                             className="map-point"
                             style={{
                               bottom: `${bottom}%`,
-                              left: "48%",
+                              left: "49%",
                               opacity: 1
                             }}
                           >
-                            <div className="content" style={{ display: "flex", justifyContent: "center" }}>
+                            <div
+                              className="content"
+                              style={{
+                                display: "flex",
+                                justifyContent: "center"
+                              }}
+                            >
                               <div className="centered-y">
-                                <h2 style={{ justifyContent: "center", alignItems: "center", fontWeight: "bold" }}>
+                                <h2
+                                  style={{
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    fontWeight: "bold"
+                                  }}
+                                >
                                   <Link to={`/${unit.path}`} onClick={this.forceUpdate}>
                                     {unit.unit}
                                   </Link>
@@ -153,29 +101,8 @@ class Home extends Component {
                       })}
                     </div>
 
-                    <div
-                      className="verticalLine"
-                      style={{
-                        borderLeft: "22px solid white",
-                        borderRight: "22px solid white",
-                        height: "100%",
-                        left: "45.9%",
-                        position: "absolute",
-                        top: "0px",
-                        zIndex: 0
-                      }}
-                    />
-
-                    <a
-                      style={{
-                        top: "68%",
-                        left: "7.5%",
-                        position: "absolute",
-                        color: "darkorange",
-                        cursor: "pointer",
-                        zIndex: 1
-                      }}
-                    >
+                    <div className="verticalLine" style={homeStyles.unitContainer} />
+                    <a style={homeStyles.unit}>
                       <p style={{ fontSize: 23 }}>Grammar</p>
                     </a>
                     <Link

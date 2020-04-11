@@ -84,6 +84,7 @@ class LexiconContainer extends Component {
         if (item[0].properties.lex && item[0].properties.lex.length > 0) {
           return item[0].properties.lex.toLowerCase().startsWith(this.state.search.toLowerCase()) === true;
         }
+        return null;
       });
 
     return (

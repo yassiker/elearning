@@ -119,13 +119,20 @@ a:active {
   opacity: 0.8;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -moz-transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
-  -o-transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
-  -webkit-transition: opacity 0.25s ease-in-out, width 0.25s ease-in-out, height 0.25s ease-in-out, z-index 0.25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out 0.25s,
+    width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s,
+    z-index 0.25s ease-in-out 0.25s;
+  -o-transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s,
+    height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
+  -webkit-transition: opacity 0.25s ease-in-out, width 0.25s ease-in-out,
+    height 0.25s ease-in-out, z-index 0.25s ease-in-out;
   -webkit-transition-delay: 0.25s, 0.25s, 0.25s, 0.25s;
-  -webkit-transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
-  transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
-  background: url("pine.jpg");
+  -webkit-transition: opacity 0.25s ease-in-out 0.25s,
+    width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s,
+    z-index 0.25s ease-in-out 0.25s;
+  transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s,
+    height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
+  background: url("../pine.jpg");
   border: 3px solid white;
 }
 
@@ -153,20 +160,27 @@ a:active {
   border-radius: 60px;
   color: #e5e5e5;
   z-index: 1;
-  -webkit-transition: opacity 0.25s ease-in-out, width 0.25s ease-in-out, height 0.25s ease-in-out;
-  transition: opacity 0.25s ease-in-out, width 0.25s ease-in-out, height 0.25s ease-in-out;
+  -webkit-transition: opacity 0.25s ease-in-out, width 0.25s ease-in-out,
+    height 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out, width 0.25s ease-in-out,
+    height 0.25s ease-in-out;
 }
 
 .distribution-map .map-point:active .content,
 .distribution-map .map-point:focus .content {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
-  -moz-transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
-  -o-transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
-  -webkit-transition: opacity 0.25s ease-in-out, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out,
+    overflow 0.25s ease-in-out;
+  -o-transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out,
+    overflow 0.25s ease-in-out;
+  -webkit-transition: opacity 0.25s ease-in-out, height 0.25s ease-in-out,
+    overflow 0.25s ease-in-out;
   -webkit-transition-delay: 0.25s, 0s, 0s;
-  -webkit-transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
-  transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
+  -webkit-transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out,
+    overflow 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out,
+    overflow 0.25s ease-in-out;
   overflow: hidden;
 }
 

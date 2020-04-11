@@ -1,66 +1,63 @@
-const tifinaghConstants = {
+export const consonants = {
+  letters: [
+    {
+      tifinagh: "ⵣ",
+      latin: "B",
+      letterIcon: "yal.jpg",
+      arabic: "Arabic",
+      sound: "yi"
+    }
+  ]
+};
+
+export const vowels = {
   letters: [
     {
       tifinagh: "ⴰ",
       latin: "A",
       letterIcon: "yaj.jpg",
-      arabic: " ياق"
-    },
-    {
-      tifinagh: "ⵣ",
-      latin: "B",
-      letterIcon: "yal.jpg",
-      arabic: "Arabic"
-    },
-    {
-      tifinagh: "ⴻ",
-      latin: "C",
-      letterIcon: "yal.jpg",
-      arabic: "Arabic"
-    },
-    {
-      tifinagh: "ⵔ",
-      latin: "D",
-      letterIcon: "yal.jpg",
-      arabic: "Arabic"
-    },
-    {
-      tifinagh: "ⵜ",
-      latin: "E",
-      letterIcon: "yal.jpg",
-      arabic: "Arabic"
-    },
-    {
-      tifinagh: "ⵢ",
-      latin: "F",
-      letterIcon: "yal.jpg",
-      arabic: "Arabic"
-    },
-    {
-      tifinagh: "ⵓ",
-      latin: "G",
-      letterIcon: "yal.jpg",
-      arabic: "Arabic"
+      arabic: " ا",
+      sound: "ya"
     },
     {
       tifinagh: "ⵉ",
-      latin: "H",
-      letterIcon: "yal.jpg",
-      arabic: "Arabic"
-    },
-    {
-      tifinagh: "ⴷ",
       latin: "I",
-      letterIcon: "yal.jpg",
-      arabic: "Arabic"
+      letterIcon: "yaj.jpg",
+      arabic: " ي",
+      sound: "yi"
     },
     {
-      tifinagh: "ⵖ",
-      latin: "J",
-      letterIcon: "yal.jpg",
-      arabic: "Arabic"
+      tifinagh: "ⵓ",
+      latin: "U",
+      letterIcon: "yaj.jpg",
+      arabic: " و",
+      sound: "yu"
+    },
+    {
+      tifinagh: "ⴻ",
+      latin: "E",
+      letterIcon: "yaj.jpg",
+      arabic: " ا",
+      sound: "ye"
     }
   ]
 };
 
-export default tifinaghConstants;
+export const semivowels = {
+  letters: [
+    {
+      tifinagh: "ⵡ",
+      latin: "w",
+      letterIcon: "yaj.jpg",
+      arabic: " و",
+      sound: "yaw"
+    },
+    {
+      tifinagh: "ⵢ",
+      latin: "y",
+      letterIcon: "yaj.jpg",
+      arabic: " ي",
+      sound: "yay"
+    }
+  ]
+};

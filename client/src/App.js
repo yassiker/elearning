@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 import "./Main.css";
 import "./assets/skins/skin-greens.css";
 import { translate } from "react-i18next";
@@ -9,7 +9,7 @@ import Unit from "./containers/Unit";
 import Unit0 from "./containers/Unit0";
 import Anthroponym from "./containers/Anthroponym";
 import ToponymContainer from "./containers/Toponym";
-import Home from "./containers/Home";
+import Home from "./containers/HomeContainer/Home";
 import Template from "./containers/Template";
 import DialogPractice from "./containers/DialogPractice";
 import UnitDialog from "./containers/UnitDialog";
@@ -36,7 +36,9 @@ import AnthroContainer from "./containers/AnthroContainer";
 import TabContainer from "./containers/TabContainer";
 import PracticeAddition from "./containers/addDialogPractice";
 import WritingContainer from "./containers/writingContainer";
-// import LoginScreen from "./containers/loginScreen";
+import LoginContainer from "./containers/LoginContainer/index";
+import ForgetLoginCredentials from "./containers/LoginContainer/forgetLoginPassword";
+import SignUpScreen from "./containers/LoginContainer/signUp";
 
 class App extends Component {
   state = {
@@ -54,7 +56,14 @@ class App extends Component {
           <div style={{ flex: 1, display: "flex" }}>
             <Switch>
               {/* <Route path="/" component={LoginScreen} exact /> */}
-              <Route path="/" component={Home} exact />
+              <Route path="/" component={LoginContainer} exact />
+              <Route
+                path="/forgetPassword"
+                component={ForgetLoginCredentials}
+                exact
+              />
+              <Route path="/signup" component={SignUpScreen} exact />
+              <Route path="/home" component={Home} exact />
               <Route path="/temp" component={Template} />
               <Route path="/culture" component={CultureContainer} />
               <Route path="/unit" component={Unit} />
@@ -87,6 +96,7 @@ class App extends Component {
               <Route path="/anthroContainer" component={AnthroContainer} />
               <Route path="/tab" component={TabContainer} />
               <Route path="/addPractice" component={PracticeAddition} />
+              <Route path="*" component={() => "404 NOT FOUND"} />
             </Switch>
           </div>
         </BrowserRouter>
@@ -95,4 +105,4 @@ class App extends Component {
   }
 }
 
-export default translate("common")(App);
+export default translate("common")(withRouter(App));
