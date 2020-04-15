@@ -84,8 +84,8 @@ const LoginComponent = ({ onChangePassword, onChangeUserName, submitLogin, loadi
             style={{ backgroundColor: Colors.green, color: Colors.white }}
             disabled={loading}
           >
-            {loading && <CircularProgress size={14} style={{ color: Colors.white }} />}
-            {!loading && "Sign In"}
+            {/* {loading && <CircularProgress size={14} style={{ color: Colors.white }} />} */}
+            {"Sign In"}
           </Button>
           <Grid container>
             <Grid item xs>

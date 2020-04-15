@@ -5,7 +5,7 @@ import "./assets/skins/skin-greens.css";
 import { translate } from "react-i18next";
 import CultureContainer from "./containers/CultureContainer";
 import Unit from "./containers/Unit";
-import Unit0 from "./containers/Unit0";
+import Unit0 from "./containers//BaseUnit/Unit0";
 import Anthroponym from "./containers/Anthroponym";
 import ToponymContainer from "./containers/Toponym";
 import Home from "./containers/HomeContainer/Home";
@@ -15,7 +15,7 @@ import UnitDialog from "./containers/UnitDialog";
 import ReadingContainer from "./containers/ReadingContainer";
 import ReadingAddition from "./containers/addUnitReading";
 import WritingAddition from "./containers/addWriting";
-import TifinaghLetter from "./components/TifinaghLetter";
+import TifinaghLetter from "./containers/BaseUnit/TifinaghLetter";
 import ForceUpdateGator from "./containers/TranslationExample";
 import BaseUnitTable from "./components/BaseUnitTable";
 import Lexicon from "./containers/Lexicon";
@@ -41,7 +41,7 @@ import SignUpScreen from "./containers/LoginContainer/signUp";
 
 class App extends Component {
   state = {
-    response: ""
+    response: "",
   };
 
   componentWillReceiveProps(NewProps) {

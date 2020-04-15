@@ -1,13 +1,55 @@
 export const consonants = {
   letters: [
     {
-      tifinagh: "ⵣ",
+      tifinagh: "ⴱ",
       latin: "B",
       letterIcon: "yal.jpg",
       arabic: "Arabic",
-      sound: "yi"
-    }
-  ]
+      sound: "yi",
+    },
+    {
+      tifinagh: "ⴳ",
+      latin: "G",
+      letterIcon: "yal.jpg",
+      arabic: "Arabic",
+      sound: "yi",
+    },
+    {
+      tifinagh: "ⴷ",
+      latin: "D",
+      letterIcon: "yal.jpg",
+      arabic: "Arabic",
+      sound: "yi",
+    },
+    {
+      tifinagh: "ⴼ",
+      latin: "F",
+      letterIcon: "yal.jpg",
+      arabic: "Arabic",
+      sound: "yi",
+    },
+    {
+      tifinagh: "ⵊ",
+      latin: "J",
+      letterIcon: "yal.jpg",
+      arabic: "Arabic",
+      sound: "yi",
+    },
+    {
+      tifinagh: "ⴽ",
+      latin: "K",
+      letterIcon: "yal.jpg",
+      arabic: "Arabic",
+      sound: "yi",
+    },
+    {
+      tifinagh: "ⵍ",
+      latin: "L",
+      letterIcon: "yal.jpg",
+      arabic: "Arabic",
+      sound: "yi",
+    },
+  ],
 };
 
 export const vowels = {
@@ -17,30 +59,30 @@ export const vowels = {
       latin: "A",
       letterIcon: "yaj.jpg",
       arabic: " ا",
-      sound: "ya"
+      sound: "ya",
     },
     {
       tifinagh: "ⵉ",
       latin: "I",
       letterIcon: "yaj.jpg",
       arabic: " ي",
-      sound: "yi"
+      sound: "yi",
     },
     {
       tifinagh: "ⵓ",
       latin: "U",
       letterIcon: "yaj.jpg",
       arabic: " و",
-      sound: "yu"
+      sound: "yu",
     },
     {
       tifinagh: "ⴻ",
       latin: "E",
       letterIcon: "yaj.jpg",
       arabic: " ا",
-      sound: "ye"
-    }
-  ]
+      sound: "ye",
+    },
+  ],
 };
 
 export const semivowels = {
@@ -50,14 +92,14 @@ export const semivowels = {
       latin: "w",
       letterIcon: "yaj.jpg",
       arabic: " و",
-      sound: "yaw"
+      sound: "yaw",
     },
     {
       tifinagh: "ⵢ",
       latin: "y",
       letterIcon: "yaj.jpg",
       arabic: " ي",
-      sound: "yay"
-    }
-  ]
+      sound: "yay",
+    },
+  ],
 };

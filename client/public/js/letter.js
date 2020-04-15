@@ -12,7 +12,7 @@ $(document).ready(function() {
       autoplay: false,
       dots: false,
       loop: true,
-      responsiveRefreshRate: 200
+      responsiveRefreshRate: 200,
     })
     .on("changed.owl.carousel", syncPosition);
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
       smartSpeed: 200,
       slideSpeed: 500,
       slideBy: 1, //alternatively you can slide by 1, this way the active slide will stick to the first item in the second carousel
-      responsiveRefreshRate: 100
+      responsiveRefreshRate: 100,
     })
     .on("changed.owl.carousel", syncPosition2);
 
@@ -95,7 +95,6 @@ $(document).ready(function() {
   sync2.on("click", ".owl-item", function(e) {
     e.preventDefault();
     var number = $(this).index();
-    console.log("hhhhhhhh" + number);
     if (number === 1) {
       sync1.data("owl.carousel").to(0, 100, true);
     }

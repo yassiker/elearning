@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Unit0 from "./Unit0";
+import Unit0 from "./BaseUnit/Unit0";
 
 import Background from "../assets/images/boxed-bg.jpg";
 

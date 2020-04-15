@@ -199,9 +199,9 @@ class BaseUnitTable extends Component {
                             justifyContent: "space-between"
                           }}
                         >
-                          <div style={{ color: "brown" }}>A.....</div>
-                          <div style={{ color: "red" }}>...A...</div>
-                          <div style={{ color: "orange" }}>.....A</div>
+                          <div style={{ color: "brown" }}>Start</div>
+                          <div style={{ color: "red" }}>Middle</div>
+                          <div style={{ color: "orange" }}>End</div>
                         </div>
                       </div>
                     </th>

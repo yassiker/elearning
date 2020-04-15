@@ -106,11 +106,11 @@ class Header extends Component {
                 <ul className="dropdown-menu">
                   <li>
                     <ul className="menu">
-                      <li onClick={() => this.changeLang("tm")}>
+                      {/* <li onClick={() => this.changeLang("tm")}>
                         <a>
                           <h3>Tamazight</h3>
                         </a>
-                      </li>
+                      </li> */}
                       <li onClick={() => this.changeLang("ar")}>
                         <a>
                           <h3>{t("languageMenu.ar")}</h3>
