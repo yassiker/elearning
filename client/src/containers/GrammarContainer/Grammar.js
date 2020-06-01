@@ -1,77 +1,77 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import cedarLogo from "../assets/images/cedfin.png";
-import Header from "../components/Header";
-import { Radio } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Slider from "react-slick";
+import cedarLogo from '../../assets/images/cedfin.png';
+import Header from '../../components/Header';
+import { Radio } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
 
 const material = [
   {
-    name: "Lesson 1",
-    videoSource: require("../assets/videos/dialog1.mp4")
+    name: 'Lesson 1',
+    videoSource: require('../../assets/videos/dialog1.mp4'),
   },
   {
-    name: "Lesson 2",
-    videoSource: require("../assets/videos/dialog2.mp4")
-  }
+    name: 'Lesson 2',
+    videoSource: require('../../assets/videos/dialog2.mp4'),
+  },
 ];
 
 const pronouns = [
   {
-    tfinaghP: "ⵏⴽⴽ",
-    localeP: "I",
-    prefix: "",
-    suffix: ""
+    tfinaghP: 'ⵏⴽⴽ',
+    localeP: 'I',
+    prefix: '',
+    suffix: '',
   },
   {
-    tfinaghP: "ⵛⴳⴳ",
-    localeP: "YOU",
-    prefix: "",
-    suffix: ""
+    tfinaghP: 'ⵛⴳⴳ',
+    localeP: 'YOU',
+    prefix: '',
+    suffix: '',
   },
   {
-    tfinaghP: "ⵏⵜⵜⴰ",
-    localeP: "HE",
-    prefix: "",
-    suffix: ""
+    tfinaghP: 'ⵏⵜⵜⴰ',
+    localeP: 'HE',
+    prefix: '',
+    suffix: '',
   },
   {
-    tfinaghP: "ⵏⵜⵜⴰⵜ",
-    localeP: "SHE",
-    prefix: "",
-    suffix: ""
+    tfinaghP: 'ⵏⵜⵜⴰⵜ',
+    localeP: 'SHE',
+    prefix: '',
+    suffix: '',
   },
   {
-    tfinaghP: "ⵏⴽⵏⵉ",
-    localeP: "WE",
-    prefix: "",
-    suffix: ""
+    tfinaghP: 'ⵏⴽⵏⵉ',
+    localeP: 'WE',
+    prefix: '',
+    suffix: '',
   },
   {
-    tfinaghP: "ⴽⵏⵏⵉ",
-    localeP: "YOU(m)",
-    prefix: "",
-    suffix: ""
+    tfinaghP: 'ⴽⵏⵏⵉ',
+    localeP: 'YOU(m)',
+    prefix: '',
+    suffix: '',
   },
   {
-    tfinaghP: "ⴽⵏⵏⵉⵏⵜⵉ",
-    localeP: "YOU(f)",
-    prefix: "",
-    suffix: ""
+    tfinaghP: 'ⴽⵏⵏⵉⵏⵜⵉ',
+    localeP: 'YOU(f)',
+    prefix: '',
+    suffix: '',
   },
   {
-    tfinaghP: "ⵏⵉⵜⵏⵉ",
-    localeP: "THEY(m)",
-    prefix: "",
-    suffix: ""
+    tfinaghP: 'ⵏⵉⵜⵏⵉ',
+    localeP: 'THEY(m)',
+    prefix: '',
+    suffix: '',
   },
   {
-    tfinaghP: "ⵏⵉⵜⵏⵜⵉ",
-    localeP: "THEY(f)",
-    prefix: "",
-    suffix: ""
-  }
+    tfinaghP: 'ⵏⵉⵜⵏⵜⵉ',
+    localeP: 'THEY(f)',
+    prefix: '',
+    suffix: '',
+  },
 ];
 
 class Grammar extends Component {
@@ -85,7 +85,7 @@ class Grammar extends Component {
       section: 0,
       selectedVideo: material[0].name,
       videoSource: material[0].videoSource,
-      key: "dialog"
+      key: 'dialog',
     };
   }
 
@@ -98,23 +98,23 @@ class Grammar extends Component {
               className="header"
               style={{
                 height: 57,
-                backgroundColor: "white",
+                backgroundColor: 'white',
                 fontSize: 20,
-                color: "#00a65a",
-                display: "flex",
-                justifyContent: "center",
-                borderLeft: "3px solid red",
-                borderRight: "3px solid #00a65a",
-                margin: 0
+                color: '#00a65a',
+                display: 'flex',
+                justifyContent: 'center',
+                borderLeft: '3px solid red',
+                borderRight: '3px solid #00a65a',
+                margin: 0,
               }}
             >
-              {"Unit"}
+              {'Unit'}
             </li>
             <li className="treeview">
               <a
                 onClick={() =>
                   this.setState({
-                    section: 0
+                    section: 0,
                   })
                 }
               >
@@ -129,11 +129,11 @@ class Grammar extends Component {
                     onClick={() =>
                       this.setState({
                         videoSource: material[0].videoSource,
-                        selectedVideo: material[0].name
+                        selectedVideo: material[0].name,
                       })
                     }
                   >
-                    {" "}
+                    {' '}
                     <Radio name="radioGroup">Lesson 1</Radio>
                   </a>
                 </li>
@@ -142,7 +142,7 @@ class Grammar extends Component {
                     onClick={() =>
                       this.setState({
                         videoSource: material[1].videoSource,
-                        selectedVideo: material[1].name
+                        selectedVideo: material[1].name,
                       })
                     }
                   >
@@ -156,7 +156,7 @@ class Grammar extends Component {
               <a
                 onClick={() =>
                   this.setState({
-                    section: 1
+                    section: 1,
                   })
                 }
               >
@@ -181,64 +181,64 @@ class Grammar extends Component {
             </li>
           </ul>
         </section>
-        <Link to="/addDialog" onClick={this.forceUpdate}>
+        <Link href="" to="/addDialog" onClick={this.forceUpdate}>
           <button
             type="button"
             className="btn btn-default btn-circle"
             style={{
               flex: 1,
-              display: "flex",
-              width: "100px",
-              height: "100px",
-              padding: "6px 0px",
-              borderRadius: "50px",
-              textAlign: "center",
-              fontSize: "12px",
-              lineHeight: "1.42857",
-              backgroundColor: "black",
-              position: "absolute",
+              display: 'flex',
+              width: '100px',
+              height: '100px',
+              padding: '6px 0px',
+              borderRadius: '50px',
+              textAlign: 'center',
+              fontSize: '12px',
+              lineHeight: '1.42857',
+              backgroundColor: 'black',
+              position: 'absolute',
               bottom: 0,
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center"
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
-            <span style={{ color: "white", fontSize: 15, fontWeight: "bold" }}>
+            <span style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>
               Add Lesson
             </span>
-            <span style={{ color: "white", fontSize: 25, fontWeight: "bold" }}>
+            <span style={{ color: 'white', fontSize: 25, fontWeight: 'bold' }}>
               +
             </span>
           </button>
         </Link>
 
-        <Link to="/addPractice" onClick={this.forceUpdate}>
+        <Link href="" to="/addPractice" onClick={this.forceUpdate}>
           <button
             type="button"
             className="btn btn-default btn-circle"
             style={{
               flex: 1,
-              display: "flex",
-              width: "100px",
-              height: "100px",
-              padding: "6px 0px",
-              borderRadius: "50px",
-              textAlign: "center",
-              fontSize: "12px",
-              lineHeight: "1.42857",
-              backgroundColor: "white",
-              position: "absolute",
+              display: 'flex',
+              width: '100px',
+              height: '100px',
+              padding: '6px 0px',
+              borderRadius: '50px',
+              textAlign: 'center',
+              fontSize: '12px',
+              lineHeight: '1.42857',
+              backgroundColor: 'white',
+              position: 'absolute',
               bottom: 0,
               right: 0,
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center"
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
-            <span style={{ color: "black", fontSize: 15, fontWeight: "bold" }}>
+            <span style={{ color: 'black', fontSize: 15, fontWeight: 'bold' }}>
               Add Practice
             </span>
-            <span style={{ color: "black", fontSize: 25, fontWeight: "bold" }}>
+            <span style={{ color: 'black', fontSize: 25, fontWeight: 'bold' }}>
               +
             </span>
           </button>
@@ -254,58 +254,58 @@ class Grammar extends Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      arrows: true
+      arrows: true,
     };
 
     return (
-      <div style={{ flex: 1, height: "100%" }}>
+      <div style={{ flex: 1, height: '100%' }}>
         <Header />
         {this.renderReading()}
         <div
           className="content-wrapper"
           style={{
-            display: "flex",
-            flex: 1
+            display: 'flex',
+            flex: 1,
           }}
         >
-          <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
             <div
               style={{
                 flex: 1,
-                display: "flex",
-                borderBottom: "0px solid black",
-                boxShadow: "0px 0px 10px #00a65a",
-                justifyContent: "space-between",
-                alignItems: "center"
+                display: 'flex',
+                borderBottom: '0px solid black',
+                boxShadow: '0px 0px 10px #00a65a',
+                justifyContent: 'space-between',
+                alignItems: 'center',
               }}
             >
               <div
                 style={{
                   flex: 1,
-                  color: "#00a65a"
+                  color: '#00a65a',
                 }}
               >
-                <img src={cedarLogo} alt="" style={{ height: "60px" }} />
+                <img src={cedarLogo} alt="" style={{ height: '60px' }} />
               </div>
               <div
                 style={{
                   flex: 1,
-                  display: "flex",
-                  justifyContent: "center",
-                  color: "#00a65a"
+                  display: 'flex',
+                  justifyContent: 'center',
+                  color: '#00a65a',
                 }}
               >
                 <h3 style={{ margin: 0 }}>
                   {this.state.section === 0
                     ? this.state.selectedVideo
-                    : "Practice"}
+                    : 'Practice'}
                 </h3>
               </div>
               <div
                 style={{
                   flex: 1,
-                  display: "flex",
-                  justifyContent: "flex-end"
+                  display: 'flex',
+                  justifyContent: 'flex-end',
                 }}
               >
                 <button className="btn btn-success">Text Here</button>
@@ -315,10 +315,10 @@ class Grammar extends Component {
             <div
               style={{
                 flex: 7,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                padding: 20
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: 20,
               }}
             >
               {this.state.section === 0 ? (
@@ -338,16 +338,16 @@ class Grammar extends Component {
                             scope="row"
                             style={{
                               padding: 6,
-                              display: "flex",
+                              display: 'flex',
                               flex: 1,
-                              justifyContent: "space-between",
-                              alignItems: "center"
+                              justifyContent: 'space-between',
+                              alignItems: 'center',
                             }}
                           >
                             {item.tfinaghP}
                             <i
                               className="fa fa-volume-up"
-                              style={{ color: "orange" }}
+                              style={{ color: 'orange' }}
                             />
                           </th>
                           <td style={{ padding: 6 }}>{item.localeP}</td>
@@ -355,16 +355,16 @@ class Grammar extends Component {
                           <td
                             style={{
                               padding: 6,
-                              display: "flex",
+                              display: 'flex',
                               flex: 1,
-                              justifyContent: "space-between",
-                              alignItems: "center"
+                              justifyContent: 'space-between',
+                              alignItems: 'center',
                             }}
                           >
-                            @twitter{" "}
+                            @twitter{' '}
                             <i
                               className="fa fa-volume-up"
-                              style={{ color: "red" }}
+                              style={{ color: 'red' }}
                             />
                           </td>
                         </tr>

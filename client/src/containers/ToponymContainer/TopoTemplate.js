@@ -1,70 +1,70 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import MapComponent from "../components/MapComponent";
-import cedarLogo from "../assets/images/cedfin.png";
+import MapComponent from '../../components/MapComponent';
+import cedarLogo from '../../assets/images/cedfin.png';
 
 var wordList = [
-  ["Ait Bechir"],
-  ["Beni Mguild"],
-  ["Beni Moussa"],
-  ["Ait Ayache "],
-  ["Ait Baamrane "],
-  ["Ait Mribt"],
-  ["other"],
-  ["Ait Mribt"],
-  ["Ait Mribt"],
-  ["Ait Mribt"],
-  ["Ait Mribt"],
-  ["Ait Mribt"]
+  ['Ait Bechir'],
+  ['Beni Mguild'],
+  ['Beni Moussa'],
+  ['Ait Ayache '],
+  ['Ait Baamrane '],
+  ['Ait Mribt'],
+  ['other'],
+  ['Ait Mribt'],
+  ['Ait Mribt'],
+  ['Ait Mribt'],
+  ['Ait Mribt'],
+  ['Ait Mribt'],
 ];
 
 class TopoTemplate extends Component {
   render() {
     return (
-      <div style={{ flex: 1, height: "100%" }}>
+      <div style={{ flex: 1, height: '100%' }}>
         <Header />
         <Sidebar material={material} updateDialog={this.updateUnitDialog} />
         <div
           className="content-wrapper"
           style={{
-            display: "flex",
-            flex: 1
+            display: 'flex',
+            flex: 1,
           }}
         >
-          <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
             <div
               className="content-header"
               style={{
-                borderBottom: "0px solid black",
-                height: "57px",
-                boxShadow: "0px 0px 10px #00a65a"
+                borderBottom: '0px solid black',
+                height: '57px',
+                boxShadow: '0px 0px 10px #00a65a',
               }}
             >
               <a>
                 <img
                   src={cedarLogo}
-                  style={{ position: "absolute", top: "-22px", left: "-30px" }}
+                  style={{ position: 'absolute', top: '-22px', left: '-30px' }}
                   alt=""
                 />
               </a>
               <h1
-                style={{ position: "absolute", left: "44%", color: "#00a65a" }}
+                style={{ position: 'absolute', left: '44%', color: '#00a65a' }}
               >
                 Toponym
               </h1>
               <button className="btn btn-success pull-right">Unit X</button>
             </div>
 
-            <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'row' }}>
               <div
                 style={{
                   flex: 1,
-                  display: "flex",
-                  flexDirection: "column",
-                  overflow: "scroll",
+                  display: 'flex',
+                  flexDirection: 'column',
+                  overflow: 'scroll',
                   padding: 10,
-                  boxShadow: "0px 0px 10px 5px #00a65a",
-                  margin: 10
+                  boxShadow: '0px 0px 10px 5px #00a65a',
+                  margin: 10,
                 }}
               >
                 <input
@@ -73,7 +73,7 @@ class TopoTemplate extends Component {
                   name="srch-term"
                   id="srch-term"
                   type="text"
-                  style={{ width: "100%" }}
+                  style={{ width: '100%' }}
                 />
                 {wordList.map((item, index) => {
                   return (
@@ -84,7 +84,7 @@ class TopoTemplate extends Component {
                         value={item}
                         name={item}
                       >
-                        {" "}
+                        {' '}
                         <div className="col-md-12">
                           <div
                             className="box box-success collapsed-box"
@@ -104,7 +104,7 @@ class TopoTemplate extends Component {
                 id="map"
                 style={{
                   flex: 2,
-                  display: "flex"
+                  display: 'flex',
                 }}
               >
                 <MapComponent />

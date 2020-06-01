@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import Header from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
 
 class DialogPractice extends Component {
   constructor(props) {

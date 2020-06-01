@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import MapComponent from "../components/MapComponent";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import MapComponent from '../../components/MapComponent';
+import Header from '../../components/Header';
+import Sidebar from '../../components/Sidebar';
+import { Link } from 'react-router-dom';
 class LexiconContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       lexicon: null,
-      search: "",
+      search: '',
       displayMap: false,
       selected: {
         lex: null,
@@ -20,31 +20,38 @@ class LexiconContainer extends Component {
         gender: null,
         number: null,
         annexed: null,
-        plural: null
+        plural: null,
       },
-      selectedWord: ["ⴰⴼⵔⵉ", "(n, m)", "Naturally occurring cavity formed underground", "Cave", "cave.jpg"]
+      selectedWord: [
+        'ⴰⴼⵔⵉ',
+        '(n, m)',
+        'Naturally occurring cavity formed underground',
+        'Cave',
+        'cave.jpg',
+      ],
     };
   }
 
   componentDidMount() {
+    console.log('hello');
     this.getDataFromDb();
   }
 
   getDataFromDb = () => {
-    fetch("/api/entities")
-      .then(response => response.json())
-      .then(json => this.setState({ lexicon: json }));
+    fetch('/api/entities')
+      .then((response) => response.json())
+      .then((json) => this.setState({ lexicon: json }));
   };
 
-  updateSearch = event => {
+  updateSearch = (event) => {
     this.setState({
-      search: event.target.value.substr(0, 20)
+      search: event.target.value.substr(0, 20),
     });
   };
 
-  onChangeWord = selected => {
+  onChangeWord = (selected) => {
     this.setState({
-      selected
+      selected,
     });
   };
 
@@ -54,7 +61,7 @@ class LexiconContainer extends Component {
     // console.log("nice: " + !("myKey" in this.state.selected) && (this.state.selected.myKey = {}));
     return (
       <tr>
-        <td>{pos ? pos : "null"}</td>
+        <td>{pos ? pos : 'null'}</td>
         <td>{gender ? gender : null}</td>
         <td>{number ? number : null}</td>
         <td>{annexed ? annexed : null}</td>
@@ -69,7 +76,7 @@ class LexiconContainer extends Component {
 
     return (
       <tr>
-        <td>{arabic ? arabic : "null"}</td>
+        <td>{arabic ? arabic : 'null'}</td>
         <td>{english}</td>
         <td>{french}</td>
       </tr>
@@ -80,32 +87,45 @@ class LexiconContainer extends Component {
     let filteredWords =
       this.state.lexicon &&
       this.state.lexicon.length > 0 &&
-      this.state.lexicon.filter(item => {
+      this.state.lexicon.filter((item) => {
         if (item[0].properties.lex && item[0].properties.lex.length > 0) {
-          return item[0].properties.lex.toLowerCase().startsWith(this.state.search.toLowerCase()) === true;
+          return (
+            item[0].properties.lex
+              .toLowerCase()
+              .startsWith(this.state.search.toLowerCase()) === true
+          );
         }
         return null;
       });
 
     return (
-      <div style={{ flex: 1, height: "100%" }}>
+      <div style={{ flex: 1, height: '100%' }}>
         <Header onChangeValue={this.updateSearch} />
         <Sidebar updateDialog={this.updateUnitDialog} />
         <div className="content-wrapper" style={styles.wrapper}>
           <div style={styles.container}>
-            <div style={{ display: "flex", flex: 7 }}>
-              {this.props.match.params.id === "all" ? (
+            <div style={{ display: 'flex', flex: 7 }}>
+              {this.props.match.params.id === 'all' ? (
                 <ul className="box box-info" style={styles.listWrapper}>
-                  {" "}
+                  {' '}
                   <h2>WordList</h2>
                   {filteredWords &&
                     filteredWords.map((item, index) => {
                       return (
-                        <li key={index} className="list--list-item" data-gender="Noun" style={styles.listItem} onClick={() => this.onChangeWord(item[0].properties)}>
+                        <li
+                          key={index}
+                          className="list--list-item"
+                          data-gender="Noun"
+                          style={styles.listItem}
+                          onClick={() => this.onChangeWord(item[0].properties)}
+                        >
                           <div className="col-md-12">
                             <div className="box box-success collapsed-box">
                               <div className="box-header with-border">
-                                <h1 className="box-title name" style={{ fontSize: "20px" }}>
+                                <h1
+                                  className="box-title name"
+                                  style={{ fontSize: '20px' }}
+                                >
                                   {item[0].properties.lex}
                                 </h1>
                               </div>
@@ -119,13 +139,13 @@ class LexiconContainer extends Component {
               <div style={styles.wordWrapper}>
                 <div className="wordClass" style={styles.wordContent}>
                   <div style={styles.wordHeader}>
-                    <div style={{ flex: 1, display: "flex" }}>
+                    <div style={{ flex: 1, display: 'flex' }}>
                       <i
                         style={{
-                          color: "red",
-                          fontSize: "60px",
-                          cursor: "pointer",
-                          padding: "top: 10px"
+                          color: 'red',
+                          fontSize: '60px',
+                          cursor: 'pointer',
+                          padding: 'top: 10px',
                         }}
                         className="fa fa-volume-up pull-right"
                       />
@@ -133,38 +153,44 @@ class LexiconContainer extends Component {
                     <div
                       style={{
                         flex: 1,
-                        display: "flex",
-                        justifyContent: "center"
+                        display: 'flex',
+                        justifyContent: 'center',
                       }}
                     >
                       <h1
                         className=""
                         style={{
-                          color: "#3a87ad",
-                          fontSize: "50px",
-                          margin: 0
+                          color: '#3a87ad',
+                          fontSize: '50px',
+                          margin: 0,
                         }}
                       >
                         {this.state.selected && this.state.selected.lex}
                       </h1>
                     </div>
 
-                    <div style={styles.selectedWord}> {this.state.selected && this.state.selected.latin}</div>
+                    <div style={styles.selectedWord}>
+                      {' '}
+                      {this.state.selected && this.state.selected.latin}
+                    </div>
                   </div>
-                  <div style={{ height: "70%" }}>
+                  <div style={{ height: '70%' }}>
                     <span
                       className="mainElements"
                       style={{
-                        color: "orange",
+                        color: 'orange',
                         fontSize: 18,
-                        fontWeight: "bold"
+                        fontWeight: 'bold',
                       }}
                     >
                       Syntax
                     </span>
                     {this.state.selected && (
                       <div>
-                        <table id="translation" className="table table-responsive table-bordered table-sm table-dark">
+                        <table
+                          id="translation"
+                          className="table table-responsive table-bordered table-sm table-dark"
+                        >
                           <thead>
                             <tr>
                               <th scope="col" className="bg-success">
@@ -195,16 +221,19 @@ class LexiconContainer extends Component {
                       <span
                         className="mainElements"
                         style={{
-                          color: "orange",
+                          color: 'orange',
                           fontSize: 18,
-                          fontWeight: "bold"
+                          fontWeight: 'bold',
                         }}
                       >
                         Translations
                       </span>
                       {this.state.selected && (
                         <div>
-                          <table id="translation" className="table table-bordered table-hover table-dark">
+                          <table
+                            id="translation"
+                            className="table table-bordered table-hover table-dark"
+                          >
                             <thead>
                               <tr>
                                 <th scope="col" className="bg-success">
@@ -242,45 +271,70 @@ class LexiconContainer extends Component {
                   </div>
                   <div
                     style={{
-                      display: "flex",
-                      height: "20%",
-                      width: "100%",
-                      justifyContent: "flex-end",
-                      alignItems: "flex-end"
+                      display: 'flex',
+                      height: '20%',
+                      width: '100%',
+                      justifyContent: 'flex-end',
+                      alignItems: 'flex-end',
                     }}
                   >
-                    <button type="button" className="btn btn-default bg-orange pull-right" data-toggle="modal" data-target="#modal-default" style={{ margin: "10px" }}>
-                      <a style={{ color: "white" }}>Regional Variants</a>
+                    <button
+                      type="button"
+                      className="btn btn-default bg-orange pull-right"
+                      data-toggle="modal"
+                      data-target="#modal-default"
+                      style={{ margin: '10px' }}
+                    >
+                      <a style={{ color: 'white' }}>Regional Variants</a>
                     </button>
-                    <button type="button" className="btn btn-primary pull-right" style={{ margin: "10px" }}>
-                      <Link to={`/tamazight/addWord/${this.state.selectedWord[0]}`}>Edit Lexicon</Link>
+                    <button
+                      type="button"
+                      className="btn btn-primary pull-right"
+                      style={{ margin: '10px' }}
+                    >
+                      <Link
+                        to={`/tamazight/addWord/${this.state.selectedWord[0]}`}
+                      >
+                        Edit Lexicon
+                      </Link>
                     </button>
                   </div>
                 </div>
               </div>
 
-              <div className="modal fade" id="modal-default" style={{ height: "100%" }}>
-                <div className="modal-dialog" style={{ height: "100%" }}>
+              <div
+                className="modal fade"
+                id="modal-default"
+                style={{ height: '100%' }}
+              >
+                <div className="modal-dialog" style={{ height: '100%' }}>
                   <div
                     className="modal-content"
                     style={{
                       flex: 1,
-                      display: "flex",
-                      flexDirection: "column",
-                      height: "100%"
+                      display: 'flex',
+                      flexDirection: 'column',
+                      height: '100%',
                     }}
                   >
                     <div className="modal-header">
-                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                      <button
+                        type="button"
+                        className="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
                         <span aria-hidden="true">&times;</span>
                       </button>
-                      <h4 className="modal-title">Location and other details</h4>
+                      <h4 className="modal-title">
+                        Location and other details
+                      </h4>
                     </div>
                     <div
                       className="modal-body"
                       style={{
-                        width: "95%",
-                        height: "80%"
+                        width: '95%',
+                        height: '80%',
                       }}
                     >
                       <MapComponent />
@@ -300,59 +354,59 @@ export default LexiconContainer;
 
 const styles = {
   wrapper: {
-    display: "flex",
-    flex: 1
+    display: 'flex',
+    flex: 1,
   },
   container: {
     flex: 1,
-    display: "flex",
-    flexDirection: "column"
+    display: 'flex',
+    flexDirection: 'column',
   },
   listWrapper: {
-    display: "flex",
+    display: 'flex',
     flex: 1,
-    flexDirection: "column",
-    overflowY: "scroll",
-    listStyle: "none",
+    flexDirection: 'column',
+    overflowY: 'scroll',
+    listStyle: 'none',
     margin: 15,
-    alignItems: "center",
+    alignItems: 'center',
     padding: 0,
-    height: "100%"
+    height: '100%',
   },
   listItem: {
-    cursor: "pointer",
-    width: "100%"
+    cursor: 'pointer',
+    width: '100%',
   },
   wordWrapper: {
-    display: "flex",
-    boxSizing: "border-box",
-    border: "2px solid #00a65a",
-    borderRadius: "5px 5px",
-    boxShadow: "0px 0px 10px 5px #00a65a",
-    backgroundColor: "white",
-    margin: "15px",
-    direction: "ltr" // latin
+    display: 'flex',
+    boxSizing: 'border-box',
+    border: '2px solid #00a65a',
+    borderRadius: '5px 5px',
+    boxShadow: '0px 0px 10px 5px #00a65a',
+    backgroundColor: 'white',
+    margin: '15px',
+    direction: 'ltr', // latin
   },
   wordContent: {
-    display: "flex",
+    display: 'flex',
     flex: 1,
-    flexDirection: "column",
-    padding: 10
+    flexDirection: 'column',
+    padding: 10,
   },
   wordHeader: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    borderBottom: "1px solid red",
-    paddingBottom: 15
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottom: '1px solid red',
+    paddingBottom: 15,
   },
   selectedWord: {
     flex: 1,
-    display: "flex",
-    whiteSpace: "normal",
-    color: "#3a87ad",
-    fontSize: "40px",
-    lineHeight: "90%",
-    justifyContent: "flex-end"
-  }
+    display: 'flex',
+    whiteSpace: 'normal',
+    color: '#3a87ad',
+    fontSize: '40px',
+    lineHeight: '90%',
+    justifyContent: 'flex-end',
+  },
 };

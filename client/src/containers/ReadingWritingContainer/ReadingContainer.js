@@ -1,31 +1,31 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { translate } from "react-i18next";
+import { translate } from 'react-i18next';
 
-import { Link } from "react-router-dom";
-import Header from "../components/Header";
+import { Link } from 'react-router-dom';
+import Header from '../../components/Header';
 
 const readings = [
   {
-    title: "First Reading",
+    title: 'First Reading',
     content:
-      "A significant event in the history of acupuncture came in 1971, when a journalist from the New York Times had his appendix removed in China, when on a trip to the country with Henry Kissinger, the Secretary of State for the USA."
+      'A significant event in the history of acupuncture came in 1971, when a journalist from the New York Times had his appendix removed in China, when on a trip to the country with Henry Kissinger, the Secretary of State for the USA.',
   },
   {
-    title: "Second Reading",
-    content: "Second Content"
-  }
+    title: 'Second Reading',
+    content: 'Second Content',
+  },
 ];
 
 const readingNavigations = [
   {
-    key: "Add Reading",
-    path: "/addUntiReading"
+    key: 'Add Reading',
+    path: '/addUntiReading',
   },
   {
-    key: "Add Practice",
-    path: "/addPractice"
-  }
+    key: 'Add Practice',
+    path: '/addPractice',
+  },
 ];
 
 class ReadingContainer extends Component {
@@ -36,50 +36,50 @@ class ReadingContainer extends Component {
       reading: true,
       previousDisabled: true,
       nextDisabled: false,
-      section: "s"
+      section: 's',
     };
   }
 
-  updateWriting = index => {
+  updateWriting = (index) => {
     this.setState({
       reading: false,
-      readingPos: index
+      readingPos: index,
     });
   };
 
-  updateReading = index => {
+  updateReading = (index) => {
     this.setState({
       readingPos: index,
-      reading: true
+      reading: true,
     });
   };
 
   showNextItem = () => {
     this.setState({
-      previousDisabled: false
+      previousDisabled: false,
     });
     if (this.state.readingPos === readings.length - 1) {
       this.setState({
-        nextDisabled: true
+        nextDisabled: true,
       });
     } else {
       this.setState({
-        readingPos: this.state.readingPos + 1
+        readingPos: this.state.readingPos + 1,
       });
     }
   };
 
   showPreviousItem = () => {
     this.setState({
-      nextDisabled: false
+      nextDisabled: false,
     });
     if (this.state.readingPos === 0) {
       this.setState({
-        previousDisabled: true
+        previousDisabled: true,
       });
     } else {
       this.setState({
-        readingPos: this.state.readingPos - 1
+        readingPos: this.state.readingPos - 1,
       });
     }
   };
@@ -93,22 +93,22 @@ class ReadingContainer extends Component {
               className="header"
               style={{
                 height: 57,
-                backgroundColor: "white",
+                backgroundColor: 'white',
                 fontSize: 20,
-                color: "#00a65a",
-                display: "flex",
-                justifyContent: "center",
-                borderLeft: "3px solid red",
-                borderRight: "3px solid #00a65a",
-                margin: 0
+                color: '#00a65a',
+                display: 'flex',
+                justifyContent: 'center',
+                borderLeft: '3px solid red',
+                borderRight: '3px solid #00a65a',
+                margin: 0,
               }}
             >
-              {"READING"}
+              {'READING'}
             </li>
             <li className="treeview">
               <a
-                style={{ cursor: "pointer" }}
-                onClick={() => this.setState({ section: "reading" })}
+                style={{ cursor: 'pointer' }}
+                onClick={() => this.setState({ section: 'reading' })}
               >
                 <i className="fa fa-book" /> <span>Reading</span>
                 <span className="pull-right-container">
@@ -146,16 +146,16 @@ class ReadingContainer extends Component {
                       key={index}
                       style={{
                         background: this.myColor(index),
-                        cursor: "pointer"
+                        cursor: 'pointer',
                       }}
                       onClick={() => {
-                        this.toggle(index, item.name, "dialog");
+                        this.toggle(index, item.name, 'dialog');
                       }}
                     >
                       <a
                         style={{
-                          color: "black",
-                          background: this.myColor(index)
+                          color: 'black',
+                          background: this.myColor(index),
                         }}
                       >
                         <span>{item.name}</span>
@@ -173,16 +173,16 @@ class ReadingContainer extends Component {
                       key={index}
                       style={{
                         background: this.myColor(index),
-                        cursor: "pointer"
+                        cursor: 'pointer',
                       }}
                       onClick={() => {
-                        this.toggle(index, item.name, "practice");
+                        this.toggle(index, item.name, 'practice');
                       }}
                     >
                       <a
                         style={{
-                          color: "black",
-                          background: this.myColor(index)
+                          color: 'black',
+                          background: this.myColor(index),
                         }}
                       >
                         <span>{item.name}</span>
@@ -201,17 +201,17 @@ class ReadingContainer extends Component {
     const { t } = this.props;
     return (
       <div>
-        <h2 style={{ color: "", fontWeight: "bold" }}>
+        <h2 style={{ color: '', fontWeight: 'bold' }}>
           {readings[this.state.readingPos].title}
         </h2>
         <div
           style={{
             flex: 8,
-            display: "flex",
-            padding: "20px",
-            overflow: "scroll",
-            boxShadow: "0px 0px 10px #00a65a",
-            margin: 10
+            display: 'flex',
+            padding: '20px',
+            overflow: 'scroll',
+            boxShadow: '0px 0px 10px #00a65a',
+            margin: 10,
           }}
         >
           <p style={{ fontSize: 20 }}>
@@ -221,21 +221,21 @@ class ReadingContainer extends Component {
         <div
           style={{
             flex: 1,
-            display: "flex",
-            padding: "20px",
-            justifyContent: "space-between",
-            margin: 10
+            display: 'flex',
+            padding: '20px',
+            justifyContent: 'space-between',
+            margin: 10,
           }}
         >
           <button
             style={{
-              visibility: this.state.previousDisabled ? "hidden" : "visible"
+              visibility: this.state.previousDisabled ? 'hidden' : 'visible',
             }}
             className="btn btn-warning"
             type="button"
             onClick={this.showPreviousItem}
           >
-            {t("previousArticle")}
+            {t('previousArticle')}
           </button>
 
           {!this.state.nextDisabled && (
@@ -244,7 +244,7 @@ class ReadingContainer extends Component {
               type="button"
               onClick={this.showNextItem}
             >
-              {t("nextArticle")}
+              {t('nextArticle')}
             </button>
           )}
         </div>
@@ -257,27 +257,28 @@ class ReadingContainer extends Component {
       <div
         style={{
           flex: 1,
-          justifyContent: "center",
-          alignItems: "center"
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <div style={{ padding: 10 }}>
           <div
             className="small-box bg-red"
-            style={{ flex: 1, justifyContent: "center" }}
+            style={{ flex: 1, justifyContent: 'center' }}
           >
             <div
               className="inner"
               style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
               }}
             >
-              <h3 style={{ whiteSpace: "normal" }}>
+              <h3 style={{ whiteSpace: 'normal' }}>
                 <Link
+                  href=""
                   to="/reading"
-                  style={{ color: "white" }}
+                  style={{ color: 'white' }}
                   onClick={this.forceUpdate}
                 >
                   Dictation
@@ -297,15 +298,15 @@ class ReadingContainer extends Component {
             <div
               className="inner"
               style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
               }}
             >
-              <h3 style={{ whiteSpace: "normal" }}>
+              <h3 style={{ whiteSpace: 'normal' }}>
                 <Link
                   to="/reading"
-                  style={{ color: "white" }}
+                  style={{ color: 'white' }}
                   onClick={this.forceUpdate}
                 >
                   Practice
@@ -326,42 +327,42 @@ class ReadingContainer extends Component {
 
   render() {
     return (
-      <div style={{ flex: 1, height: "100%" }}>
+      <div style={{ flex: 1, height: '100%' }}>
         <Header navigations={readingNavigations} />
         {this.renderReading()}
         <div
           className="content-wrapper"
           style={{
-            display: "flex",
-            flex: 1
+            display: 'flex',
+            flex: 1,
           }}
         >
           <div
             style={{
               flex: 1,
-              display: "flex",
-              flexDirection: "row",
-              padding: 25
+              display: 'flex',
+              flexDirection: 'row',
+              padding: 25,
             }}
           >
             <div
               style={{
                 flex: 1,
-                display: "flex",
-                flexDirection: "column"
+                display: 'flex',
+                flexDirection: 'column',
               }}
             >
               <div
                 style={{
                   flex: 1,
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
                   padding: 10,
-                  marginBottom: 10
+                  marginBottom: 10,
                 }}
               >
-                {this.state.section === "reading"
+                {this.state.section === 'reading'
                   ? this.renderReadingSection()
                   : this.renderWritingSection()}
               </div>
@@ -373,4 +374,4 @@ class ReadingContainer extends Component {
   }
 }
 
-export default translate("common")(ReadingContainer);
+export default translate('common')(ReadingContainer);

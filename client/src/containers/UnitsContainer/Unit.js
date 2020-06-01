@@ -1,40 +1,40 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import Header from '../../components/Header';
+import Sidebar from '../../components/Sidebar';
 
 class Unit extends Component {
   render() {
     return (
-      <div style={{ flex: 1, height: "100%" }}>
+      <div style={{ flex: 1, height: '100%' }}>
         <Header />
         <Sidebar updateDialog={this.updateUnitDialog} unit />
         <div
           className="content-wrapper"
           style={{
-            display: "flex",
-            flex: 1
+            display: 'flex',
+            flex: 1,
           }}
         >
-          <section style={{ flex: 1, display: "flex" }}>
+          <section style={{ flex: 1, display: 'flex' }}>
             <section
               className="content"
               style={{
                 flex: 1,
-                display: "flex",
-                padding: 15
+                display: 'flex',
+                padding: 15,
               }}
             >
               <div
-                style={{ flex: 1, display: "flex", flexDirection: "column" }}
+                style={{ flex: 1, display: 'flex', flexDirection: 'column' }}
               >
                 <div
                   style={{
                     flex: 1,
-                    display: "flex",
-                    flexDirection: "row",
-                    padding: 10
+                    display: 'flex',
+                    flexDirection: 'row',
+                    padding: 10,
                   }}
                 >
                   <div style={{ flex: 1, padding: 10 }}>
@@ -42,8 +42,9 @@ class Unit extends Component {
                       <div className="inner">
                         <h3>
                           <Link
+                            href=""
                             to="/videoD"
-                            style={{ color: "white" }}
+                            style={{ color: 'white' }}
                             onClick={this.forceUpdate}
                           >
                             Dialogue
@@ -63,8 +64,9 @@ class Unit extends Component {
                       <div className="inner">
                         <h3>
                           <Link
+                            href=""
                             to="/vocabulary"
-                            style={{ color: "white" }}
+                            style={{ color: 'white' }}
                             onClick={this.forceUpdate}
                           >
                             Vocabulary
@@ -83,9 +85,9 @@ class Unit extends Component {
                 <div
                   style={{
                     flex: 1,
-                    display: "flex",
-                    flexDirection: "row",
-                    padding: 10
+                    display: 'flex',
+                    flexDirection: 'row',
+                    padding: 10,
                   }}
                 >
                   <div style={{ flex: 1, padding: 10 }}>
@@ -93,8 +95,9 @@ class Unit extends Component {
                       <div className="inner">
                         <h3>
                           <Link
+                            href=""
                             to="/pronunciation"
-                            style={{ color: "white" }}
+                            style={{ color: 'white' }}
                             onClick={this.forceUpdate}
                           >
                             Pronunciation
@@ -114,8 +117,9 @@ class Unit extends Component {
                       <div className="inner">
                         <h3>
                           <Link
+                            href=""
                             to="/grammar"
-                            style={{ color: "white" }}
+                            style={{ color: 'white' }}
                             onClick={this.forceUpdate}
                           >
                             Grammar
@@ -134,18 +138,19 @@ class Unit extends Component {
                 <div
                   style={{
                     flex: 1,
-                    display: "flex",
-                    flexDirection: "row",
-                    padding: 10
+                    display: 'flex',
+                    flexDirection: 'row',
+                    padding: 10,
                   }}
                 >
                   <div style={{ flex: 1, padding: 10 }}>
                     <div className="small-box bg-red" style={{ flex: 1 }}>
                       <div className="inner">
-                        <h3 style={{ whiteSpace: "normal" }}>
+                        <h3 style={{ whiteSpace: 'normal' }}>
                           <Link
+                            href=""
                             to="/reading"
-                            style={{ color: "white" }}
+                            style={{ color: 'white' }}
                             onClick={this.forceUpdate}
                           >
                             Reading/Writing
@@ -165,8 +170,9 @@ class Unit extends Component {
                       <div className="inner">
                         <h3>
                           <Link
+                            href=""
                             to="/culture"
-                            style={{ color: "white" }}
+                            style={{ color: 'white' }}
                             onClick={this.forceUpdate}
                           >
                             Culture

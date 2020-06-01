@@ -1,87 +1,90 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import { Popover, OverlayTrigger, Button } from "react-bootstrap";
+import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
+import { Popover, OverlayTrigger, Button } from 'react-bootstrap';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const letterExamples = [
   {
-    tifinagh: "ⴰ",
-    arabic: "يا",
-    latin: "Ya",
-    sound: require("../assets/sounds/Asound.mp3"),
+    tifinagh: 'ⴰ',
+    arabic: 'يا',
+    latin: 'Ya',
+    sound: require('../assets/sounds/Asound.mp3'),
     words: [
-      ["ⴰⴱⴰⵖⵓⵖ", "ⴰⴳⴰⵏ", "ⴰⴳⴳⴰⵢ"],
-      ["ⴰⴳⴳⵯⵔⵏ", "ⴰⴳⵯⴷⵉⵍ", "ⴰⴳⵯⵊⵊⵉⴼ"],
-      ["word", "worddd", "word5"]
-    ]
+      ['ⴰⴱⴰⵖⵓⵖ', 'ⴰⴳⴰⵏ', 'ⴰⴳⴳⴰⵢ'],
+      ['ⴰⴳⴳⵯⵔⵏ', 'ⴰⴳⵯⴷⵉⵍ', 'ⴰⴳⵯⵊⵊⵉⴼ'],
+      ['word', 'worddd', 'word5'],
+    ],
   },
   {
-    tifinagh: "ⴱ",
-    arabic: "ياب",
-    latin: "Yab",
-    sound: require("../assets/sounds/Asound.mp3"),
+    tifinagh: 'ⴱ',
+    arabic: 'ياب',
+    latin: 'Yab',
+    sound: require('../assets/sounds/Asound.mp3'),
     words: [
-      ["ⴱⵉⵙⴽⵡⵉ", "ⴱⵓⴳⴰⵏⴱⵍⵉ", "ⴱⵓⵢⵉⵙⴽ"],
-      ["ⴱⵓⵢⵜⵍⴰⵏ", "second", "second"],
-      ["third", "third", "third"]
-    ]
+      ['ⴱⵉⵙⴽⵡⵉ', 'ⴱⵓⴳⴰⵏⴱⵍⵉ', 'ⴱⵓⵢⵉⵙⴽ'],
+      ['ⴱⵓⵢⵜⵍⴰⵏ', 'second', 'second'],
+      ['third', 'third', 'third'],
+    ],
   },
   {
-    tifinagh: "ⵛ",
-    arabic: "",
-    latin: "",
-    sound: require("../assets/sounds/yabSound.mp3"),
+    tifinagh: 'ⵛ',
+    arabic: '',
+    latin: '',
+    sound: require('../assets/sounds/yabSound.mp3'),
     words: [
-      ["ⵛxxxx", "xxⵛxx", "xxxxⵛ"],
-      ["second", "second", "second"],
-      ["third", "third", "third"]
-    ]
+      ['ⵛxxxx', 'xxⵛxx', 'xxxxⵛ'],
+      ['second', 'second', 'second'],
+      ['third', 'third', 'third'],
+    ],
   },
   {
-    tifinagh: "ⵜ",
-    arabic: "",
-    latin: "",
-    sound: require("../assets/sounds/Asound.mp3"),
+    tifinagh: 'ⵜ',
+    arabic: '',
+    latin: '',
+    sound: require('../assets/sounds/Asound.mp3'),
     words: [
-      ["ⵜⴰⴱⵉⵟⵍⵊⴰⵏⵜ", "ⵜⴰⴱⵔⵓⵢⵜ", "ⵜⴰⴱⵖⴰ"],
-      ["ⵜⴰⴱⴰⵏⴽⴰ", "ⵜⴰⴳⴰⵏⵜ", "ⵜⴰⴳⴳⵓⵔⵜ"],
-      ["third", "third", "third"]
-    ]
+      ['ⵜⴰⴱⵉⵟⵍⵊⴰⵏⵜ', 'ⵜⴰⴱⵔⵓⵢⵜ', 'ⵜⴰⴱⵖⴰ'],
+      ['ⵜⴰⴱⴰⵏⴽⴰ', 'ⵜⴰⴳⴰⵏⵜ', 'ⵜⴰⴳⴳⵓⵔⵜ'],
+      ['third', 'third', 'third'],
+    ],
   },
   {
-    tifinagh: "ⵓ",
-    arabic: "",
-    latin: "",
-    sound: require("../assets/sounds/Asound.mp3"),
+    tifinagh: 'ⵓ',
+    arabic: '',
+    latin: '',
+    sound: require('../assets/sounds/Asound.mp3'),
     words: [
-      ["ⵓⴷⵎ", "ⵓⵙⵎⴰⵏ", "ⵓⵛⵛⵏ"],
-      ["second", "second", "second"],
-      ["third", "third", "third"]
-    ]
+      ['ⵓⴷⵎ', 'ⵓⵙⵎⴰⵏ', 'ⵓⵛⵛⵏ'],
+      ['second', 'second', 'second'],
+      ['third', 'third', 'third'],
+    ],
   },
   {
-    tifinagh: "ⴽ",
-    arabic: "",
-    latin: "",
-    sound: require("../assets/sounds/Asound.mp3"),
-    words: [["ⴽⴰⵡⴽⴰⵡ", "ⴽⴽⵓⵥ", "ⴽⵕⴰⴹ"]]
+    tifinagh: 'ⴽ',
+    arabic: '',
+    latin: '',
+    sound: require('../assets/sounds/Asound.mp3'),
+    words: [['ⴽⴰⵡⴽⴰⵡ', 'ⴽⴽⵓⵥ', 'ⴽⵕⴰⴹ']],
   },
   {
-    tifinagh: "ⵉ",
-    arabic: "",
-    latin: "",
-    sound: require("../assets/sounds/Asound.mp3"),
-    words: [["ⵉⴳⵓⵎⵎⴰ", "ⵉⴱⵓⵣⴰⴳⵏ", "ⵉⴳⵉⴷⵓ"], ["ⵉⴳⴳⵉⵍ", "ⵉⴷⵍⵉⵙⵏ", "ⵉⴳⵓⵏⵜⵔⵏ"]]
-  }
+    tifinagh: 'ⵉ',
+    arabic: '',
+    latin: '',
+    sound: require('../assets/sounds/Asound.mp3'),
+    words: [
+      ['ⵉⴳⵓⵎⵎⴰ', 'ⵉⴱⵓⵣⴰⴳⵏ', 'ⵉⴳⵉⴷⵓ'],
+      ['ⵉⴳⴳⵉⵍ', 'ⵉⴷⵍⵉⵙⵏ', 'ⵉⴳⵓⵏⵜⵔⵏ'],
+    ],
+  },
 ];
 class BaseUnitTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedWord: ""
+      selectedWord: '',
     };
   }
 
@@ -94,9 +97,9 @@ class BaseUnitTable extends Component {
           <div
             style={{
               flex: 1,
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center"
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
             }}
           >
             <div style={{ flex: 1 }}>
@@ -104,11 +107,11 @@ class BaseUnitTable extends Component {
             </div>
 
             <div
-              style={{ flex: 1, justifyContent: "flex-end", display: "flex" }}
+              style={{ flex: 1, justifyContent: 'flex-end', display: 'flex' }}
             >
               <i
                 className="fa fa-volume-up"
-                style={{ color: "blue", fontSize: 25 }}
+                style={{ color: 'blue', fontSize: 25 }}
               />
             </div>
           </div>
@@ -117,33 +120,33 @@ class BaseUnitTable extends Component {
         <div
           style={{
             flex: 1,
-            display: "flex",
-            flexDirection: "column"
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
           <div
             style={{
               flex: 1,
-              display: "flex",
-              justifyContent: "space-between",
-              padding: 10
+              display: 'flex',
+              justifyContent: 'space-between',
+              padding: 10,
             }}
           >
             <Link
               to={`/tamazight/addWord/${this.state.selectedWord}`}
               onClick={this.forceUpdate}
             >
-              {" "}
+              {' '}
               <i
                 className="fa fa-edit"
-                style={{ color: "red", fontSize: 25 }}
+                style={{ color: 'red', fontSize: 25 }}
               />
             </Link>
 
-            <Link to={`/lexicon`} onClick={this.forceUpdate}>
+            <Link href="#" to={`/lexicon`} onClick={this.forceUpdate}>
               <i
                 className="fa fa-book"
-                style={{ color: "rebeccapurple", fontSize: 25 }}
+                style={{ color: 'rebeccapurple', fontSize: 25 }}
               />
             </Link>
           </div>
@@ -152,29 +155,29 @@ class BaseUnitTable extends Component {
     );
 
     return (
-      <div style={{ flex: 1, height: "100%" }}>
+      <div style={{ flex: 1, height: '100%' }}>
         <Header />
         <Sidebar updateDialog={this.updateUnitDialog} />
         <div
           className="content-wrapper"
           style={{
-            display: "flex",
-            flex: 1
+            display: 'flex',
+            flex: 1,
           }}
         >
           <div
             style={{
               flex: 1,
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column"
+              display: 'flex',
+              justifyContent: 'center',
+              flexDirection: 'column',
             }}
           >
-            <div style={{ flex: 7, display: "flex", overflow: "scroll" }}>
+            <div style={{ flex: 7, display: 'flex', overflow: 'scroll' }}>
               <table
                 id="example"
                 className="table table-striped table-bordered"
-                style={{ width: "100%" }}
+                style={{ width: '100%' }}
               >
                 <thead>
                   <tr>
@@ -186,22 +189,22 @@ class BaseUnitTable extends Component {
                       <div>
                         <div
                           style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center"
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
                           }}
                         >
                           Letter Position
                         </div>
                         <div
                           style={{
-                            display: "flex",
-                            justifyContent: "space-between"
+                            display: 'flex',
+                            justifyContent: 'space-between',
                           }}
                         >
-                          <div style={{ color: "brown" }}>Start</div>
-                          <div style={{ color: "red" }}>Middle</div>
-                          <div style={{ color: "orange" }}>End</div>
+                          <div style={{ color: 'brown' }}>Start</div>
+                          <div style={{ color: 'red' }}>Middle</div>
+                          <div style={{ color: 'orange' }}>End</div>
                         </div>
                       </div>
                     </th>
@@ -215,7 +218,7 @@ class BaseUnitTable extends Component {
                         <td>{item.arabic}</td>
                         <td>{item.latin}</td>
                         <td>
-                          <audio controls style={{ width: "80%" }}>
+                          <audio controls style={{ width: '80%' }}>
                             <source src={item.sound} type="audio/ogg" />
                             <source src={item.sound} type="audio/mpeg" />
                           </audio>
@@ -223,8 +226,8 @@ class BaseUnitTable extends Component {
                         <td>
                           <div
                             style={{
-                              display: "flex",
-                              justifyContent: "space-between"
+                              display: 'flex',
+                              justifyContent: 'space-between',
                             }}
                           >
                             {item.words.map((myword, myindex) => {
@@ -232,7 +235,7 @@ class BaseUnitTable extends Component {
                                 <div key={myindex}>
                                   <div
                                     style={{
-                                      flex: 1
+                                      flex: 1,
                                     }}
                                   >
                                     <div
@@ -249,7 +252,7 @@ class BaseUnitTable extends Component {
                                           bsStyle="link"
                                           onClick={() =>
                                             this.setState({
-                                              selectedWord: myword[0]
+                                              selectedWord: myword[0],
                                             })
                                           }
                                         >
@@ -261,7 +264,7 @@ class BaseUnitTable extends Component {
                                   <div
                                     style={{
                                       flex: 1,
-                                      display: "flex"
+                                      display: 'flex',
                                     }}
                                   >
                                     <OverlayTrigger
@@ -274,11 +277,11 @@ class BaseUnitTable extends Component {
                                         bsStyle="link"
                                         onClick={() =>
                                           this.setState({
-                                            selectedWord: myword[1]
+                                            selectedWord: myword[1],
                                           })
                                         }
                                       >
-                                        {" "}
+                                        {' '}
                                         {myword[1]}
                                       </Button>
                                     </OverlayTrigger>
@@ -286,7 +289,7 @@ class BaseUnitTable extends Component {
                                   <div
                                     style={{
                                       flex: 1,
-                                      display: "flex"
+                                      display: 'flex',
                                     }}
                                   >
                                     <OverlayTrigger
@@ -299,11 +302,11 @@ class BaseUnitTable extends Component {
                                         bsStyle="link"
                                         onClick={() =>
                                           this.setState({
-                                            selectedWord: myword[2]
+                                            selectedWord: myword[2],
                                           })
                                         }
                                       >
-                                        {" "}
+                                        {' '}
                                         {myword[2]}
                                       </Button>
                                     </OverlayTrigger>

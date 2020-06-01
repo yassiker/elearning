@@ -1,55 +1,55 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import cedarLogo from "../assets/images/cedfin.png";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
+import cedarLogo from '../assets/images/cedfin.png';
 
 class CultureContainer extends Component {
   render() {
     return (
-      <div style={{ flex: 1, height: "100%" }}>
+      <div style={{ flex: 1, height: '100%' }}>
         <Header />
         <Sidebar updateDialog={this.updateUnitDialog} />
         <div
           style={{
-            display: "flex",
+            display: 'flex',
             flex: 1,
-            height: "100%"
+            height: '100%',
           }}
         >
           <div
             className="content-wrapper"
             style={{
               flex: 1,
-              display: "flex",
-              flexDirection: "column",
-              height: "100%"
+              display: 'flex',
+              flexDirection: 'column',
+              height: '100%',
             }}
           >
             <div
               style={{
                 flex: 1,
-                display: "flex",
-                borderBottom: "0px solid black",
-                boxShadow: "0px 0px 10px #00a65a",
-                justifyContent: "space-between",
-                alignItems: "center"
+                display: 'flex',
+                borderBottom: '0px solid black',
+                boxShadow: '0px 0px 10px #00a65a',
+                justifyContent: 'space-between',
+                alignItems: 'center',
               }}
             >
               <div
                 style={{
                   flex: 1,
-                  color: "#00a65a"
+                  color: '#00a65a',
                 }}
               >
-                <img src={cedarLogo} alt="" style={{ height: "60px" }} />
+                <img src={cedarLogo} alt="" style={{ height: '60px' }} />
               </div>
               <div
                 style={{
                   flex: 1,
-                  display: "flex",
-                  justifyContent: "center",
-                  color: "#00a65a"
+                  display: 'flex',
+                  justifyContent: 'center',
+                  color: '#00a65a',
                 }}
               >
                 <h3 style={{ margin: 0 }}>Culture</h3>
@@ -57,8 +57,8 @@ class CultureContainer extends Component {
               <div
                 style={{
                   flex: 1,
-                  display: "flex",
-                  justifyContent: "flex-end"
+                  display: 'flex',
+                  justifyContent: 'flex-end',
                 }}
               >
                 <button className="btn btn-success">Text Here</button>
@@ -67,14 +67,14 @@ class CultureContainer extends Component {
 
             <div
               style={{
-                padding: "20px",
+                padding: '20px',
                 flex: 7,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-evenly"
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-evenly',
               }}
             >
-              <Link to="/toponym" onClick={this.forceUpdate}>
+              <Link href="" to="/toponym" onClick={this.forceUpdate}>
                 <div className="small-box bg-red">
                   <div className="inner">
                     <h3>Toponyms</h3>
@@ -87,7 +87,7 @@ class CultureContainer extends Component {
                   </a>
                 </div>
               </Link>
-              <Link to="/anthroContainer" onClick={this.forceUpdate}>
+              <Link href="" to="/anthroContainer" onClick={this.forceUpdate}>
                 <div className="small-box bg-green">
                   <div className="inner">
                     <h3>Anthroponyms</h3>
@@ -101,7 +101,7 @@ class CultureContainer extends Component {
                 </div>
               </Link>
 
-              <Link to={`/lexicon/all`} onClick={this.forceUpdate}>
+              <Link href="" to={`/lexicon/all`} onClick={this.forceUpdate}>
                 <div className="small-box bg-orange">
                   <div className="inner">
                     <h3>Lexicon</h3>

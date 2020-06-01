@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-
-import Header from "../../components/Header";
-import Sidebar from "../../components/Sidebar";
-import LoginComponent from "./loginScreen";
-import { connect } from "react-redux";
-import { selectAttemptLogin } from "../../store/login/selectors";
-import LoginActions from "../../store/login/actions";
+import React, { Component } from 'react';
+import { createStructuredSelector } from 'reselect';
+import Header from '../../components/Header';
+import Sidebar from '../../components/Sidebar';
+import LoginComponent from './loginScreen';
+import { connect } from 'react-redux';
+import { selectAttemptLogin, selectIsLoggedIn } from '../../store/login/selectors';
+import LoginActions from '../../store/login/actions';
 
 type Props = {
-  attemptLoginLoading: string
+  attemptLoginLoading: string,
+  isLoggedIn: Boolean,
 };
 class LoginContainer extends Component<Props> {
   constructor(props) {
@@ -17,38 +18,42 @@ class LoginContainer extends Component<Props> {
       userName: null,
       password: null,
       emailFieldIsEmpty: false,
-      passwordFieldIsEmpty: false
+      passwordFieldIsEmpty: false,
     };
   }
 
-  onChangeUserName = event => {
+  onChangeUserName = (event) => {
     const { value } = event.target;
     this.setState({
       userName: value,
-      emailFieldIsEmpty: false
+      emailFieldIsEmpty: false,
     });
   };
-  onChangePassword = event => {
+  onChangePassword = (event) => {
     const { value } = event.target;
     this.setState({
       password: value,
-      passwordFieldIsEmpty: false
+      passwordFieldIsEmpty: false,
     });
   };
 
   submitLogin = () => {
     const { userName, password } = this.state;
     if (userName && userName.length > 0 && password && password.length > 0) {
-      this.props.attemptLogin(userName, password);
-      this.props.history.push("/home");
+      const credentials = {
+        userName,
+        password,
+      };
+      this.props.attemptLogin(credentials);
+      this.props.history.push('/home');
     }
     if (!userName)
       this.setState({
-        emailFieldIsEmpty: true
+        emailFieldIsEmpty: true,
       });
     if (!password)
       this.setState({
-        passwordFieldIsEmpty: true
+        passwordFieldIsEmpty: true,
       });
   };
 
@@ -56,14 +61,14 @@ class LoginContainer extends Component<Props> {
     const { passwordFieldIsEmpty, emailFieldIsEmpty } = this.state;
     const { attemptLoginLoading } = this.props;
     return (
-      <div style={{ flex: 1, height: "100%" }}>
+      <div style={{ flex: 1, height: '100%' }}>
         <Header noHeader />
         <Sidebar />
-        <div className="content-wrapper" style={{ display: "flex", flex: 1 }}>
-          <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <div className="content-wrapper" style={{ display: 'flex', flex: 1 }}>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
             <LoginComponent
-              onChangePassword={event => this.onChangePassword(event)}
-              onChangeUserName={event => this.onChangeUserName(event)}
+              onChangePassword={(event) => this.onChangePassword(event)}
+              onChangeUserName={(event) => this.onChangeUserName(event)}
               submitLogin={this.submitLogin}
               loading={!attemptLoginLoading}
               passwordFieldIsEmpty={passwordFieldIsEmpty}
@@ -76,19 +81,15 @@ class LoginContainer extends Component<Props> {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = createStructuredSelector({
+  attemptLoginLoading: selectAttemptLogin(),
+  isLoggedIn: selectIsLoggedIn(),
+});
+
+const mapDispatchToProps = (dispatch) => {
   return {
-    attemptLogin: (userName, password) => dispatch(LoginActions.loginRequest(userName, password))
+    attemptLogin: (credentials) => dispatch(LoginActions.loginRequest(credentials)),
   };
 };
 
-const mapStateToProps = state => {
-  return {
-    attemptLoginLoading: selectAttemptLogin()(state)
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

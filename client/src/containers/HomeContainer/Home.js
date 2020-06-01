@@ -1,26 +1,23 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
-import Header from "../../components/Header";
-import Sidebar from "../../components/Sidebar";
-
-import "./Home.css";
-
-import Background from "../../assets/images/cedarBack.jpg";
-import { units } from "./homeConstants";
-import homeStyles from "./homeStyle";
-import { connect } from "react-redux";
-import { selectUserRole } from "../../store/User/selectors";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Header from '../../components/Header';
+import Sidebar from '../../components/Sidebar';
+import './Home.css';
+import { units } from './homeConstants';
+import homeStyles from './homeStyle';
+import { connect } from 'react-redux';
+import { selectUserRole } from '../../store/User/selectors';
+import { People, Dictionary, Grammar, Places, Music, Interviews, Stories } from './constants';
 
 type Props = {
-  userRole: string
+  userRole: string,
 };
 class Home extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
       top: 0,
-      message: ""
+      message: '',
     };
   }
 
@@ -29,14 +26,13 @@ class Home extends Component<Props> {
   }
 
   getDataFromDb = () => {
-    fetch("/api/entities")
-      .then(response => response.json())
-      .then(json => this.setState({ message: json }));
+    fetch('/api/entities')
+      .then((response) => response.json())
+      .then((json) => this.setState({ message: json }));
   };
 
   render() {
     let bottom = 0;
-    console.log("this.props:" + JSON.stringify(this.props));
     return (
       <div style={homeStyles.container}>
         <Header noHeader />
@@ -44,31 +40,10 @@ class Home extends Component<Props> {
         <div className="content-wrapper" style={homeStyles.contentWrapper}>
           <div style={homeStyles.contentWrapper}>
             <section style={homeStyles.contentWrapper}>
-              <div
-                style={{
-                  flex: 1,
-                  height: "100%",
-                  display: "flex"
-                }}
-              >
+              <div style={homeStyles.contentContainer}>
                 <div className="distribution-map" style={homeStyles.contentWrapper}>
-                  <div
-                    style={{
-                      flex: 1,
-                      backgroundImage: `url(${Background})`,
-                      backgroundSize: "cover",
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "center"
-                    }}
-                  >
-                    <div
-                      style={{
-                        flex: 1,
-                        display: "flex",
-                        height: "100%",
-                        zIndex: 1
-                      }}
-                    >
+                  <div style={homeStyles.treeBackground}>
+                    <div style={homeStyles.courseStructure}>
                       {units.map((unit, index) => {
                         bottom = bottom + 7.5;
                         return (
@@ -77,26 +52,14 @@ class Home extends Component<Props> {
                             className="map-point"
                             style={{
                               bottom: `${bottom}%`,
-                              left: "47.6%",
-                              opacity: 1
+                              left: '47.6%',
+                              opacity: 1,
                             }}
                           >
-                            <div
-                              className="content"
-                              style={{
-                                display: "flex",
-                                justifyContent: "center"
-                              }}
-                            >
+                            <div className="content" style={homeStyles.unitContent}>
                               <div className="centered-y">
-                                <h2
-                                  style={{
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    fontWeight: "bold"
-                                  }}
-                                >
-                                  <Link to={`/${unit.path}`} onClick={this.forceUpdate}>
+                                <h2 style={homeStyles.unitLink}>
+                                  <Link href="" to={`/${unit.path}`} onClick={this.forceUpdate}>
                                     {unit.unit}
                                   </Link>
                                 </h2>
@@ -109,104 +72,32 @@ class Home extends Component<Props> {
 
                     <div className="verticalLine" style={homeStyles.unitContainer} />
                     <a style={homeStyles.unit}>
-                      <p style={{ fontSize: 23 }}>Grammar</p>
+                      <p style={homeStyles.conceptText}>{Grammar}</p>
                     </a>
-                    <Link
-                      to={`/lexicon/all`}
-                      onClick={this.forceUpdate}
-                      style={{
-                        left: "13%",
-                        position: "absolute",
-                        top: "60%",
-                        color: "darkorange",
-                        cursor: "pointer",
-                        zIndex: 1,
-                        fontSize: 23
-                      }}
-                    >
-                      Dictionary
+                    <Link href="" to={`/lexicon/all`} onClick={this.forceUpdate} style={homeStyles.dictionary}>
+                      {Dictionary}
                     </Link>
 
-                    <Link
-                      to={`/toponym`}
-                      onClick={this.forceUpdate}
-                      style={{
-                        left: "19%",
-                        position: "absolute",
-                        top: "42%",
-                        color: "darkorange",
-                        cursor: "pointer",
-                        zIndex: 1,
-                        fontSize: 23
-                      }}
-                    >
-                      Places
+                    <Link href="" to={`/toponym`} onClick={this.forceUpdate} style={homeStyles.places}>
+                      {Places}
                     </Link>
 
-                    <Link
-                      to={`/anthroponym`}
-                      onClick={this.forceUpdate}
-                      style={{
-                        left: "27%",
-                        position: "absolute",
-                        top: "21%",
-                        color: "darkorange",
-                        cursor: "pointer",
-                        zIndex: 1,
-                        fontSize: 23
-                      }}
-                    >
-                      People
+                    <Link href="" to={`/anthroponym`} onClick={this.forceUpdate} style={homeStyles.people}>
+                      {People}
                     </Link>
-                    <a
-                      style={{
-                        left: "65.5%",
-                        position: "absolute",
-                        top: "70%",
-                        color: "darkorange",
-                        cursor: "pointer",
-                        zIndex: 1
-                      }}
-                    >
-                      <p style={{ fontSize: 23 }}>Documentaries</p>
+                    <a style={homeStyles.documentries}>
+                      <p style={homeStyles.conceptText}>Documentaries</p>
                     </a>
-                    <a
-                      style={{
-                        left: "59.5%",
-                        position: "absolute",
-                        top: "58%",
-                        color: "darkorange",
-                        cursor: "pointer",
-                        zIndex: 1
-                      }}
-                    >
-                      <p onClick={() => console.log("Interviews")} style={{ fontSize: 23 }}>
-                        Interviews and Dialogs
+                    <a style={homeStyles.interview}>
+                      <p onClick={() => console.log('Interviews')} style={homeStyles.conceptText}>
+                        {Interviews}
                       </p>
                     </a>
-                    <a
-                      style={{
-                        left: "58.5%",
-                        position: "absolute",
-                        top: "39%",
-                        color: "darkorange",
-                        cursor: "pointer",
-                        zIndex: 1
-                      }}
-                    >
-                      <p style={{ fontSize: 23 }}>Music and Poetry</p>
+                    <a style={homeStyles.music}>
+                      <p style={homeStyles.conceptText}>{Music}</p>
                     </a>
-                    <a
-                      style={{
-                        left: "54.5%",
-                        position: "absolute",
-                        top: "21%",
-                        color: "darkorange",
-                        cursor: "pointer",
-                        zIndex: 1
-                      }}
-                    >
-                      <p style={{ fontSize: 21 }}>Stories</p>
+                    <a style={homeStyles.stories}>
+                      <p style={homeStyles.conceptText}>{Stories}</p>
                     </a>
                   </div>
                 </div>
@@ -219,17 +110,14 @@ class Home extends Component<Props> {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    userRole: selectUserRole()(state)
+    userRole: selectUserRole()(state),
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

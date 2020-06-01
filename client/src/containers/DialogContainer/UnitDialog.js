@@ -1,31 +1,31 @@
-import React, { Component } from "react";
-import { Player } from "video-react";
-import "video-react/dist/video-react.css";
+import React, { Component } from 'react';
+import { Player } from 'video-react';
+import 'video-react/dist/video-react.css';
 
-import { Radio } from "react-bootstrap";
+import { Radio } from 'react-bootstrap';
 
-import Header from "../components/Header";
+import Header from '../../components/Header';
 
 const material = [
   {
-    name: "Dialog 1",
-    videoSource: require("../assets/videos/dialog1.mp4")
+    name: 'Dialog 1',
+    videoSource: require('../../assets/videos/dialog1.mp4'),
   },
   {
-    name: "Dialog 2",
-    videoSource: require("../assets/videos/dialog2.mp4")
-  }
+    name: 'Dialog 2',
+    videoSource: require('../../assets/videos/dialog2.mp4'),
+  },
 ];
 
 const dialogNavigations = [
   {
-    key: "Add Dialog",
-    path: "/addDialog"
+    key: 'Add Dialog',
+    path: '/addDialog',
   },
   {
-    key: "Add Practice",
-    path: "/addPractice"
-  }
+    key: 'Add Practice',
+    path: '/addPractice',
+  },
 ];
 class UnitDialog extends Component {
   constructor(props) {
@@ -37,17 +37,17 @@ class UnitDialog extends Component {
       showVideoList: false,
       unitVideos: [
         {
-          title: "videoTitle1",
-          videoSource: "source1"
+          title: 'videoTitle1',
+          videoSource: 'source1',
         },
         {
-          title: "videoTitle2",
-          videoSource: "source2"
-        }
+          title: 'videoTitle2',
+          videoSource: 'source2',
+        },
       ],
       selectedVideo: material[0].name,
       videoSource: material[0].videoSource,
-      key: "dialog"
+      key: 'dialog',
     };
   }
 
@@ -56,7 +56,7 @@ class UnitDialog extends Component {
       selectedVideo: dialog,
       position,
       videoSource: material[position].videoSource,
-      key
+      key,
     });
   };
 
@@ -69,17 +69,17 @@ class UnitDialog extends Component {
               className="header"
               style={{
                 height: 57,
-                backgroundColor: "white",
+                backgroundColor: 'white',
                 fontSize: 20,
-                color: "#00a65a",
-                display: "flex",
-                justifyContent: "center",
-                borderLeft: "3px solid red",
-                borderRight: "3px solid #00a65a",
-                margin: 0
+                color: '#00a65a',
+                display: 'flex',
+                justifyContent: 'center',
+                borderLeft: '3px solid red',
+                borderRight: '3px solid #00a65a',
+                margin: 0,
               }}
             >
-              {"Unit"}
+              {'Unit'}
             </li>
             <li className="treeview">
               <a>
@@ -94,11 +94,11 @@ class UnitDialog extends Component {
                     onClick={() =>
                       this.setState({
                         videoSource: material[0].videoSource,
-                        selectedVideo: material[0].name
+                        selectedVideo: material[0].name,
                       })
                     }
                   >
-                    {" "}
+                    {' '}
                     <Radio name="radioGroup">Dialog 1</Radio>
                   </a>
                 </li>
@@ -107,7 +107,7 @@ class UnitDialog extends Component {
                     onClick={() =>
                       this.setState({
                         videoSource: material[1].videoSource,
-                        selectedVideo: material[1].name
+                        selectedVideo: material[1].name,
                       })
                     }
                   >
@@ -146,50 +146,50 @@ class UnitDialog extends Component {
 
   render() {
     return (
-      <div style={{ flex: 1, height: "100%" }}>
+      <div style={{ flex: 1, height: '100%' }}>
         <Header navigations={dialogNavigations} />
         {this.renderReading()}
         <div
           className="content-wrapper"
           style={{
-            display: "flex",
-            flex: 1
+            display: 'flex',
+            flex: 1,
           }}
         >
           <div
             style={{
               flex: 1,
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column"
+              display: 'flex',
+              justifyContent: 'center',
+              flexDirection: 'column',
             }}
           >
             <div
               style={{
                 flex: 7,
-                display: "flex",
-                padding: 10
+                display: 'flex',
+                padding: 10,
               }}
             >
               <div
                 style={{
                   flex: 1,
 
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center"
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}
               />
               <div
                 style={{
                   flex: 7,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: 10
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: 10,
                 }}
               >
-                {this.state.key === "dialog" ? (
+                {this.state.key === 'dialog' ? (
                   <Player
                     playsInline
                     src={this.state.videoSource}
@@ -202,9 +202,9 @@ class UnitDialog extends Component {
               <div
                 style={{
                   flex: 1,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center"
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}
               />
             </div>

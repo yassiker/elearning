@@ -1,22 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Header from "../../components/Header";
-import { consonants, vowels, semivowels } from "../tifinaghLetters";
-import { Link } from "react-router-dom";
-import cedarLogo from "../../assets/images/cedfin.png";
-import { styles } from "./tifinaghLetterStyle";
-import LetterTypes from "./letterTypes";
-const letterTypes = [
-  {
-    type: "vowels",
-  },
-  {
-    type: "semivowels",
-  },
-  {
-    type: "consonants",
-  },
-];
+import Header from '../../components/Header';
+import { consonants, vowels, semivowels } from '../tifinaghLetters';
+import { Link } from 'react-router-dom';
+import cedarLogo from '../../assets/images/cedfin.png';
+import { styles } from './tifinaghLetterStyle';
+import LetterTypes from './letterTypes';
+import { letterFamily } from './constants';
 
 class TifinaghLetter extends Component {
   constructor(props) {
@@ -24,9 +14,9 @@ class TifinaghLetter extends Component {
     this.state = {
       letters: null,
       play: false,
-      letterTypes: letterTypes,
+      letterTypes: letterFamily,
       active: null,
-      sectionName: "vowels",
+      sectionName: 'vowels',
     };
   }
 
@@ -38,9 +28,9 @@ class TifinaghLetter extends Component {
 
   myColor = (position) => {
     if (this.state.active === position) {
-      return "#00a65a";
+      return '#00a65a';
     }
-    return "";
+    return '';
   };
 
   toggle = (position, item, key) => {
@@ -66,11 +56,11 @@ class TifinaghLetter extends Component {
             sectionName: item,
             letters: consonants.letters,
           },
-          () => console.log("leteers: " + JSON.stringify(this.state.letters))
+          () => console.log('leteers: ' + JSON.stringify(this.state.letters))
         );
         break;
       default:
-        console.log("nothing");
+        console.log('nothing');
     }
   };
 
@@ -80,7 +70,7 @@ class TifinaghLetter extends Component {
         <section className="sidebar">
           <ul className="sidebar-menu">
             <li className="header" style={styles.baseUnitHeader}>
-              {"Unit 0"}
+              {'Unit 0'}
             </li>
           </ul>
         </section>
@@ -94,57 +84,57 @@ class TifinaghLetter extends Component {
       return <div>Loading....</div>;
     }
     return (
-      <div style={{ flex: 1, height: "100%" }}>
+      <div style={{ flex: 1, height: '100%' }}>
         <Header />
         {this.renderSideMenu()}
         <div
           className="content-wrapper"
           style={{
-            display: "flex",
+            display: 'flex',
             flex: 1,
           }}
         >
           <div
             style={{
               flex: 1,
-              display: "flex",
-              flexDirection: "column",
+              display: 'flex',
+              flexDirection: 'column',
               width: 0,
             }}
           >
             <div
               style={{
                 flex: 0.2,
-                display: "flex",
-                borderBottom: "0px solid black",
-                boxShadow: "0px 0px 10px #00a65a",
-                justifyContent: "space-between",
-                alignItems: "center",
+                display: 'flex',
+                borderBottom: '0px solid black',
+                boxShadow: '0px 0px 10px #00a65a',
+                justifyContent: 'space-between',
+                alignItems: 'center',
               }}
             >
               <div
                 style={{
                   flex: 1,
-                  color: "#00a65a",
+                  color: '#00a65a',
                 }}
               >
-                <Link to="/" onClick={this.forceUpdate}>
-                  <img src={cedarLogo} alt="" style={{ height: "60px" }} />
+                <Link href="" to="/" onClick={this.forceUpdate}>
+                  <img src={cedarLogo} alt="" style={{ height: '60px' }} />
                 </Link>
               </div>
               <div
                 style={{
                   flex: 1,
-                  display: "flex",
-                  justifyContent: "center",
+                  display: 'flex',
+                  justifyContent: 'center',
                 }}
               >
                 <Link to="/unit0" onClick={this.forceUpdate}>
                   <img
                     src={require(`../../assets/images/blackboardIcon.png`)}
                     style={{
-                      height: "50px",
-                      cursor: "pointer",
+                      height: '50px',
+                      cursor: 'pointer',
                     }}
                     alt=""
                   />
@@ -153,19 +143,19 @@ class TifinaghLetter extends Component {
               <div
                 style={{
                   flex: 1,
-                  display: "flex",
-                  justifyContent: "flex-end",
+                  display: 'flex',
+                  justifyContent: 'flex-end',
                   marginRight: 10,
                 }}
               >
                 <Link to="/unitTable" onClick={this.forceUpdate}>
-                  {" "}
+                  {' '}
                   <button
                     className="btn btn-success"
                     onClick={this.viewAll}
                     style={{
-                      marginRight: "10px",
-                      whiteSpace: "normal",
+                      marginRight: '10px',
+                      whiteSpace: 'normal',
                       width: 150,
                     }}
                   >

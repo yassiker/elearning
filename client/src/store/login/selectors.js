@@ -1,11 +1,10 @@
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
 
-const selectDomain = () => state => {
+const selectDomain = () => (state) => {
   return state ? state.login : {};
 };
 
 export const selectAttemptLogin = () =>
-  createSelector(
-    selectDomain(),
-    login => (login && login.attemptLoginLoading) || false
-  );
+  createSelector(selectDomain(), (login) => (login && login.attemptLoginLoading) || false);
+
+export const selectIsLoggedIn = () => createSelector(selectDomain(), (login) => (login && login.isLoggedIn) || false);
